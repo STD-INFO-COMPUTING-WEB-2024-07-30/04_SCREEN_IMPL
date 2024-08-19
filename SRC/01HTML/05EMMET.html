@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 자식요소 : '>' -->
+    <!-- div>ul>li -->
+    <!-- div>p>ul>li -->
+    <!-- 형제노드 : '+' -->
+    <!-- div>ul+ol -->
+    <!-- div>p+div>span -->
+    <!-- div>ul>li>a+ul>li>a -->
+    <!-- 상위태그 이동 : ^ -->
+    <!-- div>ul>li^p  -->
+    <!-- 반복처리 : * ,  문자열처리 {문자열} , 인덱스처리 : $ -->
+    <!-- div>ul>li*4 -->
+    <!-- div>ul>li*4>a{기본메뉴$} -->
+    <!-- div>ul>li*4>a{$.기본메뉴}+ul>li*3>a{$.서브메뉴} -->
+    <div>
+        <ul>
+            <li>
+                <a href="">1.기본메뉴</a>
+                <ul>
+                    <li><a href="">1.서브메뉴</a></li>
+                    <li><a href="">2.서브메뉴</a></li>
+                    <li><a href="">3.서브메뉴</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">2.기본메뉴</a>
+                <ul>
+                    <li><a href="">1.서브메뉴</a></li>
+                    <li><a href="">2.서브메뉴</a></li>
+                    <li><a href="">3.서브메뉴</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">3.기본메뉴</a>
+                <ul>
+                    <li><a href="">1.서브메뉴</a></li>
+                    <li><a href="">2.서브메뉴</a></li>
+                    <li><a href="">3.서브메뉴</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">4.기본메뉴</a>
+                <ul>
+                    <li><a href="">1.서브메뉴</a></li>
+                    <li><a href="">2.서브메뉴</a></li>
+                    <li><a href="">3.서브메뉴</a></li>
+                </ul>
+            </li>
+        </ul>
+     </div>
+
+
+</body>
+</html>

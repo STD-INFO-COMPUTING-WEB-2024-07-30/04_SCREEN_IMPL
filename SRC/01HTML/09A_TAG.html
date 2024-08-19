@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration:none;
+            color:black;
+        }
+        
+        .btn{
+            display:block;      
+            width :125px;
+            height : 35px;
+            line-height : 35px;
+            border-radius : 12px;
+            font-size : .7rem;
+            text-align:center;
+            color : white;
+            box-shadow: 3px 3px 3px lightgray;
+            margin : 15px;
+            font-weight : 600;
+        }
+        .btn-primary{background-color:royalblue;}
+        .btn-secondary{background-color : orangered;}
+    </style>
+</head>
+<body>
+    
+    <a href="" class="btn btn-primary">BUTTON(X)</a>
+    <a href="javascript:void(0)" class="btn btn-secondary">BUTTON_VOID(0)</a>
+    <hr>
+    <a href="https://naver.com">NAVER 이동</a> | 
+    <a href="https://naver.com" target="_blank">NAVER 이동(새탭)</a> |
+    <a href="./02BASIC.html" target="_blank">02BASIC.html 로 이동</a>
+    <hr>
+    <a href="./02BASIC.html" target="frame1">02BASIC.html 로 이동</a> |
+    <a href="https://www.daum.net" target="frame1" >DAUM 페이지 이동</a> |
+    <a href="https://naver.com" target="frame1" >네이버</a>
+    <br>
+    <iframe width="800px" height="500px" name="frame1">
+    </iframe>
+
+</body>
+</html>

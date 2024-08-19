@@ -4,6 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        ul{
+            margin : 0;
+            padding : 0; 
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        .main-menu{
+            display:flex;
+            justify-content: space-between;
+
+            height:40px;
+        }
+        .main-menu>li{
+            border : 1px solid;
+            height:40px;
+            line-height:40px;
+            width:150px;
+            text-align:center;
+        }
+        .main-menu>li>a{
+            display:block;
+        }
+
+        .sub-menu{
+            display:none;
+        }
+        .sub-menu>li{
+            border : 1px solid;
+        }
+        .main-menu>li:hover .sub-menu{
+            display:block;
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -21,10 +61,10 @@
     <!-- div>ul>li*4>a{기본메뉴$} -->
     <!-- div>ul>li*4>a{$.기본메뉴}+ul>li*3>a{$.서브메뉴} -->
     <div>
-        <ul>
+        <ul class="main-menu">
             <li>
                 <a href="">1.기본메뉴</a>
-                <ul>
+                <ul class="sub-menu">
                     <li><a href="">1.서브메뉴</a></li>
                     <li><a href="">2.서브메뉴</a></li>
                     <li><a href="">3.서브메뉴</a></li>
@@ -32,7 +72,7 @@
             </li>
             <li>
                 <a href="">2.기본메뉴</a>
-                <ul>
+                <ul class="sub-menu">
                     <li><a href="">1.서브메뉴</a></li>
                     <li><a href="">2.서브메뉴</a></li>
                     <li><a href="">3.서브메뉴</a></li>
@@ -40,7 +80,7 @@
             </li>
             <li>
                 <a href="">3.기본메뉴</a>
-                <ul>
+                <ul class="sub-menu">
                     <li><a href="">1.서브메뉴</a></li>
                     <li><a href="">2.서브메뉴</a></li>
                     <li><a href="">3.서브메뉴</a></li>
@@ -48,7 +88,7 @@
             </li>
             <li>
                 <a href="">4.기본메뉴</a>
-                <ul>
+                <ul class="sub-menu">
                     <li><a href="">1.서브메뉴</a></li>
                     <li><a href="">2.서브메뉴</a></li>
                     <li><a href="">3.서브메뉴</a></li>

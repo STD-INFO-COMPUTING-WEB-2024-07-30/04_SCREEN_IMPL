@@ -35,12 +35,21 @@
         .sub-menu{
             display:none;
         }
+
         .sub-menu>li{
             border : 1px solid;
+            margin : 2px 0;
         }
+
         .main-menu>li:hover .sub-menu{
             display:block;
+            background-color: rosybrown;
+           
         }
+        .main-menu>li:hover .sub-menu a{
+            color : white;
+        }
+
     </style>
 
 
@@ -60,7 +69,8 @@
     <!-- div>ul>li*4 -->
     <!-- div>ul>li*4>a{기본메뉴$} -->
     <!-- div>ul>li*4>a{$.기본메뉴}+ul>li*3>a{$.서브메뉴} -->
-    <div>
+    
+    <!-- <div>
         <ul class="main-menu">
             <li>
                 <a href="">1.기본메뉴</a>
@@ -95,8 +105,52 @@
                 </ul>
             </li>
         </ul>
-     </div>
+     </div> -->
 
+
+     <!-- 클래스 선택자 -->
+      <div class="items"></div>
+      <ul class="items"></ul>
+
+      <!-- ID 선택자 -->
+      <div id="slider"></div>
+
+      <!-- LAYOUT EMMET -->
+       <!-- .wrapper>header>.top-header+nav^main>section^footer -->
+      <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+      </div>
+
+      <!-- attr 추가 -->
+       <!-- div>ol[type="I"]>li*4{LIST_$} -->
+      <!-- div>ol[type="I" style="background-color:orange"]>li*4{LIST_$} -->
+
+      <!-- <div>
+        <ol type="I" style="background-color:orange">
+            <li>LIST_1</li>
+            <li>LIST_2</li>
+            <li>LIST_3</li>
+            <li>LIST_4</li>
+        </ol>
+      </div> -->
+
+      <!-- $@시작숫자 입력 -->
+      <!-- .wrapper>ul>li*4{TEXT_$@5} -->
+      <div class="wrapper">
+        <ul>
+            <li>TEXT_5</li>
+            <li>TEXT_6</li>
+            <li>TEXT_7</li>
+            <li>TEXT_8</li>
+        </ul>
+      </div>
 
 </body>
 </html>

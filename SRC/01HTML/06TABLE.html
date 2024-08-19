@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 기본 테이블  -->
+    <!-- <table border="1" width="400px" height="300px" align="center">
+        <caption>제목</caption>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+    </table> -->
+
+
+    <!-- 행병합 rowspan -->
+     <style>
+        td{width:35px;height:35px;border:1px solid;text-align:center;}
+     </style>
+     <table>
+        <tr>
+            <td rowspan="2" >1</td>
+            <td>2</td>
+            <td>3</td>
+            <td rowspan="3">4</td>
+        </tr>
+        <tr>
+            <!-- <td>5</td> -->
+            <td rowspan="2">6</td>
+            <td>7</td>
+            <!-- <td>8</td> -->
+        </tr>
+        <tr>
+            <td>9</td>
+            <!-- <td>10</td> -->
+            <td>11</td>
+            <!-- <td>12</td> -->
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+     </table>
+     <hr>
+    <!-- 열병합 colspan -->
+     <table>
+        <tr>
+            <td colspan="2">1</td>
+            <!-- <td>2</td> -->
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td colspan="3">10</td>
+            <!-- <td>11</td> -->
+            <!-- <td>12</td> -->
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td colspan="2">15</td>
+            <!-- <td>16</td> -->
+        </tr>
+     </table>
+    
+</body>
+</html>

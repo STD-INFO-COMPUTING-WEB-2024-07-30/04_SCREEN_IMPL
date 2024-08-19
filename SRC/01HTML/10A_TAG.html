@@ -4,20 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        header{
+            width : 100%;
+            height : 80px;
+        }
+        nav{
+            width : 100%;
+            height : 30px;   
+            position:fixed;
+            left:0;
+            top:0;
+            background-color: white;
+            z-index:2;
+            border : 1px solid;
+        }
+  
+    </style>
   </head>
   <body>
     <div class="wrapper">
       <header>
         <nav>
-          <a href="">HTML</a>
-          <a href="">CSS</a>
-          <a href="">JS</a>
-          <a href="">NODE</a>
+          <a href="#html-header">HTML</a>
+          <a href="#css-header">CSS</a>
+          <a href="#js-header">JS</a>
+          <a href="#node-header">NODE</a>
         </nav>
       </header>
       <main>
         <section class="info html">
-          <h3>HTML이란</h3>
+          <h3 id="html-header">HTML이란</h3>
           <div>
             하이퍼 텍스트 마크업 언어(영어: Hyper Text Markup Language, HTML,
             문화어: 초본문표식달기언어, 하이퍼본문표식달기언어)는 웹 페이지
@@ -34,7 +51,8 @@
           </div>
         </section>
         <section class="info css">
-          <h3>CSS 란</h3>
+          <div id="css-header" style="margin-bottom:35px;"></div>
+          <h3 >CSS 란</h3>
           <div>
             종속형 시트 또는 캐스케이딩 스타일 시트(영어: Cascading Style
             Sheet)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일
@@ -51,7 +69,8 @@
           </div>
         </section>
         <section class="info js">
-          <h3>JAVASCRIPT 란</h3>
+          <div id="js-header" style="margin-bottom:35px;"></div>
+          <h3  >JAVASCRIPT 란</h3>
           <div>
             자바스크립트(영어: JavaScript)는 객체 기반의 스크립트 프로그래밍
             언어이다. 이 언어는 웹 브라우저 내에서 주로 사용되며, 다른 응용
@@ -71,7 +90,7 @@
           </div>
         </section>
         <section class="info node">
-          <h3>NODE 란</h3>
+          <h3 id="node-header">NODE 란</h3>
           <div>
             Node.js는 크로스플랫폼 오픈소스 자바스크립트 런타임 환경으로 윈도우,
             리눅스, macOS 등을 지원한다. Node.js는 V8 자바스크립트 엔진으로

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        form : 사용자로부터 특정정보를 받아 서버로 전달하는데 사용되는 태그
+        action attribute : 전달받는 서버 API()(or Endpoint)
+        method Attribute : 서버로 요청하는 방식
+            - GET        : 사용자 요청 정보를 QUERY STRING으로 전달(DEFAULT)
+            - POST       : 사용자 요청 정보를 REQUEST BODY 에 담아 전달(OPTIONAL)
+            - PUT   
+            - PATCH
+            - DELETE
+    
+    -->
+    
+    <form action="test.jsp" method="GET">
+        <div>
+            <label>아이디 : </label>
+            <input type="text" name="userid" placeholder="아이디를 입력하세요"  required/>
+        </div>
+        <div>
+            <label>패스워드 : </label>
+            <input type="password" name="password" value="aaa" readonly/>
+        </div>
+        <div>
+            <label>패스워드 확인 : </label>
+            <input type="password" name="repassword" />
+        </div>
+        <div>
+            <label>이메일 : </label>
+            <input type="email" name="email"  readonly/>
+        </div>
+        <div>
+            <label>AGE : </label>
+            <input type="number" name="age" min="5" max="70" step="2" />
+        </div>
+        <div>
+            <label>TEL : </label>
+            <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+        </div>
+        <div>
+            <label>기본주소 : </label>
+            <input type="text" name="addr1" />
+        </div>        
+        <div>
+            <label>상세주소 : </label>
+            <input type="text" name="addr2" />
+        </div>    
+        <div>
+            <label>성별 : </label>
+            <input type="radio" name="gender" value="M" /> 남자 
+            <input type="radio" name="gender" value="W" /> 여자
+        </div>
+        <div>
+            <label>취미 : </label>
+            <input type="checkbox" name="hobby" value="climing" /> 등산 
+            <input type="checkbox" name="hobby" value="swimming" /> 수영
+            <input type="checkbox" name="hobby" value="moive" /> 영화감상
+            <input type="checkbox" name="hobby" value="fishing" /> 낚시 
+        </div>
+        <div>
+            <label for="">FILE : </label>
+            <input type="file" name="files" multiple>
+        </div>
+        <div>
+            <label for="">DATE :</label>
+            <input type="date" name="date" />
+        </div>
+        <div>
+            <label for="">DATETIME :</label>
+            <input type="datetime-local" name="datetime" />
+        </div>
+        <div>
+            <label for="">COLOR</label>
+            <input type="color" name="color" />
+        </div>
+        <div>
+            <label for="">RANGE</label>
+            <input type="range" name="range" min="0" max="100" value="30" />
+        </div>
+        <div>
+            <label for="">URL : </label>
+            <input type="url" name="url" />
+        </div>
+        <div>
+            <label>지역</label>
+            <select name="localtion">
+                <option value="대구">대구</option>
+                <option value="울산">울산</option>
+                <option value="포항" selected>포항</option>
+                <option value="부산">부산</option>
+            </select>
+        </div>
+        <div>
+            <label>MEMO : </label>
+            <textarea rows="10" cols="50"></textarea>
+        </div>
+        <input type="submit" value="회원가입">
+        <!-- <button>회원가입</button> -->
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="test.jsp">
+        <input 
+            type="password" 
+            name="password" 
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+            oninvalid="this.setCustomValidity('8자이상 대문자/소문자/특수문자/숫자중 3종류이상 입력하세요')"
+            required >
+
+        <button>전송</button>
+
+        <!-- 
+        ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
+
+        ^ : 문자열의 시작
+        $ : 문자열의 끝
+        () : 패턴을 구분하는 부분식
+        ?= : 전방탐색
+        . :  모든 문자 일치
+        * :  앞의 문자나 부분식이 0개 이상 탐욕적으로 찾기
+        [A-Za-z] : 영어 알파벳이 하나이상 포함되어야 한다(대문자,소문자)
+
+        \d : 모든 숫자와 일치. [0-9]와 동일
+
+        (?=.*[A-Za-z]) : 전방탐색(?=),  임의의문자가 0개이상 존재할경우(.*) 영문대문자/소문자 하나이상 포함하는지여부([A-Za-z])
+        -->
+    </form>
+</body>
+</html>

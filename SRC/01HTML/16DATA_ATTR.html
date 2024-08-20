@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="item" data-id="1">
+        <div>이미지</div>
+        <div data-pname="샴푸">상품명</div>
+        <div data-price="20000">가격</div>
+        <div>-</div>
+    </div>
+    
+    <script>
+        //01
+        const Els = document.querySelectorAll('div');
+        Els.forEach(el=>{ console.log(el.dataset);})
+
+        //02
+        const itemEl = document.querySelector('.item')
+        console.log(itemEl.getAttribute('data-id'))
+
+
+    </script>
+
+</body>
+</html>

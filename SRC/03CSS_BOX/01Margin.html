@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        div{
+            width : 200px;height:200px;background-color: orange;
+        }
+        .d1{
+            /* 기본 , top,right,bottom,left */
+            /* margin:10px; */
+
+            /* top,bottom:20px | left,right:40px */
+            /* margin : 20px 40px; */
+
+            /* top:10px , right,left:20px , bottom:30px */
+            /* margin : 10px 20px 30px; */
+
+            /* top:10px,right:20px,bottom:30px,left:40px */
+            /* margin:10px 20px 30px 40px; */
+
+            margin-top:100px;
+            margin-right:50px;
+            margin-left:200px;
+            margin-bottom:30px;
+        }
+
+        .par{
+            width:100%;  
+
+            /* 1. 자식 요소 수평 가운데 배치 */
+            /* border : 1px solid; */
+
+
+            /* 2. 자식 요소 가운데 배치 */
+            /* 
+            display:flex;
+            justify-content: center;
+            align-items:center;
+             */
+
+             /* 3. 자식 요소 Position 이용 가운데 배치 */
+             /* position:relative; */
+             
+        }
+        .son{
+            width:100px;
+            height:100px;
+            background-color: royalblue;
+
+            text-align: center;
+            line-height: 100px;
+
+            /* 1. 자식 요소 수평 가운데 배치 */
+            /* 
+                margin collaspe 현상에 의해 border가 없으면 부모도 함께 마진적용.  
+                해결 : 부모와 자식에 border 설정
+                참조 : https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4
+            */
+            border : 1px solid; 
+            margin :50px auto;
+
+
+            /* 3. 자식 요소 Position 이용 가운데 배치 */
+            /* position:absolute;
+            left:0;right:0;top:0;bottom:0;
+            margin:auto; */
+
+
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- <div class="d1">HELLOWORLD</div> -->
+   
+    <div class="par">
+        <div class="son">문자열</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .par{
+            background-color: royalblue;
+        }
+        .son{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- px : 고정크기 -->
+
+    <!-- <div class="par" style="width:700px;height:100px;">
+        <div class="son" style="width:600px;height:80px;"></div>
+    </div> -->
+    
+    <!-- % : 가변크기 ,상위태그를 기준으로 %만큼 크기 지정 -->
+    
+    <!-- <div class="par" style="width:1200px;height:150px;">
+        <div class="son" style="width:80%;height:80%;"></div>
+    </div>   -->
+    
+    <!-- vw,vh : 가변크기, Viewport를 기준으로 백분율만큼 크기 지정 -->
+
+    <!-- 
+    <div class="par" style="width:50vw;height:50vh">
+        <div class="son" style="width:40%;height:60%;"></div>
+    </div>    
+    -->
+    
+   
+    <!-- rem :상대적 크기 , 기본글자크기(root)를 기준으로 배수만큼 크기 지정 -->
+    <!-- <style>
+        :root{
+            font-size : 30px;
+        }
+    </style>
+    <div class="par" style="width:2rem;height:2rem;">
+        <div class="son" style="width:1rem;height:1rem;"></div>
+    </div>   -->
+
+
+    <!-- em : 상대적 크기, 부모글자크기를 기준으로 배수형태의 크기 지정 -->
+    <!-- <div class="par" style="font-size:50px;">
+        <div class="son" style="width:3em;height:3em;"></div>
+    </div>     -->
+
+    <!-- EX GNB 반응처리 -->
+
+
+    <style>
+
+        body{
+            margin : 0;
+        }
+        ul{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        nav{
+            height : 80px;
+            border : 1px solid;
+        }
+
+        nav>ul{
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+          
+        }
+        nav>ul>li{
+            border : 1px solid;
+            /* width:200px; */
+            width:12.5rem;
+            min-width:100px;
+            /* height:50px; */
+            height : 3.125rem;
+            text-align:center;
+            line-height:50px;
+
+            font-size:clamp(.7rem,1.8vw,2rem);
+        }
+    </style>
+
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul>
+                    <li>MENU_1</li>
+                    <li>MENU_2</li>
+                    <li>MENU_3</li>
+                    <li>MENU_4</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

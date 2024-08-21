@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{border:1px solid;margin:5px;}
+        /* 자식 선택자(>) */
+        .par>div{
+            background-color: orange;
+        }
+        .par>p{
+            font-size:2rem;
+        }
+        .par>.son>div{
+            background-color: white;
+        }
+        /* 자손 선택자(' ') */
+        .par p{
+            background-color: aqua;
+        }
+        .par div{
+            border:2px dotted red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="par">
+        <div class="son">
+            <div>1.HELLO_WORLD</div>
+            <div>2.HELLO_WORLD</div>
+            <div>3.HELLO_WORLD</div>
+            <p>4.HELLOWORLD</p>
+        </div>
+        <div>5.HELLOWORLD</div>
+        <p>6.HELLOWORLD</p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{ border : 1px solid;box-sizing: border-box;} 
+        a{}
+        ul{}
+        .layout{    
+            width:1200px;
+            margin : 0 auto;
+        }
+        body{
+            /* 폰트 */
+            /* 기본 가로x세로 */
+            /* etc... */
+
+            /* 가로 너비 뷰포트 너비 100% 사용 */
+            width:100%; 
+           
+            margin:0 auto;padding:0;
+        }
+       
+
+        .wrapper{
+            
+        }
+        /* header */
+        .wrapper>header{
+            height:80px;
+        }
+        .wrapper>header>.top-header{height:35px;}
+        .wrapper>header>nav{height:calc(100% - 35px)}
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>section{height : 400px;}
+        
+        /* footer */
+        .wrapper>footer{
+            height : 300px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header class="layout">
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section>
+                <!-- 배너창 -->
+            </section>
+            <section class="layout">
+
+            </section>
+            <section></section>
+          
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

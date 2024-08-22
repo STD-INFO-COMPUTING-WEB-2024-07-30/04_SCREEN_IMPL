@@ -7,7 +7,8 @@
 
     <style>
         :root{}
-        *{ box-sizing: border-box; border:1px solid}
+        *{ box-sizing: border-box; 
+        }
         ul{list-style: none; padding: 0;margin: 0;}
         a{text-decoration: none; color:black;}
         body{
@@ -26,7 +27,7 @@
         .wrapper>header{}
         .wrapper>header>.top-header{}
         .wrapper>header>nav{
-            
+            border : 1px solid;
         }
         
         .wrapper>header>nav>.mainmenu{
@@ -38,14 +39,31 @@
             text-align:center;
             height:40px;
             line-height:40px;
+            border : 1px solid;
+            position:relative;
         }
         .wrapper>header>nav>.mainmenu>li>a{
             display:block;
         }
-        .wrapper>header>nav>.mainmenu>li>.submenu{}
-        .wrapper>header>nav>.mainmenu>li>.submenu>li{}
-        .wrapper>header>nav>.mainmenu>li>.submenu>li>a{}
+        .wrapper>header>nav>.mainmenu>li>.submenu{
+            display:none;
+            position:absolute;
+            width:100%;
+            left:0;
+            top:40px;
+        }
 
+        .wrapper>header>nav>.mainmenu>li>.submenu>li{
+            border : 1px solid;
+        }
+
+        .wrapper>header>nav>.mainmenu>li>.submenu>li>a{
+            display:block;
+        }
+
+        .wrapper>header>nav>.mainmenu>li:hover .submenu{
+            display:block;
+        }
 
         /*  */
 

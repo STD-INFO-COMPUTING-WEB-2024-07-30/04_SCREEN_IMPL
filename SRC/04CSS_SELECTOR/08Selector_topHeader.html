@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        ul{list-style: none; padding:0;margin:0;}
+        a{text-decoration: none; color:black;}
+        body{margin:0;padding:0;}
+        .wrapper{
+            width:1200px;
+            margin:0 auto;
+            /* border:1px solid; */
+        }
+        .wrapper>header{}
+        
+        .wrapper>header>.top-header{
+            font-size:.8rem;
+        }
+        .wrapper>header>.top-header>ul{
+            display:flex;
+            justify-content: end;
+        }
+        .wrapper>header>.top-header>ul>li{
+            padding : 0 15px;
+            /* border : 1px solid; */
+            position:relative;
+        }
+        .wrapper>header>.top-header>ul>li::after{
+            content:"|";
+            
+            position:absolute;
+            right:0;
+            top:0;
+
+        }
+        .wrapper>header>.top-header>ul>li:last-child::after{
+            display:none;
+        }
+
+        .wrapper>header>.top-header>ul>li>a{}
+        
+        .wrapper>header>nav{}
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header>
+            <div class="top-header">
+                <ul>
+                    <li><a href="">MwewefweffwefwefENU1</a></li>
+                    <li><a href="">MENUwefwefwe2</a></li>
+                    <li><a href="">MEwefwefNU3</a></li>
+                    <li><a href="">MENU4</a></li>
+                </ul>
+            </div>
+            <nav></nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+
+</body>
+</html>

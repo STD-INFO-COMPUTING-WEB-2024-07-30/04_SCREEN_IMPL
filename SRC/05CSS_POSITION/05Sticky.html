@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height : 3000px;
+        }
+        .par{
+            width:500px;height:500px;
+            background-color: royalblue;
+
+            position:relative;
+            display:flex;
+            justify-content: space-between;
+            align-items: start;
+        }.son{
+            width:100px;height:100px;
+            background-color: orange;
+            border : 1px solid;
+        }
+        .son:nth-child(1){
+            position:relative;
+            left:0;
+            top:0;
+        }
+        .son:nth-child(2){
+            position:absolute;
+            left:110px;
+            top:0px;
+        }
+        .son:nth-child(3){
+            position:fixed;
+            left:240px;
+            top:0px;
+        }
+        .son:nth-child(4){
+            position:sticky;
+            left:340px;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="par">
+        <div class="son">RELATIVE</div>
+        <div class="son">ABSOLUTE</div>
+        <div class="son">FIXED</div>
+        <div class="son">STICKY</div>
+    </div>
+    
+</body>
+</html>

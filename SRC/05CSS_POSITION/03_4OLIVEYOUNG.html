@@ -116,11 +116,16 @@
             align-items: center;
             font-size : 1.2rem;
         }
+        .wrapper>header>nav>.nav-head>.right>ul>li{
+            position:relative;
+        }
         .wrapper>header>nav>.nav-head>.right>ul>li>a{
             display:flex;
             justify-content: center;
             align-items: center;
+            
         }
+ 
         .wrapper>header>nav>.nav-body{
             height : calc(100% - 90px);
             border-top : 1px solid lightgray;
@@ -129,22 +134,47 @@
             display:flex;
             justify-content: center;
             align-items: center;
+
+                        
+            font-weight : 600;
+            font-size : 1.25rem;
         }
         .wrapper>header>nav>.nav-body>.left{
-            border : 1px solid;
+            border-left : 1px solid lightgray;
+            border-right : 1px solid lightgray;
             height : 100%;
             width : 170px;
+
+        }
+        .wrapper>header>nav>.nav-body>.left>ul{
+            height : 100%;
+        }
+        .wrapper>header>nav>.nav-body>.left>ul>li{
+            text-align:center;
+            height : 100%;
+        }
+        .wrapper>header>nav>.nav-body>.left>ul>li>a{
+            height : 100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
         }
         .wrapper>header>nav>.nav-body>.right{
             border : 1px solid;
             height : 100%;
             width : calc(1200px - 170px);
+           
         }
         .wrapper>header>nav>.nav-body>.right>ul{
             display:flex;
             justify-content: space-between;
             align-items: center;;
             height : 100%;
+
+        }
+        .wrapper>header>nav>.nav-body>.right>ul>li{
+            width : 100%;
+            text-align:center;
         }
         .wrapper>header>nav>.nav-body>.right>ul>li>a{}
     </style>
@@ -187,7 +217,7 @@
                 <div class="nav-body">
                     <div class="left">
                         <ul>
-                            <li><a href=""><span class="material-symbols-outlined">menu</span>카테고리</a></li>
+                            <li><a href=""><span class="material-symbols-outlined">menu</span>&nbsp;카테고리</a></li>
                         </ul>
                     </div>
                     <div class="right">

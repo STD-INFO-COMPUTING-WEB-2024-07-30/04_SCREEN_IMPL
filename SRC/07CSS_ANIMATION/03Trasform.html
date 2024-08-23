@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .par{
+            width:1000px;
+            height : 1000px;
+            border : 1px solid;
+        }
+        .son{
+            width:150px ; height : 150px;
+            border : 1px solid;
+            background-color: orange;
+            transition:.8s;
+           
+        }
+        .par:hover .son{
+            /* 위치이동 */
+            /* transform : translate(200px,100px); */
+            /* transform: translateX(200px); */
+            /* transform: translateY(200px); */
+
+            /* 크기조정 */
+            /* transform : scale(2,2); */
+
+            /* 회전 */
+            /* transform : rotate(270deg); */
+
+            /* 기울이기 */
+            /* transform: skew(30deg); */
+
+            /* 동시에 적용 */
+            transform : translate(400px,400px) rotate(360deg) scale(1.5);
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="par">
+        <div class="son"></div>
+    </div>
+    
+</body>
+</html>

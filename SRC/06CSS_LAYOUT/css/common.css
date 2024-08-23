@@ -21,9 +21,16 @@ a{
     width:62.5vw;
     margin:0 auto;
 }
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
 body{
     margin : 0;padding : 0;
+    font-family: 'Pretendard-Regular';
 }
 
 
@@ -32,11 +39,12 @@ body{
 .wrapper{}
 /*  */
 .wrapper>header{
-
+    
     background-color: white;;
 }
 .wrapper>header>.top-header{
     /* border : 1px solid; */
+    
 }
 
 .wrapper>header>.top-header>ul{
@@ -137,7 +145,6 @@ body{
 }
 .wrapper>header>nav>.nav-body>ul>li{
     padding:0 15px;
-    position:relative;
     height : 80%;;
     opacity: .8;
     
@@ -169,22 +176,24 @@ body{
     font-size:1.2rem;
    
 }
+
 .wrapper>header>nav>.nav-body>ul:nth-child(1):hover .submenu-block{
     height : 250px;
     visibility: visible;
-   
+    
 }
-.wrapper>header>nav>.nav-body>ul:nth-child(1):hover .submenu-block>.submenu{
+
+
+/* .wrapper>header>nav>.nav-body>ul:nth-child(1):hover .submenu-block>.submenu{
     transform : translateY(0%);
     height : 100%;
     
 }
 .wrapper>header>nav>.nav-body>ul:nth-child(1):hover .submenu-block>.submenu>li{
     transform : translateY(0%);
-    visibility: visible;;
-}
-
-
+    visibility: visible;
+    
+} */
 
 .wrapper>header>nav>.nav-body .submenu-block{
 
@@ -209,11 +218,10 @@ body{
 }
 .wrapper>header>nav>.nav-body .submenu-block>ul.submenu{
 
-    transform : translateY(-100%);
+    /* transform : translateY(-100%);
     transition:height .5s linear;
-    /* background-color: red; */
     position:relative;
-    height : 0;
+    height : 0; */
    
     
 }
@@ -224,8 +232,8 @@ body{
     border : 1px solid;
     margin : 5px;
 
-    transition:height .5s linear;
-    visibility: hidden;
+    /* transition:height .5s linear;
+    visibility: hidden; */
 
 }
 .wrapper>header>nav>.nav-body .submenu-block>ul.submenu>li>a{
@@ -274,15 +282,15 @@ body{
     justify-content: center;
     align-items: start;
     height : 500px;
-    border:1px solid;
+   
     margin-top : 5px;
 }
 .wrapper>main>section.cat-2>aside{
     width : 200px;
     height : 100%;
-   
-    margin-right : 10px;
     border : 1px solid;
+    margin-right : 10px;
+   
 }
 .wrapper>main>section.cat-2>article{
     width : calc(100% - 210px);
@@ -303,12 +311,12 @@ body{
 
     width : 100px;
     height : 300px;
-    border : 1px solid;
+   
     border-radius: 15px;
     box-shadow: 5px 5px 5px lightgray;
     background-color: orange;
 
     position:fixed;
     right : 20px;
-    top : calc(50% - 25px)
+    top : calc(50% - 150px)
 }

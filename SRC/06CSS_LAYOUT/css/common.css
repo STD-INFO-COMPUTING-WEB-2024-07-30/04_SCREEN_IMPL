@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    font-size:.9rem;
+}
+ul{
+    list-style: none;
+    margin : 0;padding : 0;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.layout-1{
+    width:1200px;
+    margin:0 auto;
+}
+
+body{
+    margin : 0;padding : 0;
+}
+
+
+
+/*  */
+.wrapper{}
+/*  */
+.wrapper>header{}
+.wrapper>header>.top-header{}
+
+.wrapper>header>.top-header>ul{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+.wrapper>header>.top-header>ul>li{
+    padding : 0 15px;
+}
+.wrapper>header>.top-header>ul>li:last-child{
+    padding :0;
+}
+.wrapper>header>.top-header>ul>li>a{}
+
+
+
+.wrapper>header>nav{}
+/*  */
+.wrapper>main{}
+.wrapper>main>section{}
+/*  */
+.wrapper>footer{}

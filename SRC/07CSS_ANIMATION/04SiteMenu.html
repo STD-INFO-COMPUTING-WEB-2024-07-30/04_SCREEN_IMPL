@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{padding:0;margin:0;}
+        ul{ list-style:none;padding:0;margin:0;}
+        a{text-decoration: none; color:black;}
+        .top-header>ul{
+            display:flex;
+            justify-content: right;
+            align-items: center;
+        }
+        .top-header>ul>li{
+            padding : 0 15px;
+        }
+
+        .sitemenu>input[type="checkbox"]{
+            display:none;
+        }
+        .sitemenu>label{}
+        .sitemenu>label>span{
+            display:block;
+            width:25px;
+            height:3px;
+            margin:5px;
+            background-color: black;;
+            transition: .3s;
+        }
+        .sitemenu>input[type="checkbox"]:checked+label span:nth-child(1){
+            transform:translate(0px,8px) rotate(45deg);
+           
+        }
+        .sitemenu>input[type="checkbox"]:checked+label span:nth-child(2){
+            visibility: hidden;
+            transition: 0s;
+        }
+        .sitemenu>input[type="checkbox"]:checked+label span:nth-child(3){
+            transform:translate(0px,-8px) rotate(-45deg);
+        }
+
+        .site-block{
+            width:1200px;
+            height:800px;
+            border : 2px solid;
+            background-color: beige;
+
+            position:fixed;
+            left:0;right:0;
+            top:50px;
+            margin:auto;
+            z-index: 5;
+
+            display:none;
+        }
+        .sitemenu>input[type="checkbox"]:checked~.site-block{
+            /* background-color: aqua; */
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="wrapper">
+        <div class="top-header">
+            <ul>
+                <li><a href="">로그인</a></li>
+                <li><a href="">고객센터</a></li>
+                <li class="sitemenu">
+                    <input type="checkbox" id="chk">
+                    <label for="chk">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <div class="site-block">
+                        
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <nav></nav>
+    </div>
+</body>
+</html>

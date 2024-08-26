@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border : 1px solid;
+            width : 150px;height : 150px; margin : 50px;
+        }
+
+        div:nth-child(1){
+            animation-name:m1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        div:nth-child(2){
+            position:absolute;
+            animation-name:m2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction:normal;
+            animation-timing-function: linear;
+        }
+        div:nth-child(3){}
+        
+        @keyframes m1{
+            from{margin-left:90%;}
+            to{margin-left:0%;}
+
+            0%{ background-color: red;}
+            25%{background-color: orange;}
+            50%{background-color: yellow;}
+            75%{background-color: green;}
+            100%{background-color: black;}
+
+        }
+        @keyframes m2{
+            /* from{top:0px;left:50%;}
+            to{margin-left:0%;} */
+
+            0%{ background-color: red; top:0;left:50%;}
+            25%{background-color: orange;  top:50%;left:0%;}
+            50%{background-color: yellow;top:80%;left:50%;}
+            75%{background-color: green;top:50%;left:80%;}
+            100%{background-color: black;top:0;left:50%;}
+
+        }
+        @keyframes m3{}
+    </style>
+</head>
+<body>
+    
+
+    <div>M1</div>
+    <div>M2</div>
+    <div>M3</div>
+</body>
+</html>

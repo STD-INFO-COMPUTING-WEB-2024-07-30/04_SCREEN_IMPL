@@ -4,8 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+
+    <style>
+        .slider-block{
+            width : 1200px;
+            height : 100px;
+            border : 1px solid;
+            margin : 0 auto;
+          
+            position:relative;
+            overflow : hidden;
+
+            display:flex;
+            align-items: center;
+        }
+        .slider-block>.slider-wrapper{
+            width : 3000px;
+            height : 80px;
+            border : 1px solid;
+
+            display:flex;
+            align-items: center;
+            justify-content: left;
+            gap:15px;
+
+            position:relative;
+            transition:.3s;
+        }
+        .slider-block>.slider-wrapper>.items{
+            width : 120px;
+            height:45px;
+            
+            border : 1px solid;
+            border-radius: 5px;
+        }
+
+        .slider-block>label{
+            width:25px;
+            height : 25px;
+            border:1px solid;
+            border-radius: 50%;
+            position:absolute;
+            top:calc(50% - 12.5px);
+            z-index:5;
+            background-color: royalblue;
+            cursor: pointer;
+        }
+        .slider-block>label>span{
+            color : white;
+        }
+        .slider-block>label.prev{
+            left:3px;
+        }
+        .slider-block>label.next{
+            right:3px;
+        }
+        .slider-block>input[type="radio"]{
+            display:none;
+        }
+        .slider-block>input[type="radio"]#r-next:checked~.slider-wrapper{
+            left:-1000px;
+          
+        }
+        .slider-block>input[type="radio"]#r-prev:checked~.slider-wrapper{
+            left:0px;
+        }
+
+    </style>
 </head>
 <body>
     
+
+
+    <div class="slider-block">
+        <input type="radio" id="r-prev" name="sliderbutton" checked>
+        <input type="radio" id="r-next" name="sliderbutton">
+        <label for="r-prev" class="prev"><span class="material-symbols-outlined">arrow_left</span></label>
+        <label for="r-next" class="next"><span class="material-symbols-outlined">arrow_right</span></label>
+        <div class="slider-wrapper">
+            <div class="items">1</div>
+            <div class="items">2</div>
+            <div class="items">3</div>
+            <div class="items">4</div>
+            <div class="items">5</div>
+            <div class="items">6</div>
+            <div class="items">7</div>
+            <div class="items">8</div>
+            <div class="items">9</div>
+            <div class="items">10</div>
+            <div class="items">11</div>
+            <div class="items">12</div>
+            <div class="items">13</div>
+            <div class="items">14</div>
+            <div class="items">15</div>
+        </div>
+    </div>
 </body>
 </html>

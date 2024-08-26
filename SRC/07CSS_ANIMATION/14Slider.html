@@ -11,22 +11,25 @@
             height : 300px;
             margin : 50px auto;
             border : 1px solid;
-            
+            overflow : hidden;
         }
         .slider-block>.slider-wrapper{
             width : 3600px;
-            height : 100%;
+            height : 300px;
             position:relative;
 
             display:flex;
+            align-items: center;
+            
+           
         }
-        .slider-block>.slider-wrapper>input[type='checkbox']{
+        .slider-block>input[type='radio']{
             z-index : 10;
             display:none;
         }
         .slider-block>.slider-wrapper>.item{
             width : 1200px;
-            height : 100%;
+            height : 300px;
 
             position:relative;
             left:0;
@@ -83,30 +86,45 @@
 
 
 
-        .slider-block>.slider-wrapper>#slider1:checked~.item{
+        .slider-block>#forward-2:checked~.slider-wrapper{
+            left:-1200px;
+          
+        }
+        .slider-block>#forward-3:checked~.slider-wrapper{
+            left:-2400px;
+           
+        }
+        .slider-block>#backend-1:checked~.slider-wrapper{
             left:0px;
+           
         }
-
-        .slider-block>.slider-wrapper>#slider2:checked~.item{
+        .slider-block>#backend-2:checked~.slider-wrapper{
             left:-1200px;
+            
         }
-
-        .slider-block>.slider-wrapper>#slider3:checked~.item{
-            left:-1200px;
+        @keyframes m1{
+            from{}
+            to{}
         }
-
+        @keyframes m2{
+            from{}
+            to{}
+        }
+        @keyframes m3{
+            from{}
+            to{}
+        }
     </style>
 </head>
 <body>
     
 
     <div class="slider-block">
+        <input type="radio" id="forward-2" name="slideradio" checked>  
+        <input type="radio" id="forward-3" name="slideradio">  
+        <input type="radio" id="backend-1" name="slideradio"> 
+        <input type="radio" id="backend-2" name="slideradio">  
         <div class="slider-wrapper">
-            <!-- 1번 슬라이드 -->
-            
-            <input type="checkbox" id="forward-2">
-            <input type="checkbox" id="forward-3">
-
             <!-- 1번 슬라이드 -->
             <div class="item">
                 <label for="" class="prev" >prev</label>
@@ -115,13 +133,13 @@
             </div>
             <!-- 2번 슬라이드 -->
             <div class="item">
-                <label for="slider1" class="prev" >prev</label>
+                <label for="backend-1" class="prev" >prev</label>
                 <label for="forward-3"  class="next">next</label>
                 <div class="show two">SLIDER-02</div>
             </div>
             <!-- 3번 슬라이드 -->
             <div class="item">
-                <label for="slider2" class="prev" >prev</label>
+                <label for="backend-2" class="prev" >prev</label>
                 <label for=""  class="next">next</label>
                 <div class="show three">SLIDER03</div>
             </div>

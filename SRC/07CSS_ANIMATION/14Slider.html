@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+
     <style>
         .slider-block{
             width : 1200px;
-            height : 300px;
+            height : 500px;
             margin : 50px auto;
             border : 1px solid;
             overflow : hidden;
         }
         .slider-block>.slider-wrapper{
             width : 3600px;
-            height : 300px;
+            height : 500px;
             position:relative;
 
             display:flex;
             align-items: center;
             
+            transition:.3s;
            
         }
         .slider-block>input[type='radio']{
@@ -29,7 +40,7 @@
         }
         .slider-block>.slider-wrapper>.item{
             width : 1200px;
-            height : 300px;
+            height :500px;
 
             position:relative;
             left:0;
@@ -43,13 +54,16 @@
             align-items: center;
             width : 50px;
             height : 50px;
-            border : 1px solid;
+            border : 1px solid white;
             border-radius: 50%;
 
             position:absolute;
             top:calc(50% - 25px);
             z-index : 10;
             cursor: pointer;
+            
+            color : white;
+
         }
         .slider-block>.slider-wrapper>.item>label.prev{
             left:5px;
@@ -120,28 +134,28 @@
     
 
     <div class="slider-block">
-        <input type="radio" id="forward-2" name="slideradio" checked>  
+        <input type="radio" id="forward-2" name="slideradio" >  
         <input type="radio" id="forward-3" name="slideradio">  
-        <input type="radio" id="backend-1" name="slideradio"> 
+        <input type="radio" id="backend-1" name="slideradio" checked> 
         <input type="radio" id="backend-2" name="slideradio">  
         <div class="slider-wrapper">
             <!-- 1번 슬라이드 -->
             <div class="item">
-                <label for="" class="prev" >prev</label>
-                <label for="forward-2" class="next" >next</label>
+                <label for="" class="prev" ><span class="material-symbols-outlined">arrow_left</span></label>
+                <label for="forward-2" class="next" ><span class="material-symbols-outlined">arrow_right</span></label>
                 <div class="show one">SLIDER-01</div>
             </div>
             <!-- 2번 슬라이드 -->
             <div class="item">
-                <label for="backend-1" class="prev" >prev</label>
-                <label for="forward-3"  class="next">next</label>
+                <label for="backend-1" class="prev" ><span class="material-symbols-outlined">arrow_left</span></label>
+                <label for="forward-3"  class="next"><span class="material-symbols-outlined">arrow_right</span></label>
                 <div class="show two">SLIDER-02</div>
             </div>
             <!-- 3번 슬라이드 -->
             <div class="item">
-                <label for="backend-2" class="prev" >prev</label>
-                <label for=""  class="next">next</label>
-                <div class="show three">SLIDER03</div>
+                <label for="backend-2" class="prev" ><span class="material-symbols-outlined">arrow_left</span></label>
+                <label for=""  class="next"><span class="material-symbols-outlined">arrow_right</span></label>
+                <div class="show three">SLIDER-03</div>
             </div>
         </div>
     </div>

@@ -49,7 +49,7 @@ body{
     align-items: center;
     border:1px solid;
 
-   
+    position:relative;
 }
 
 .wrapper>header>nav>*{
@@ -95,26 +95,43 @@ body{
     border: 1px solid;
     display:none;
 
-
+    background-color: beige;;
+    position:absolute;
+    left:0;
+    top:60px;
+    width:100%;
     
+    padding-top:20px;
+    padding-bottom : 20px;
     
 }
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li{
-    height : 60px;
-    padding : 0 20px;
+    padding : 0;
     border : 1px solid;
+   
+    position:relative;
 }
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li>a{
     display:block;
-    height:100%;
+   
     display:flex;
-    justify-content: center;
-    align-items: center;
-}
-.wrapper>header>nav>.center>.mainmenu>li:hover .submenu{
-    display:block;
+    justify-content: left;
+    align-items: start;
 }
 
+.wrapper>header>nav>.center>.mainmenu>li>.submenu>li>ul{
+    position:relative;
+    left:0;
+    top:10px;
+    width : 100%;
+}
+
+.wrapper>header>nav>.center>.mainmenu>li:hover .submenu{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+   
+}
 
 .wrapper>header>nav>.right{
     width :200px;

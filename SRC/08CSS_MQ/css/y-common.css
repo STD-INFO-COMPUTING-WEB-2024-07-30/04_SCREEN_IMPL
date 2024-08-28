@@ -17,7 +17,52 @@ body{
     width : 250px;   
     height : 100%;
     border : 1px solid;
+    padding : 10px;
 }
+.wrapper>main>section>aside>.item{
+    padding : 10px;
+    border-bottom:1px solid gray;
+    cursor: pointer;
+}
+.wrapper>main>section>aside>.item>a.login-btn{
+    display:block;
+    width : 100px;
+    height : 35px;
+    border-radius: 15px;
+    border : 1px solid lightgray;
+    color:skyblue;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size : .9rem;
+    padding : 5px;
+}
+
+.wrapper>main>section>aside>.item>div{
+    display:flex;
+    align-items: center;
+    padding :0 10px;
+    border-radius: 5px;
+    height:40px;
+    border:1px solid;
+    margin-bottom : 5px;
+}
+.wrapper>main>section>aside>.item>div>.icon{
+   width : 45px;
+   height:100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+.wrapper>main>section>aside>.item>div>.title{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+
 .wrapper>main>section>article{
     width : calc(100% - 250px);
     height : 100%;

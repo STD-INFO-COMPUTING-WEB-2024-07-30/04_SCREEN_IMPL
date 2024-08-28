@@ -1,0 +1,25 @@
+*{box-sizing: border-box;}
+body{
+    margin:0;padding : 0px;
+}
+.wrapper{}
+.wrapper>header{
+    height:60px;
+    border : 1px solid;
+}
+
+.wrapper>main{}
+.wrapper>main>section{
+    height:calc(100vh - 60px);
+    display:flex;
+}
+.wrapper>main>section>aside{
+    width : 250px;   
+    height : 100%;
+    border : 1px solid;
+}
+.wrapper>main>section>article{
+    width : calc(100% - 250px);
+    height : 100%;
+    border : 1px solid;
+}

@@ -30,7 +30,7 @@ body{
     height : 35px;
     border-radius: 15px;
     border : 1px solid lightgray;
-    color:skyblue;
+    color:rgb(41, 41, 136);
 
     display:flex;
     justify-content: center;

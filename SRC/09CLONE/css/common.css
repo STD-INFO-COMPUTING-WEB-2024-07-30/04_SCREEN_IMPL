@@ -22,7 +22,13 @@ body{
 .layout-1{
     /* width : 1200px; */
     /* margin : 0 auto; */
-    padding : 0 10%;
+
+    /* 
+        1920px - 1200px = 720px
+        720px/2 = 360px
+        360px을 vw로 변환 = 18.75vw;
+    */
+    padding : 0 18.75vw;
 }
 
 
@@ -42,6 +48,8 @@ body{
     justify-content: space-between;
     align-items: center;
     border:1px solid;
+
+   
 }
 
 .wrapper>header>nav>*{
@@ -62,6 +70,7 @@ body{
     display:flex;
     justify-content: left;
     align-items: center;
+    
 }
 
 .wrapper>header>nav>.center>.mainmenu{
@@ -85,6 +94,10 @@ body{
 .wrapper>header>nav>.center>.mainmenu>li>.submenu{
     border: 1px solid;
     display:none;
+
+
+    
+    
 }
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li{
     height : 60px;

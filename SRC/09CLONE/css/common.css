@@ -66,9 +66,32 @@ body{
 .wrapper>main>section:nth-child(2){
     height : 150px;
 }
+.wrapper>main>section:nth-child(2)>ul{
+    height : 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+}
+.wrapper>main>section:nth-child(2)>ul>li{
+    width : 80px;
+    height : 80px;
+    border-radius: 15px;
+}
+.wrapper>main>section:nth-child(2)>ul>li>a{}
+.wrapper>main>section:nth-child(2)>ul>li>a>span{}
+
+
 .wrapper>main>section:nth-child(3){
     height : 1080px;
 }
-
+.wrapper>main>section:nth-child(4){
+    height : 1080px;
+}
+.wrapper>main>section:nth-child(5){
+    height : 400px;
+}
 /*  */
-.wrapper>footer{}
+.wrapper>footer{
+    height : 300px;
+}

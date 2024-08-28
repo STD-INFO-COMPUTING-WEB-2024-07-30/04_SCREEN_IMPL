@@ -67,7 +67,7 @@ body{
 }
 
 .wrapper>main>section>article{
-    width : calc(100% - 250px);
+    width : calc(100% - 90px);
     height : 100%;
     border : 1px solid;
 }

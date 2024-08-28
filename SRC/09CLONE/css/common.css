@@ -108,12 +108,15 @@ body{
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li{
     padding : 0;
     border : 1px solid;
-   
     position:relative;
+    
 }
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li>a{
     display:block;
    
+    font-size:1rem;
+    font-weight:600;
+    padding:10px 0;
     display:flex;
     justify-content: left;
     align-items: start;
@@ -122,16 +125,22 @@ body{
 .wrapper>header>nav>.center>.mainmenu>li>.submenu>li>ul{
     position:relative;
     left:0;
-    top:10px;
+    top:0px;
     width : 100%;
+}
+.wrapper>header>nav>.center>.mainmenu>li>.submenu>li>ul>li>a{
+    display:block;
+    padding:10px 0;
+    font-size:.8rem;
+    color:gray;
 }
 
 .wrapper>header>nav>.center>.mainmenu>li:hover .submenu{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-   
 }
+
 
 .wrapper>header>nav>.right{
     width :200px;

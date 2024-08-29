@@ -262,7 +262,9 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
+
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(2)>.text{
  
 }
@@ -281,6 +283,11 @@ body{
     right:-30px;
     transition: .3s;
    
+}
+
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(2){
+
+  
 }
 
 
@@ -331,12 +338,42 @@ body{
 .banner input[type="radio"]{
     display: none;
 }
+.banner>.slide-block>#s1:checked~.slide-wrapper .item:nth-child(1)>.image>img{
+    right:0px;
+    opacity: 1;
+}
 .banner>.slide-block>#s2:checked~.slide-wrapper .item:nth-child(2)>.image>img{
     right:0px;
     opacity: 1;
 }
-
-
+.banner>.slide-block>#s3:checked~.slide-wrapper .item:nth-child(3)>.image>img{
+    right:0px;
+    opacity: 1;
+}
+@keyframes textEvent {
+    from{top:30px; opacity: 0;}
+    to{top:0px; opacity: 1;}
+}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.text div.one{
+    position:relative;
+    animation-name:textEvent ;
+    animation-duration: 1s;
+}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.text div.two{
+    position:relative;
+    animation-name:textEvent ;
+    animation-duration: 1.5s; 
+}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.text div.three{
+    position:relative;
+    animation-name:textEvent ;
+    animation-duration: 2s; 
+}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.text div.four{
+    position:relative;
+    animation-name:textEvent ;
+    animation-duration: 2.3s; 
+}
 
 /*  */
 

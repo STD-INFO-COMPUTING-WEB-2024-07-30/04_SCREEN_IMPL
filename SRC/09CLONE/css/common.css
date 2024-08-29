@@ -47,6 +47,10 @@ body{
 }
 .wrapper>header>.top-header{}
 
+
+/* 
+    02GNB START
+*/
 .wrapper>header>nav{
     height : 100%;
     display:flex;
@@ -208,6 +212,10 @@ body{
     align-items: center;
     gap:10px;
 }
+/* 
+    02GNB END
+*/
+
 
 /*  */
 .wrapper>main{}
@@ -215,11 +223,15 @@ body{
     border:1px solid;
 }
 
-/* banner */
+/* 
+    03BANNER START
+*/
 .wrapper>main>section:nth-child(1){
     position:relative;
     height:400px;
     width :100%;
+    border : 0;
+    
     
 }
 .wrapper>main>.banner>.slide-block{
@@ -229,29 +241,30 @@ body{
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper{
     /* width:calc(1160px * 3); */
-    width:100%;
+    width:100vw;
     position:relative;
 
     height:400px;
-    display:flex;
-    justify-content: left;
-    align-items: center;
+
     position:relative;
 
     transition: .3s;
-   
+
+    
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item{
     position:absolute;
     left:0;
     top:0;
     display:flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     
     width:100%;
     height:100%;
     transition: .5s;
+
+    /* border : 5px solid; */
    
 }
 
@@ -266,7 +279,7 @@ body{
     flex-direction: column;
     position:relative;
     z-index:10;
-
+ 
 }
 
 .prev{
@@ -300,10 +313,10 @@ body{
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.image>img{
     width:100%;
     height:100%;
-    object-fit: contain;
-    transform:scale(1.8);
-    position:absolute;
-    right:-30px;
+    object-fit: cover;
+    /* transform:scale(1.8); */
+    position:relative;
+    right:-20px;
     top:15px;
     transition: .3s;
    
@@ -387,18 +400,12 @@ body{
 }
 
 
-@keyframes m1 {
+
+@keyframes moving {
     from{margin-top:50px; opacity: 0;}
     to{margin-top:0px; opacity: 1;}
 }
-@keyframes m2 {
-    from{margin-top:50px; opacity: 0;}
-    to{margin-top:0px; opacity: 1;}
-}
-@keyframes m3 {
-    from{margin-top:50px; opacity: 0;}
-    to{margin-top:0px; opacity: 1;}
-}
+
 .one{
     font-size : .8rem;
     position:absolute;
@@ -406,7 +413,7 @@ body{
     color : white;
 }
 .two{
-    font-size : 1.6rem;
+    font-size : clamp(1rem,2vw,1.6rem);
     font-weight:600;
     position:absolute;
     top:35%;
@@ -434,57 +441,72 @@ body{
     color : white;
 }
 .banner>.slide-block>#s1:checked~.slide-wrapper>.item:nth-child(1)>.text div.one{
-    animation-name:m2;
+    animation-name:moving;
     animation-duration: .5s;
+   
 }
 .banner>.slide-block>#s1:checked~.slide-wrapper>.item:nth-child(1)>.text div.two{
-    animation-name:m2;
-    animation-duration: 1s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.2s;
 }
 .banner>.slide-block>#s1:checked~.slide-wrapper>.item:nth-child(1)>.text div.three{
-    animation-name:m2;
-    animation-duration: 1.5s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.3s;
+
 }
 .banner>.slide-block>#s1:checked~.slide-wrapper>.item:nth-child(1)>.text div.four{
-    animation-name:m2;
-    animation-duration: 2s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.4s;
+
 }
 
 
 .banner>.slide-block>#s2:checked~.slide-wrapper>.item:nth-child(2)>.text div.one{
-    animation-name:m2;
+    animation-name:moving;
     animation-duration: .5s;
 }
 .banner>.slide-block>#s2:checked~.slide-wrapper>.item:nth-child(2)>.text div.two{
-    animation-name:m2;
-    animation-duration: 1s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.2s;
 }
 .banner>.slide-block>#s2:checked~.slide-wrapper>.item:nth-child(2)>.text div.three{
-    animation-name:m2;
-    animation-duration: 1.5s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.3s;
 }
 .banner>.slide-block>#s2:checked~.slide-wrapper>.item:nth-child(2)>.text div.four{
-    animation-name:m2;
-    animation-duration: 2s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.4s;
 }
 
-
 .banner>.slide-block>#s3:checked~.slide-wrapper>.item:nth-child(3)>.text div.one{
-    animation-name:m2;
+    animation-name:moving;
     animation-duration: .5s;
 }
 .banner>.slide-block>#s3:checked~.slide-wrapper>.item:nth-child(3)>.text div.two{
-    animation-name:m2;
-    animation-duration: 1s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.2s;
 }
 .banner>.slide-block>#s3:checked~.slide-wrapper>.item:nth-child(3)>.text div.three{
-    animation-name:m2;
-    animation-duration: 1.5s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.3s;
 }
 .banner>.slide-block>#s3:checked~.slide-wrapper>.item:nth-child(3)>.text div.four{
-    animation-name:m2;
-    animation-duration: 2s;
+    animation-name:moving;
+    animation-duration: .5s;
+    animation-delay:.4s;
 }
+/* 
+    03BANNER END
+*/
+
 
 
 

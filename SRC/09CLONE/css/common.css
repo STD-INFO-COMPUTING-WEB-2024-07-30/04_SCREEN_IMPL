@@ -231,8 +231,6 @@ body{
     height:400px;
     width :100%;
     border : 0;
-    
-    
 }
 .wrapper>main>.banner>.slide-block{
     width:100%;
@@ -241,21 +239,17 @@ body{
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper{
     /* width:calc(1160px * 3); */
-    width:100vw;
-    position:relative;
-
+    width:100%;
     height:400px;
 
     position:relative;
-
     transition: .3s;
-
-    
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item{
     position:absolute;
     left:0;
     top:0;
+    
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -406,6 +400,7 @@ body{
 .banner input[type="radio"]{
     display: none;
 }
+
 .banner>.slide-block>#s1:checked~.slide-wrapper .item:nth-child(1)>.image>img{
     right:0px;
     opacity: 1;
@@ -431,7 +426,6 @@ body{
     position:absolute;
     top:20%;
     color : white;
-   
 }
 .two{
     font-size : clamp(1rem,2vw,1.6rem);
@@ -534,11 +528,13 @@ body{
 
 
 
-/*  */
-
-
+/* 
+    02SECTION START
+*/
 .wrapper>main>section:nth-child(2){
     height : 150px;
+    margin :20px 0px;
+    border : 0px;
 }
 .wrapper>main>section:nth-child(2)>ul{
     height : 100%;
@@ -554,7 +550,12 @@ body{
     min-height : 80px;
     border-radius: 15px;
     border:1px solid;
+    position:relative;
 }
+.wrapper>main>section:nth-child(2)>ul>li:hover{
+    background-color: rgb(245, 244, 244);;
+}
+
 .wrapper>main>section:nth-child(2)>ul>li>a{
     width:100%;
     height:100%;
@@ -562,6 +563,40 @@ body{
     justify-content: center;
     align-items: center;
 }
+.wrapper>main>section:nth-child(2)>ul>li::after{
+    content:"";
+   
+    height:25px;
+    width:180%;
+    /* border : 1px solid; */
+    margin-top : 10px;
+    font-size :1rem;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    position:absolute;
+    bottom:-30px;
+    left:-30px;
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(1)::after{
+    content:"무료 국비 강의"
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(2)::after{
+     content:"코딩 테스트 문제"
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(3)::after{}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(4)::after{}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(5)::after{}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(6)::after{}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(7)::after{
+     content:"코딩인증역량시험"
+}
+
+
+
+
 .wrapper>main>section:nth-child(2)>ul>li>a>span{}
 
 

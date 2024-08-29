@@ -49,6 +49,11 @@
                     <form class="d-flex">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-success" type="submit">Search</button>
+                      
+                           <!-- Button trigger modal -->
+                      <a type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        LOGIN
+                      </a>
                       <a class="btn btn-success ms-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         JOIN
                       </a>
@@ -64,7 +69,7 @@
     </div>
     
 
-    <!-- LOGIN OFFCANVAS -->
+    <!-- JOIN OFFCANVAS -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <h4 class="offcanvas-title" id="offcanvasExampleLabel">회원가입</h4>
@@ -74,6 +79,28 @@
         
       </div>
     </div>
+
+    <!-- LOGIN MODAL -->
+ 
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">LOGIN</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">로그인 요청</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 </body>

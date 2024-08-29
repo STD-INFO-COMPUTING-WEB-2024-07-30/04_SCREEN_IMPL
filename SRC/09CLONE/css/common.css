@@ -527,7 +527,6 @@ body{
 
 
 
-
 /* 
     02SECTION START
 */
@@ -586,31 +585,60 @@ body{
 .wrapper>main>section:nth-child(2)>ul>li:nth-child(2)::after{
      content:"코딩 테스트 문제"
 }
-.wrapper>main>section:nth-child(2)>ul>li:nth-child(3)::after{}
-.wrapper>main>section:nth-child(2)>ul>li:nth-child(4)::after{}
-.wrapper>main>section:nth-child(2)>ul>li:nth-child(5)::after{}
-.wrapper>main>section:nth-child(2)>ul>li:nth-child(6)::after{}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(3)::after{
+      content:"수강 중인 강의"
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(4)::after{
+      content:"채용 공고"
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(5)::after{
+      content:"채용 프로그램"
+}
+.wrapper>main>section:nth-child(2)>ul>li:nth-child(6)::after{
+      content:"스킬체크"
+}
 .wrapper>main>section:nth-child(2)>ul>li:nth-child(7)::after{
      content:"코딩인증역량시험"
 }
 
-
-
-
 .wrapper>main>section:nth-child(2)>ul>li>a>span{}
 
+/* 
+    02SECTION END
+*/
+
+
+
+/* 
+    03SECTION START
+*/
+.wrapper>main>section h2{
+    font-size : 26px;
+    font-weight: 600;
+}
+.wrapper>main>section>.head
+{
+    margin-bottom:20px;
+    /* padding-bottom:20px; */
+}
 
 .wrapper>main>section:nth-child(3){
     /* height : 1080px; */
+    border : 0;
 }
 .wrapper>main>section:nth-child(3)>.head{
     height : 50px;
     display:flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 .wrapper>main>section:nth-child(3)>.head>.left{}
-.wrapper>main>section:nth-child(3)>.head>.right{}
+.wrapper>main>section:nth-child(3)>.head>.right{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
 
 .wrapper>main>section:nth-child(3)>.body{
     height : 1030px;
@@ -618,12 +646,38 @@ body{
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
+
+
 .wrapper>main>section:nth-child(3)>.body>.item{
     width : 100%;
     height :100%;
     border-radius: 15px;
     border:1px solid;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
+.wrapper>main>section:nth-child(3)>.body>.item>.top{
+    height:50%;
+    background: #000000;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+.wrapper>main>section:nth-child(3)>.body>.item>.top>img{
+    width:100%;
+    height:100%;
+    object-fit: contain;
+    
+}
+
+.wrapper>main>section:nth-child(3)>.body>.item>.bottom{
+    padding : 20px;
+}
+.wrapper>main>section:nth-child(3)>.body>.item>.bottom>.title{}
+.wrapper>main>section:nth-child(3)>.body>.item>.bottom>.info{}
+.wrapper>main>section:nth-child(3)>.body>.item>.bottom>.foot{}
+
 
 
 .wrapper>main>section:nth-child(4){

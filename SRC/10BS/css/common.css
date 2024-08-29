@@ -1,0 +1,16 @@
+:root{}
+*{}
+ul{}
+a{}
+
+body{}
+
+.wrapper{}
+.wrapper>header{}
+.wrapper>header>.top-header{}
+.wrapper>header>nav{}
+
+.wrapper>main{}
+.wrapper>main>section{}
+
+.wrapper>footer{}

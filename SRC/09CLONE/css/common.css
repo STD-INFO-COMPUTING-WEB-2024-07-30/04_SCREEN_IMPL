@@ -233,6 +233,8 @@ body{
     justify-content: left;
     align-items: center;
     position:relative;
+
+    transition: .3s;
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item{
     display:flex;
@@ -260,6 +262,9 @@ body{
     object-fit: cover;
 }
 
+.banner>.slide-block>#s1:checked~.slide-wrapper{
+    left:0px;
+}
 .banner>.slide-block>#s2:checked~.slide-wrapper{
     left:-1160px;
 }

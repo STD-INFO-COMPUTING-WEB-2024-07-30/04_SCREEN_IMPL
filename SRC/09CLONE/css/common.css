@@ -284,20 +284,34 @@ body{
 
 .prev{
     padding : 5px;
-    border : 1px solid;
-    border-radius: 15px 0 0 15px;
+    /* border-right : 1px solid black; */
     cursor: pointer;
+
 }
 .prev+span{
     padding : 5px;
     margin : 0;
 }
 .next{
-    border : 1px solid;
-    
+    /* border-left : 1px solid black; */
     padding : 5px;
-    border-radius: 0px 15px 15px 0px;
     cursor: pointer;
+}
+.paging{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    /* border : 1px solid; */
+    border-radius: 15px;
+    background: #2C323B;
+
+
+}
+.paging label span{
+    display:flex;
+    justify-content: center;
+    align-items : center;
 }
 
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(2)>.text{
@@ -321,10 +335,16 @@ body{
     transition: .3s;
    
 }
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(2)>.image>img{
+    right:20px;
+}
+
+
 
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(1){
-    background: skyblue;
-}
+    background: #71E2D9;
+
+}   
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item:nth-child(2){
 
     background: #393F9D;
@@ -409,21 +429,22 @@ body{
 .one{
     font-size : .8rem;
     position:absolute;
-    top:30%;
+    top:20%;
     color : white;
+   
 }
 .two{
     font-size : clamp(1rem,2vw,1.6rem);
     font-weight:600;
     position:absolute;
-    top:35%;
+    top:30%;
     color : white;
 }
 .three{
     font-size : 1rem;
     font-weight:400;
     position:absolute;
-    top:50%;
+    top:45%;
     color : white;
 }
 .four{
@@ -431,7 +452,7 @@ body{
     font-weight:400;
 
     position:absolute;
-    top:60%;
+    top:55%;
     color : white;
 }
 

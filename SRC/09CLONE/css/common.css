@@ -189,6 +189,13 @@ body{
     gap: 10px;
     
 }
+.wrapper>header>nav>.center>.mainmenu>li>a{
+    position:relative;
+}
+.wrapper>header>nav>.center>.mainmenu>li>a>.material-symbols-outlined{
+    font-size : 1rem;
+
+}
 
 
 
@@ -204,7 +211,7 @@ body{
 
 /* banner */
 .wrapper>main>section:nth-child(1){
-    height : 600px;
+    height : 400px;
     background-color: skyblue;
 }
 .wrapper>main>section:nth-child(2){

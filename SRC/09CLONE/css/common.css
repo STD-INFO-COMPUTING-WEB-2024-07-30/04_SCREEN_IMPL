@@ -221,23 +221,38 @@ body{
     width :100%;
     
 }
-.wrapper>main>section:nth-child(1) .carousel-item{
-    width:100%;
+.wrapper>main>.banner>.slide-block{}
+.wrapper>main>.banner>.slide-block>.slide-wrapper{}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.text{
+    width:420px;
     height:400px;
-    overflow:hidden;
+    border : 1px solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-.wrapper>main>section:nth-child(1) .carousel-item img{
-    width:100%;
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.image{
+    width:calc(100% - 420px);
     height:400px;
-   
+    border : 1px solid;
 }
-.wrapper>main>section:nth-child(1) .carousel-inner{
-   
+.wrapper>main>.banner>.slide-block>.slide-wrapper>.item>.image>img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
 }
-.wrapper>main>section:nth-child(1) .carousel-control-prev{
 
-}
-.wrapper>main>section:nth-child(1) .carousel-control-next{}
+
+
+
+
+/*  */
 
 
 .wrapper>main>section:nth-child(2){

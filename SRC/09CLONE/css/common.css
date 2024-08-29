@@ -216,9 +216,35 @@ body{
 
 /* banner */
 .wrapper>main>section:nth-child(1){
-    height : 400px;
-    background-color: skyblue;
+    position:relative;
+    height:400px;
+    width :100%;
+    
 }
+.wrapper>main>section:nth-child(1) .carousel-item{
+    width:100%;
+    height:400px;
+    overflow:hidden;
+}
+.wrapper>main>section:nth-child(1) .carousel-item img{
+    width:100%;
+    height:400px;
+    object-fit: contain;
+    position:relative;
+   
+   
+}
+.wrapper>main>section:nth-child(1) .carousel-inner{
+   
+}
+.wrapper>main>section:nth-child(1) .carousel-control-prev{
+    position:absolute;
+    left:0;
+    top:0px;
+}
+.wrapper>main>section:nth-child(1) .carousel-control-next{}
+
+
 .wrapper>main>section:nth-child(2){
     height : 150px;
 }

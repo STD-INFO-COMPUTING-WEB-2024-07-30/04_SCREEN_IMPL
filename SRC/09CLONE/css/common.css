@@ -232,6 +232,7 @@ body{
     display:flex;
     justify-content: left;
     align-items: center;
+    position:relative;
 }
 .wrapper>main>.banner>.slide-block>.slide-wrapper>.item{
     display:flex;
@@ -259,7 +260,15 @@ body{
     object-fit: cover;
 }
 
-
+.banner>.slide-block>#s2:checked~.slide-wrapper{
+    left:-1160px;
+}
+.banner>.slide-block>#s3:checked~.slide-wrapper{
+    left:calc(-1160px * 2);
+}
+.banner input[type="radio"]{
+    display: none;
+}
 
 
 

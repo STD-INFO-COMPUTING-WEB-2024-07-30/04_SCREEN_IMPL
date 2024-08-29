@@ -200,7 +200,12 @@ body{
 
 
 .wrapper>header>nav>.right{
-    width :200px;
+    width :250px;
+
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    gap:10px;
 }
 
 /*  */

@@ -19,31 +19,42 @@ body{}
 .wrapper>main>section:nth-child(1) .carousel-control-prev,
 .wrapper>main>section:nth-child(1) .carousel-control-next
 {
-    width : 50px;
-    height :50px;
-    border-radius: 15px;
-    border : 1px solid black;
+    width : 40px;
+    height :40px;
+    border-radius: 50%;
+    background-color: gray;
    
     position:absolute;
-    top:60%;
+    top:65%;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon{
     color:gray;
+    font-size :.8rem;
+    width:25px;
+    height:25px;
+    padding :15px;
+   
+   
 }
 
 .carousel-caption{
     color : gray;
     position:absolute;
     width:300px;
+    height : 130px;
+    padding : 20px;
     left:18.75vw;
     top:10%;
+    border : 1px solid;
+    text-align:left;
+    font-size : clamp(.5rem,.8vw,1.2rem);
 }
 .wrapper>main>section:nth-child(1) .carousel-control-prev{
-    left:calc(18.75vw + 30px);
+    left:calc(18.75vw + 0px);
 }
 .wrapper>main>section:nth-child(1) .carousel-control-next{
-    left:calc(18.75vw + 80px);
+    left:calc(18.75vw + 50px);
 }
 
 
@@ -51,11 +62,38 @@ body{}
 .wrapper>main>section:nth-child(2)>.cards{
     display:grid;
     grid-template-columns: repeat(4,1fr);
+    
     gap:20px;
 }
+.wrapper>main>section:nth-child(2)>.cards>.card{
+    width : 100% !important;
+    min-width : 250px;
+    height : 350px;
+    position:relative;
+}
+.wrapper>main>section:nth-child(2)>.cards>.card a{
+    position:absolute;
+    bottom : 20px;
+    left:0;
+    right:0;
+    margin : auto;
 
+}
+
+
+.wrapper>main>section:nth-child(3){
+    display:flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.wrapper>main>section:nth-child(3) .left{
+    width:calc(50% - 10px);
+}
+.wrapper>main>section:nth-child(3) .right{
+    width:calc(50% - 10px);
+}
 .wrapper>footer{
 
     height:300px;
-    background-color: rgb(25,25,25);
+    background-color: rgb(35,35,35);
 }

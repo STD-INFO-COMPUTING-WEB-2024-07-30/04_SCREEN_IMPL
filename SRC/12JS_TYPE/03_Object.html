@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onClick="poppi.sound()">짖어!</button>
+    <button onClick="poppi.toString()">정보확인</button>
+
+    <script>
+
+
+        // Object : {Key : Value}
+        const poppi = {
+            //속성(필드)
+            name:"뽀삐",
+            kind:"포메라니안",
+            age:1,
+            //기능(함수)
+            sound : ()=>{
+                //alert(poppi.name + " '멍멍!' 소리를 냅니다.");
+            },
+            toString : ()=>{
+                alert(
+                    "이름 : " + poppi.name + "\n나이 : " + poppi.age+"\n견종 : " + poppi.kind
+                )
+            }
+        }
+        // console.log('이름 : ',poppi.name);
+        // console.log('견종 : ',poppi.kind);
+        // console.log('나이 : ',poppi.age);
+        poppi.sound();
+
+        //
+        //
+        // 
+        const myCar = {
+            // 속성과 /기능을 작성합니다
+            // 속성
+            // owner : 소유자
+            // cat : 차종
+            // fuelkind : 유종
+            // speed : 현재속도
+            owner : '홍길동',
+            cat : '그랜저',
+            fuelkind : '하이브리드',
+            speed : 0,
+            accel : ()=>{
+                myCar.speed = myCar.speed+10;
+                console.log(myCar.owner," 님의 차량 속도가 증가합니다. 현재 속도 : ",myCar.speed);
+            },
+            break : ()=>{
+                myCar.speed = myCar.speed-10;
+                console.log(myCar.owner," 님의 차량 속도가 감소합니다.현재 속도 : ",myCar.speed)
+            },
+            toString : ()=>{
+                console.log("소유자",myCar.owner,"차종",myCar.cat,"유종",myCar.fuelkind,"현재속도",myCar.speed);
+            }
+            
+            // 기능
+            // accel : 가속 함수("속도를 증가합니다" 를  console.log 로 출력)
+            // break : 감속 함수("속도를 감속합니다" 를  console.log 로 출력)
+            // toString : 속성 정보 표시, alert 함수로 owner,cat,fuelkind,speed안의 값을 차례로 표시
+        };
+
+        // //속성확인
+        console.log(myCar.owner,myCar.cat,myCar.fuelkind,myCar.speed);
+        // //기능확인
+        myCar.accel(); myCar.break(); myCar.toString();
+
+
+
+
+    </script>
+</body>
+</html>

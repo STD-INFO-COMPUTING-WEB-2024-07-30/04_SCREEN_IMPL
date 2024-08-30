@@ -12,7 +12,10 @@ body{}
 
 .wrapper>main{}
 
-.wrapper>main>section{}
+.wrapper>main>section{
+    margin-bottom:30px;
+}
+
 .wrapper>main>section:nth-child(1) .carousel-control-prev,
 .wrapper>main>section:nth-child(1) .carousel-control-next
 {
@@ -43,4 +46,16 @@ body{}
     left:calc(18.75vw + 80px);
 }
 
-.wrapper>footer{}
+
+.wrapper>main>section:nth-child(2){}
+.wrapper>main>section:nth-child(2)>.cards{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px;
+}
+
+.wrapper>footer{
+
+    height:300px;
+    background-color: rgb(25,25,25);
+}

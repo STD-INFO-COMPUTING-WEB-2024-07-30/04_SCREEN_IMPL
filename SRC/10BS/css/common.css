@@ -11,6 +11,36 @@ body{}
 .wrapper>header>nav{}
 
 .wrapper>main{}
+
 .wrapper>main>section{}
+.wrapper>main>section:nth-child(1) .carousel-control-prev,
+.wrapper>main>section:nth-child(1) .carousel-control-next
+{
+    width : 50px;
+    height :50px;
+    border-radius: 15px;
+    border : 1px solid black;
+   
+    position:absolute;
+    top:60%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    color:gray;
+}
+
+.carousel-caption{
+    color : gray;
+    position:absolute;
+    width:300px;
+    left:18.75vw;
+    top:10%;
+}
+.wrapper>main>section:nth-child(1) .carousel-control-prev{
+    left:calc(18.75vw + 30px);
+}
+.wrapper>main>section:nth-child(1) .carousel-control-next{
+    left:calc(18.75vw + 80px);
+}
 
 .wrapper>footer{}

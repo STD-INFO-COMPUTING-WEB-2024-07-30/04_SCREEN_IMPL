@@ -10,7 +10,26 @@
 <body>
     
     <script>
+        //
         console.log(범죄장소)
+
+        //
+        const 범죄장소_data = 범죄장소.data;
+        console.log(범죄장소_data)
+
+        //범죄대분류 별로 총 범죄건수 Count
+        const mapList= 범죄장소_data.map((item)=>{
+                const values =  Object.values(item);
+                // console.log(values);
+                const sum = values.reduce((sum,item)=>{
+                    return (typeof item === 'number')?sum=sum+item: sum=sum+0;
+                },0)
+                // console.log("sum : ",sum)
+
+                return {"범죄대분류":item.범죄대분류,"범죄중분류" : item.범죄중분류, "합계":sum}
+        })
+
+        console.log(mapList)
     </script>
     
 </body>

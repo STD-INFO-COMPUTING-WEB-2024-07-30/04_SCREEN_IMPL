@@ -10,7 +10,20 @@
     <script>
         //----------------------------------------
         // Object객체 : 객체를 다루는 기본함수를 제공
-        //----------------------------------------  
+        //----------------------------------------
+        // let obj = {name:'홍길동',age:55}
+        // console.log(obj)  
+
+        // console.log(Object.keys(obj))       //모든 key를 배열로 반환
+        // console.log(Object.values(obj))     //모든 value를 배열로 반환
+        // console.log(Object.entries(obj))     //[key,value] 형태의 배열로 반환
+        // let ob1 = {addr:"대구"}
+        // let ob2 = {gender : 'M'}
+        // console.log(Object.assign(obj,ob1,ob2)) //obj에 ob1, ob2 속성 복사
+
+        // Object.freeze(obj)  //객체 수정 불가
+        // Object.seal(obj)    //새속성 추가 불가
+
 
         //----------------------------------------
         //Object.prototype  : 객체가 상속을 구현하는데 사용되는 메커니즘,Object객체 내에 구성
@@ -27,6 +40,35 @@
         //     toLocaleString(): 객체를 지역화된 문자열로 변환하여 반환합니다.
         //     propertyIsEnumerable(): 특정 속성이 열거 가능한 속성인지 여부를 확인합니다.
         //     constructor: 객체를 생성한 생성자 함수를 참조합니다.
+
+        const n1 = 1;  
+        console.log(n1)
+        const n2 = 'a'
+        console.log(n2)
+        const n3 = []
+        console.log(n3)
+        const n4 = {name : "홍길동"}
+        console.log(n4.valueOf())
+        console.log(Object.prototype)
+        
+        //생성자 Custom 하기
+        function Person(name){
+            this.name = name
+        }
+        let obj = new Person('홍길동')
+        console.log(obj)
+        
+        let obj2 = new Object('홍길동')
+        console.log(obj2)
+
+        //Person ProtoType에 기능 추가
+        Person.prototype.hello=function(){
+            console.log('My name is ',this.name);
+        }
+        let obj3 = new Person("아무나")
+        console.log(obj3)
+        obj3.hello();
+
     </script>
 </body>
 </html>

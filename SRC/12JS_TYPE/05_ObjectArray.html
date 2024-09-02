@@ -46,23 +46,23 @@
 
 
         // //한식인 식당의 식당명,메뉴종류,가격만 추출
-        // const 한식맛집= 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
-        //                     .map((item)=>{
-        //                         MNU = item.MNU;
-        //                         MNU = MNU.split("<br />")
-        //                         menuList = MNU.map(e=>{
-        //                             const idx = e.search(/\d/)
-        //                             key = e.substr(0,idx-1);
-        //                             value=e.substr(idx,item.length).replaceAll(" ","");
-        //                             return {"menu" : key , "price" : value}
-        //                         })
-        //                         // console.log(menulist)
+        const 한식맛집= 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
+                            .map((item)=>{
+                                MNU = item.MNU;
+                                MNU = MNU.split("<br />")
+                                menuList = MNU.map(e=>{
+                                    const idx = e.search(/\d/)  // 처음 숫자가 나오는 idx 번호 추출 
+                                    key = e.substr(0,idx-1);
+                                    value=e.substr(idx,item.length).replaceAll(" ","");
+                                    return {"menu" : key , "price" : value}
+                                })
+                                // console.log(menulist)
 
-        //                         return {"가게명 " : item.BZ_NM , "메뉴" : menuList}
+                                return {"가게명 " : item.BZ_NM , "메뉴" : menuList}
 
-        //                     });
+                            });
 
-        // console.log("한식맛집",한식맛집)
+        console.log("한식맛집",한식맛집)
 
 
 

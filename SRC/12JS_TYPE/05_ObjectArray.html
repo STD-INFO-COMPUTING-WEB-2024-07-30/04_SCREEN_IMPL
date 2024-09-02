@@ -46,53 +46,60 @@
 
 
         // //한식인 식당의 식당명,메뉴종류,가격만 추출
-        const 한식맛집= 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
-                            .map((item)=>{
-                                MNU = item.MNU;
-                                MNU = MNU.split("<br />")
-                                menuList = MNU.map(e=>{
-                                    const idx = e.search(/\d/)  // 처음 숫자가 나오는 idx 번호 추출 
-                                    key = e.substr(0,idx-1);
-                                    value=e.substr(idx,item.length).replaceAll(" ","");
-                                    return {"menu" : key , "price" : value}
-                                })
-                                // console.log(menulist)
+        // const 한식맛집= 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
+        //                     .map((item)=>{
+        //                         MNU = item.MNU;
+        //                         MNU = MNU.split("<br />")
+        //                         menuList = MNU.map(e=>{
+        //                             const idx = e.search(/\d/)  // 처음 숫자가 나오는 idx 번호 추출 
+        //                             key = e.substr(0,idx-1);
+        //                             value=e.substr(idx,item.length).replaceAll(" ","");
+        //                             return {"menu" : key , "price" : value}
+        //                         })
+        //                         // console.log(menulist)
 
-                                return {"가게명 " : item.BZ_NM , "메뉴" : menuList}
+        //                         return {"가게명 " : item.BZ_NM , "메뉴" : menuList}
 
-                            });
+        //                     });
 
-        console.log("한식맛집",한식맛집)
+        // console.log("한식맛집",한식맛집)
 
 
 
         //고객 주문 리스트 저장
-        // let MNU = 중구맛집.data[0].MNU;
-        // MNU = MNU.split('<br />')
-        // console.log(MNU)
-        // MNU = MNU.map((item)=>{
-        //      const idx = item.search(/\d/)
-        //      key = item.substr(0,idx-1);
-        //      value=item.substr(idx,item.length).replaceAll(" ","");
-        //      return {"menu" : key , "price" : value}
-        // })
-        // console.log("MNU",MNU)
-        // const order1=
-        // [
-        //     {oid:"1111-1111",menu:MNU[0].menu ,price:MNU[0].price.replace('원','') ,amt:1,date:new Date()}, //idx 0
-        //     {oid:"1111-1112",menu:MNU[1].menu ,price:MNU[1].price.replace('원',''),amt:2,date:new Date()}, //idx 1
-        //     {oid:"1111-1113",menu:MNU[2].menu ,price:MNU[2].price.replace('원',''),amt:3,date:new Date()}, //idx 2
-        // ]
-        // console.log("order1",order1);
+        let MNU = 중구맛집.data[0].MNU;
+        MNU = MNU.split('<br />')
+        console.log(MNU)
+        MNU = MNU.map((item)=>{
+             const idx = item.search(/\d/)
+             key = item.substr(0,idx-1);
+             value=item.substr(idx,item.length).replaceAll(" ","");
+             return {"menu" : key , "price" : value}
+        })
+        console.log("MNU",MNU)
 
-        // // 총 결제해야되는 금액 map으로 추출
-        // // 1 각 item당 price , amt 를 추출(forEach,(map)!!!!,filter,reduce)
-        // // 2 price*amt 구하고    (reduce)
-        // // 3 price*amt 의 누적합 구하기 (reduce)
 
-        // // 리턴되는 값은 {'총계':'총금액'}
-        // const 결제금액  = order1.reduce((amt,item)=>{},0);
-        // console.log({'총계':결제금액})
+        const order1=
+        [
+            {oid:"1111-1111",menu:MNU[0].menu ,price:MNU[0].price.replace('원','') ,amt:1,date:new Date()}, //idx 0
+            {oid:"1111-1112",menu:MNU[1].menu ,price:MNU[1].price.replace('원',''),amt:2,date:new Date()}, //idx 1
+            {oid:"1111-1113",menu:MNU[2].menu ,price:MNU[2].price.replace('원',''),amt:3,date:new Date()}, //idx 2
+        ]
+        console.log("order1",order1);
+
+        // 총 결제해야되는 금액 map으로 추출
+        // 1 각 item당 price , amt 를 추출(forEach,(map)!!!!,filter,reduce)
+        // 2 price*amt 구하고    (reduce)
+        // 3 price*amt 의 누적합 구하기 (reduce)
+
+        // 리턴되는 값은 {'총계':'총금액'}
+        const 결제금액  = order1.reduce((sum,item)=>{
+            amt = item.amt
+            price = item.price.replace(',','')
+            price = Number(price)   //문자열 -> 숫자형 으로 형변환
+            return sum +=  amt * price
+        },0);
+        console.log({'총계':결제금액})
 
                             
 

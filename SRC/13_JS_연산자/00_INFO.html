@@ -18,16 +18,65 @@
         ++ (증가)
         -- (감소)
     -->
+    <script>
+        // % 연산 (짝수홀수/배수구하기/자리수/수의범위제한)
+        // console.log(10%2===0)
+        // console.log(11%2===0)
+        // console.log(12%2===0)
+        // console.log(13%2===0)
+        // console.log(14%2===0)
+        // console.log(15%2===0)
+        // console.log("---")
+        // console.log(10%3===0)
+        // console.log(11%3===0)
+        // console.log(12%3===0)
+        // console.log(13%3===0)
+        // console.log(14%3===0)
+        // console.log(15%3===0)
+        // console.log("---")
+        //setInterval(()=>{ console.log(  Math.floor(Math.random()*100)%45 + 1  ) },500)
+
+        // console.log(12345%10)
+        // console.log(12345%100)
+        // console.log(12345%1000)
+        // console.log(12345%10000)
+        // console.log("---")
+        // console.log(12345/10)
+        // console.log(12345/100)
+        // console.log(12345/1000)
+        // console.log(12345/10000)
+        // console.log(Math.random())
+
+        //++,--(증감연산자) : 변수안의 값을 1증가(++)or 1감소(--) 에 사용되는 연산자
+        //++a   : a안의 값을 1증가 한뒤 다른 연산처리
+        //a++   : 다른 연산처리 이후 1증가 
+        // let a=10
+        // let b=20
+        // let c= ++a
+        // let d= b--
+        // console.log(a,b,c,d)
+        // let e = (a++) + (++b) + (c--) + (++d)
+        // console.log(a,b,c,d,e)
+        
+    </script>    
 
     <!--
+        공간 = 값(먼저처리==저장)
+
         할당 연산자 (Assignment Operators):
         = (할당)
+
         += (더해서 할당)
         -= (빼서 할당)
         *= (곱해서 할당)
         /= (나눠서 할당)
         %= (나머지를 할당)
     -->
+    <!-- <script>
+        let num = 5;
+        num = num + 10
+        num+=10
+    </script> -->
 
 
     <!--
@@ -43,12 +92,11 @@
         <= (작거나 같다)
     -->
 
-    <script>
+    <!-- <script>
         // == vs ===
-        console.log('1'+2);
         console.log('123' == 123);
         console.log('123' === 123); //value와 자료형을 함께 일치여부 확인
-    </script>
+    </script> -->
 
 
     <!--
@@ -67,6 +115,22 @@
     >> (오른쪽 시프트)
     >>> (부호 없는 오른쪽 시프트)
     -->
+
+    <script>
+        // 조건식의결과 true && 조건식의결과 true == true
+        console.log(true && true);
+        console.log(true && false);
+        console.log(false && true);
+        console.log(false && false);
+        console.log("----");
+        console.log((5>3) && (10>7));
+        console.log((5>4) && (10<7));
+        let a=10;let b=20
+        console.log((a++ == 11) && (++b == 20));
+        console.log(a,b)
+        console.log(false && false);
+
+    </script>
 
 
     <!--

@@ -11,37 +11,37 @@
 
 
     <script>
-        // 전체정보
+        // // 전체정보
         console.log("중구맛집ALL",중구맛집)
 
-        //Data배열만 확인
+        // //Data배열만 확인
         const 중구맛집_data = 중구맛집.data;
-        console.log("중구맛집_data",중구맛집_data)
+        // console.log("중구맛집_data",중구맛집_data)
 
-        //FD_CS(음식카테고리) 가 '한식' 인 맛집만 추출
-        const 한식 = 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
-        console.log("한식",한식)
+        // //FD_CS(음식카테고리) 가 '한식' 인 맛집만 추출
+        // const 한식 = 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
+        // console.log("한식",한식)
 
-        //idx가 1 인 식당 꺼내기
-        const 춘천옥 = 한식[0]
-        console.log(춘천옥)
+        // //idx가 1 인 식당 꺼내기
+        // const 춘천옥 = 한식[0]
+        // console.log(춘천옥)
 
-        //춘천옥 식당의 MNU 추출
-        let MNU = 춘천옥.MNU
-        console.log("MNU",MNU)
-
-        // //Split을 이용한 배열처리
-        MNU = MNU.split('<br />')
+        // //춘천옥 식당의 MNU 추출
+        // let MNU = 춘천옥.MNU
         // console.log("MNU",MNU)
 
-        // //
-        MNU = MNU.map((item)=>{
-             const idx = item.search(/\d/)
-             key = item.substr(0,idx-1);
-             value=item.substr(idx,item.length).replaceAll(" ","");
-             return {"menu" : key , "price" : value}
-        })
-        console.log("MNU",MNU)
+        // // //Split을 이용한 배열처리
+        // MNU = MNU.split('<br />')
+        // // console.log("MNU",MNU)
+
+        // // //
+        // MNU = MNU.map((item)=>{
+        //      const idx = item.search(/\d/)
+        //      key = item.substr(0,idx-1);
+        //      value=item.substr(idx,item.length).replaceAll(" ","");
+        //      return {"menu" : key , "price" : value}
+        // })
+        // console.log("MNU",MNU)
 
 
 
@@ -49,11 +49,17 @@
         // const 한식맛집= 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'})
         //                     .map((item)=>{
         //                         MNU = item.MNU;
-        //                         const idx = MNU.search(/\d/)   //숫자부분부터 자르기
-        //                         key = MNU.substr(0,idx-1);
-        //                         value=MNU.substr(idx,item.length).replaceAll(" ","");
+        //                         MNU = MNU.split("<br />")
+        //                         menuList = MNU.map(e=>{
+        //                             const idx = e.search(/\d/)
+        //                             key = e.substr(0,idx-1);
+        //                             value=e.substr(idx,item.length).replaceAll(" ","");
+        //                             return {"menu" : key , "price" : value}
+        //                         })
+        //                         // console.log(menulist)
 
-        //                         return {"BZ_NM": item.BZ_NM, "MENU" : {key : value} };
+        //                         return {"가게명 " : item.BZ_NM , "메뉴" : menuList}
+
         //                     });
 
         // console.log("한식맛집",한식맛집)
@@ -61,24 +67,33 @@
 
 
         //고객 주문 리스트 저장
+        // let MNU = 중구맛집.data[0].MNU;
+        // MNU = MNU.split('<br />')
+        // console.log(MNU)
+        // MNU = MNU.map((item)=>{
+        //      const idx = item.search(/\d/)
+        //      key = item.substr(0,idx-1);
+        //      value=item.substr(idx,item.length).replaceAll(" ","");
+        //      return {"menu" : key , "price" : value}
+        // })
+        // console.log("MNU",MNU)
+        // const order1=
+        // [
+        //     {oid:"1111-1111",menu:MNU[0].menu ,price:MNU[0].price.replace('원','') ,amt:1,date:new Date()}, //idx 0
+        //     {oid:"1111-1112",menu:MNU[1].menu ,price:MNU[1].price.replace('원',''),amt:2,date:new Date()}, //idx 1
+        //     {oid:"1111-1113",menu:MNU[2].menu ,price:MNU[2].price.replace('원',''),amt:3,date:new Date()}, //idx 2
+        // ]
+        // console.log("order1",order1);
 
-       
-        const order1=
-        [
-            {oid:"1111-1111",menu:MNU[0].menu ,price:MNU[0].price.replace('원','') ,amt:1,date:new Date()}, //idx 0
-            {oid:"1111-1112",menu:MNU[1].menu ,price:MNU[1].price.replace('원',''),amt:2,date:new Date()}, //idx 1
-            {oid:"1111-1113",menu:MNU[2].menu ,price:MNU[2].price.replace('원',''),amt:3,date:new Date()}, //idx 2
-        ]
-        console.log("order1",order1);
+        // // 총 결제해야되는 금액 map으로 추출
+        // // 1 각 item당 price , amt 를 추출(forEach,(map)!!!!,filter,reduce)
+        // // 2 price*amt 구하고    (reduce)
+        // // 3 price*amt 의 누적합 구하기 (reduce)
 
-        // 총 결제해야되는 금액 map으로 추출
-        // 1 각 item당 price , amt 를 추출(forEach,(map)!!!!,filter,reduce)
-        // 2 price*amt 구하고    (reduce)
-        // 3 price*amt 의 누적합 구하기 (reduce)
+        // // 리턴되는 값은 {'총계':'총금액'}
+        // const 결제금액  = order1.reduce((amt,item)=>{},0);
+        // console.log({'총계':결제금액})
 
-        // 리턴되는 값은 {'총계':'총금액'}
-        const 결제금액  = order1.reduce((amt,item)=>{},0);
-        console.log({'총계':결제금액})
                             
 
 

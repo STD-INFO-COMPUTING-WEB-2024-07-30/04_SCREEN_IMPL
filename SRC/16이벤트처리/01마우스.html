@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #d1{
+            width:150px; height:150px; border:1px solid;
+        }
+    </style>
+<body>
+    
+    <div id="d1"></div>
+    <hr>
+    <a href="javascript:void(0)" id="d2">TEST</a>
+    <hr>
+    <button onclick="Count()">TEST</button>
+    <hr>
+    <form name="frm" action="test.jsp" onsubmit="return false">
+        <input type="text" name="userid" /> 
+        <input type="text" name="password" />
+        <input class="submit-button" type="submit" value="버튼1" />
+        <button class="submit-button" >버튼2</button>
+        <a href="javascript:void(0)" class="submit-button" >버튼3</a>
+    </form>
+
+    <script>
+        // 클릭이벤트
+        const d1Tg =  document.getElementById("d1");
+        let cnt=0;
+        d1Tg.addEventListener('click',(e)=>{
+            console.log("clicked..",e)
+            console.log("clicked..",e.target)
+            d1Tg.innerHTML=`<h3>CLICKED...${++cnt}</h3>`;
+        })
+        
+        const d2Tg =  document.getElementById("d2");
+        d2Tg.addEventListener('click',()=>{
+            console.log("clicked a tag...")
+        })
+        //클로저함수
+        function ClickHandler(){
+            let cnt=0;
+            function count(){
+                cnt++;
+                console.log("clicked...",cnt);
+            }
+            return count
+        }
+        const Count = ClickHandler();
+
+        //폼버튼 클릭 이벤트
+        const btns = document.querySelectorAll(".submit-button")
+        console.log(btns)
+        btns.forEach((el)=>{
+            el.addEventListener('click',(e)=>{
+                console.log('clicked..',e.target)
+                
+                if(!isValid(document.frm)){
+                    //유효성 체크 오류발생 문제발생
+                    return ;
+                }
+                document.frm.submit();
+            })
+
+        })
+
+        function isValid(form){
+            //console.log("isValid",typeof form.userid.value)
+            if(form.userid.value.trim()===""){
+                alert("ValidationCheck error..Userid를 입력하세요.")
+                return false;
+            }
+            if(form.password.value.trim()===""){
+                alert("ValidationCheck error..Password를 입력하세요.")
+                return false;
+            }  
+            
+            return true;
+        }
+        
+    </script>
+    
+</body>
+</html>

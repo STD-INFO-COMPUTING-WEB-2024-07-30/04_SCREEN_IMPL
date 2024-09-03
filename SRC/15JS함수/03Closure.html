@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--  
+    클로저
+    클로저는 내부 함수가 외부 함수의 변수에 접근할 수 있는 것을 의미
+    정보 은닉(Information Hiding): 클로저를 사용하여 외부에서 접근할 수 없도록 변수를 보호하고, 함수를 통해서만 접근 가능하도록 만들 수 있습니다.
+    데이터 보존(Data Persistence): 클로저를 사용하여 함수가 생성될 당시의 환경을 유지하면서, 데이터를 영구적으로 보존할 수 있습니다.
+    비동기 처리(Asynchronous Operations): 클로저를 사용하여 비동기적인 작업에서 결과를 유지하고, 필요할 때에 접근할 수 있도록 할 수 있습니다.
+    -->
+
+    <script>
+        // //01 기본
+        // function outer(){
+        //     //상태값
+        //     let state = 0;
+
+        //     function addStateOne(){
+        //         state++;
+        //         console.log("sur state Val : ",state);
+        //     }
+        //     return addStateOne; //함수이름이 리턴되면 만들어진 함수의 위치정보(주소)가 반환
+        // }
+
+        // const closureFunc = outer();
+        // //console.log(closureFunc)
+        // closureFunc();
+        // closureFunc();
+        // closureFunc();
+
+
+        const func = ()=>{
+            //상태값
+            let num = 0;
+            
+            //num의 값을 증가
+            const setNum = (n)=>{
+                console.log("setNum Call..",n)
+                num = num + n;
+            }
+            //num의 값을 확인
+            const getNum = ()=>{
+                console.log("getNum Call..")
+                return num;
+            }
+            return {set : setNum , get : getNum}
+        }
+        const cloure = func()
+        cloure.set(10)
+        cloure.set(20)
+        cloure.set(30)
+        console.log(cloure.get())
+
+    </script>
+
+</body>
+</html>

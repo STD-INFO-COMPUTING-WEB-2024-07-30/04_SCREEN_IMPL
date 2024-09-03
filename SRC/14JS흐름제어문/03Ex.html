@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            width : 50px; height : 50px; 
+            border : 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!--  -->
+
+    <script>
+        //행열값은 prompt()로 받습니다
+        const row = prompt("행 : ")
+        const col = prompt("열 : ")
+        let cnt=1;
+        document.write("<table>")
+        for(i=1;i<=row;i++){
+            document.write("<tr>")
+            for(j=1;j<=col;j++){
+                document.write(`<td>${cnt++}</td>`)
+            }
+            document.write("</td>")
+        }
+        document.write("</table>")
+        //행값과 열값을 받아서 테이블을 생성합니다
+        //document.write()와 for문을 사용합니다(이중 for)
+    </script>
+</body>
+</html>

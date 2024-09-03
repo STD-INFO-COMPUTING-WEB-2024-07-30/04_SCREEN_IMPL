@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 01 기본형태
+
+        //파라미터 o , 반환값 x
+        function f2(n1,n2)
+        {
+
+        }
+        //파라미터 x , 반환값 o
+        function f3()
+        {
+            return 10+20;
+        }
+        //파라미터 x , 반환값 x
+        function f4()
+        {
+
+        }
+        //화살표함수(()=>{})
+        const f_1 = (n1,n2)=>{return n1+n2;}
+        const f_2 = (n1,n2)=>{}
+        const f_3 = ()=>{return 10+20;}
+        const f_4 = ()=>{}
+
+
+        //파라미터 o , 반환값 o
+        function f1(n1,n2)
+        {
+            return n1+n2;
+        }
+        const n =  f1(10,20)
+        const n2= f_1(100,200)
+        console.log(n,n2)
+
+
+        //02 반환자료형의 Object 처리
+        function f5(n1,n2,n3)
+        {
+            console.log('f5 내부로 진입..',n1,n2,n3)
+            return {
+                arg1:n1,
+                arg2:n2,
+                arg3:n3,
+                sound : function(){ console.log('sound..');}
+            };
+        }
+        const r1 =f5(10,'홍길동',true)
+        console.log(r1)
+        r1.sound();
+        
+        //03 가변인자(...args)
+
+        function f6(n1,n2,...args){
+            console.log(args)
+        }
+        f6(10,20,30,40,'홍길동',null,{name:"아무무",skill:"aaa"},undefined)
+
+
+    </script>
+
+</body>
+</html>

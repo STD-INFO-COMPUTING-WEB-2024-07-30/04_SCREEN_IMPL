@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="맛집.js"></script>
+    <script>
+        // 기본 for
+        // document.write("<ul>")
+        //     // document.write("<li>1</li>")
+        //     // document.write("<li>2</li>")
+        //     // document.write("<li>3</li>")
+        //     // document.write("<li>4</li>")
+        //     for(i=1;i<=4;i++)
+        //     {
+        //         document.write(`<li>${i}</li>`)
+        //     }
+        // document.write("</ul>")
+
+        // 개량 for(Object 내의 값 확인)
+        // [].forEach
+
+        console.log(중구맛집)
+        const data = 중구맛집.data; // [{},{},{},{}]
+        const one = data[0] //{}
+        console.log(one)
+        for(key in one){
+            console.log(key, one[key])
+        }
+      
+
+
+    </script>
+</body>
+</html>

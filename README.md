@@ -13,6 +13,4 @@
 |**REACT**|[바로가기](./DOCUMENT/09REACT)|수정중|
 |**-**|-|-|
 
-https://image.istarbucks.co.kr/upload/common/img/main/2024/2024_august_pick_bg.jpg
-
 

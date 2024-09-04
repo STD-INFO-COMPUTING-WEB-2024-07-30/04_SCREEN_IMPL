@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let isDragging = false;
     let offsetX, offsetY;
     let draggedElement = null;
-
+    let cnt=0;
     // todo 
     const todoAdd = () => {
         // 기본 크기
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const newDiv = document.createElement('div');
         newDiv.className = 'todo-item';
         newDiv.setAttribute('draggable', true);
-        newDiv.textContent = "Drag me";  // 예시 텍스트 추가
+        newDiv.textContent = ++cnt;  // 예시 텍스트 추가
 
-        // **추가된 부분**: 마우스 버튼을 눌렀을 때 드래그 시작
+        // 마우스 버튼을 눌렀을 때 드래그 시작
         newDiv.addEventListener('click', (e) => {  
 
             if(!isDragging){
@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 draggedElement = newDiv;  // 현재 드래그 중인 요소 저장
                 offsetX = e.offsetX;  // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
                 offsetY = e.offsetY;  // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
+                console.log("!")
             }else if(draggedElement){
+                console.log("!!")
                 const articleRect = articleEl.getBoundingClientRect();
                 const x = e.clientX - articleRect.left - offsetX;
                 const y = e.clientY - articleRect.top - offsetY;
@@ -54,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 draggedElement.style.top = `${y}px`;
 
             }else{
+                console.log("!!!")
+
                 isDragging = false;  // 드래그 상태 해제
                 draggedElement = null;  // 드래그 중인 요소 초기화
             }
@@ -76,7 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // **추가된 부분**: 마우스 버튼을 뗄 때 드래그 종료
         document.addEventListener('mouseup', () => {
             isDragging = false;  // 드래그 상태 해제
+            
             draggedElement = null;  // 드래그 중인 요소 초기화
+
         });
 
         // 위치 지정

@@ -16,6 +16,7 @@
             animation-duration: 5s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
+            transition: .2s;
         }
         @keyframes move {
             0%,100%{left:0;top:0}
@@ -31,9 +32,17 @@
     <div class="ball"></div>
     <script>
         const ballEl = document.querySelector('.ball')
-        document.addEventListener('keypress',(e)=>{
+        let xpos=0
+        document.addEventListener('keydown',(e)=>{
             console.log(e.keyCode);
-
+            //LEFT : 37
+            //UP : 38
+            //RIGHT : 39
+            //DOWN : 40
+            if(e.keyCode===39)
+                ballEl.style.transform=`translateX(${xpos+=50}px)`
+            if(e.keyCode===37)
+                ballEl.style.transform=`translateX(${xpos-=50}px)`
         })
     </script>
 </body>

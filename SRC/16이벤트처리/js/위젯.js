@@ -1,95 +1,91 @@
-document.addEventListener('DOMContentLoaded',function(){
-
+document.addEventListener('DOMContentLoaded', function () {
     let isDragging = false;
     let offsetX, offsetY;
+    let draggedElement = null;
 
-    
     // todo 
-    const todoAdd = ()=>{
-        //기본 크기
-        //위치 확인
+    const todoAdd = () => {
+        // 기본 크기
+        // 위치 확인
     }
 
-    const todoEl = document.querySelector('#todo')
-    todoEl.addEventListener('dragstart',(e)=>{
-        console.log(e.target)
-
-    })
+    const todoEl = document.querySelector('#todo');
     
+    // **추가된 부분**: 기본 드래그 앤 드롭 동작을 방지하여 드래그 미리보기가 나타나지 않도록 함
+    todoEl.addEventListener('dragstart', (e) => {
+        // e.preventDefault(); // 기본 동작 방지
+    });
 
+    const articleEl = document.querySelector('article');
 
-    const articleEl = document.querySelector('article')
-    console.log(todo)
-
-    
-    articleEl.addEventListener('dragover',(e)=>{
-        
+    articleEl.addEventListener('dragover', (e) => {
         e.preventDefault();
-    })
-    articleEl.addEventListener('drop',(e)=>{
-        console.log('drop',e)
+    });
 
-        //좌표계산(e.clientX,Y : 마우스좌표 /  rect.left: 요소의 x좌표)
-        const rect =  articleEl.getBoundingClientRect();
+    articleEl.addEventListener('drop', (e) => {
+        console.log('drop', e);
+
+        // 좌표 계산 (e.clientX, Y : 마우스좌표 / rect.left: 요소의 x좌표)
+        const rect = articleEl.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        //new Div
-        const newDiv = document.createElement('div')
-        newDiv.className='todo-item'
-        newDiv.setAttribute('draggable',true)
-        // 마우스 버튼을 눌렀을 때
-        newDiv.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            // 요소의 현재 위치와 마우스의 위치 차이를 계산하여 드래그 중에 위치가 자연스럽게 보이도록 설정
-            offsetX = e.clientX - draggable.getBoundingClientRect().left;
-            offsetY = e.clientY - draggable.getBoundingClientRect().top;
+        // 새 div 생성
+        const newDiv = document.createElement('div');
+        newDiv.className = 'todo-item';
+        newDiv.setAttribute('draggable', true);
+        newDiv.textContent = "Drag me";  // 예시 텍스트 추가
 
-            // 문서 전체에서 마우스 이동과 마우스 버튼 떼기 이벤트 리스너 추가
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
+        // **추가된 부분**: 마우스 버튼을 눌렀을 때 드래그 시작
+        newDiv.addEventListener('click', (e) => {  
+
+            if(!isDragging){
+                isDragging = true;  // 드래그 상태 설정
+                draggedElement = newDiv;  // 현재 드래그 중인 요소 저장
+                offsetX = e.offsetX;  // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
+                offsetY = e.offsetY;  // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
+            }else if(draggedElement){
+                const articleRect = articleEl.getBoundingClientRect();
+                const x = e.clientX - articleRect.left - offsetX;
+                const y = e.clientY - articleRect.top - offsetY;
+
+                draggedElement.style.position = 'absolute';
+                draggedElement.style.left = `${x}px`;
+                draggedElement.style.top = `${y}px`;
+
+            }else{
+                isDragging = false;  // 드래그 상태 해제
+                draggedElement = null;  // 드래그 중인 요소 초기화
+            }
+
         });
 
+        // **추가된 부분**: 마우스 움직일 때 드래그 중인 요소를 이동
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging && draggedElement) {  // 드래그 중일 때만 실행
+                const articleRect = articleEl.getBoundingClientRect();
+                const x = e.clientX - articleRect.left - offsetX;
+                const y = e.clientY - articleRect.top - offsetY;
 
+                draggedElement.style.position = 'absolute';
+                draggedElement.style.left = `${x}px`;
+                draggedElement.style.top = `${y}px`;
+            }
+        });
 
+        // **추가된 부분**: 마우스 버튼을 뗄 때 드래그 종료
+        document.addEventListener('mouseup', () => {
+            isDragging = false;  // 드래그 상태 해제
+            draggedElement = null;  // 드래그 중인 요소 초기화
+        });
 
-        //위치 지정
-        newDiv.style.left=`${x}px`;
-        newDiv.style.top=`${y}px`;
+        // 위치 지정
+        newDiv.style.position = 'absolute';
+        newDiv.style.left = `${x}px`;
+        newDiv.style.top = `${y}px`;
 
-        articleEl.appendChild(newDiv)
-
+        articleEl.appendChild(newDiv);
 
         e.preventDefault();
-    })
-
-
-
-
-    // 
-
-    // 
-
-
-    // 
-
-    // 마우스 이동 시 호출되는 함수
-    function handleMouseMove(e) {
-        if (!isDragging) return;
-
-        // 현재 마우스 위치와 드래그 시작 시의 위치 차이를 계산하여 요소의 위치를 업데이트
-        draggable.style.left = `${e.clientX - offsetX}px`;
-        draggable.style.top = `${e.clientY - offsetY}px`;
-    }
-
-    // 마우스 버튼을 떼었을 때
-    function handleMouseUp() {
-        isDragging = false;
-
-        // 이벤트 리스너 제거
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('mouseup', handleMouseUp);
-    }
-
-})
-
+    });
+});

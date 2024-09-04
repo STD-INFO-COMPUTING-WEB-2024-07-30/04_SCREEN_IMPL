@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball{
+            width:150px;
+            height:150px;
+            background-color: orange;
+            border-radius: 50%;
+            position:absolute;
+
+            animation-name : move;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes move {
+            0%,100%{left:0;top:0}
+            10%{left:10%;top:10%}
+            30%{left:30%;top:30%}
+            50%{left:50%;top:50%}
+            70%{left:70%;top:70%}
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="ball"></div>
+    <script>
+        const ballEl = document.querySelector('.ball')
+        document.addEventListener('keypress',(e)=>{
+            console.log(e.keyCode);
+
+        })
+    </script>
+</body>
+</html>

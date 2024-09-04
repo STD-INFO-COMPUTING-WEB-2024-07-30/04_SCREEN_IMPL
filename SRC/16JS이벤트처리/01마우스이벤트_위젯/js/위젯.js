@@ -69,24 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
           isDelete = false;
           return;
         }
-        isMoving = true; // 드래그 상태 설정
-        draggedElement = newDiv; // 현재 드래그 중인 요소 저장
-        offsetX = e.offsetX; // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
-        offsetY = e.offsetY; // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
-        console.log("!");
-        draggedElement.style.opacity = ".7";
-        startMoving();
+        startMoving(newDiv,e);
+        
       } else {
         isMoving = false;
-        const articleRect = articleEl.getBoundingClientRect();
-        const x = e.clientX - articleRect.left - offsetX;
-        const y = e.clientY - articleRect.top - offsetY;
-        draggedElement.style.position = "absolute";
-        draggedElement.style.left = `${x}px`;
-        draggedElement.style.top = `${y}px`;
-        draggedElement.style.opacity = "1";
-
-        stopMoving();
+        stopMoving(e);
       }
     });
 
@@ -132,8 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+     //마우스버튼을 눌렀을때
     newDiv.addEventListener('mousedown', function(e) {
-        //마우스버튼을 눌렀을때
+       
         if (resizeDirection) {
             console.log("mousemove..사이즈조절 처리위한 mousedown")
             isResizing = true;
@@ -145,7 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // 마우스 움직임 이벤트 리스너 추가
             document.addEventListener('mousemove', resize);
             document.addEventListener('mouseup', stopResize);
+            
+          
         }
+        
+       
+
     });
 
 
@@ -162,8 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
     //--------------------------
     // 위젯 옮기기
     //--------------------------
-    function startMoving() {
+    function startMoving(newDiv,e) {
       console.log("startMoving..");
+      
+      isMoving = true; // 드래그 상태 설정
+      draggedElement = newDiv; // 현재 드래그 중인 요소 저장
+      offsetX = e.offsetX; // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
+      offsetY = e.offsetY; // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
+      console.log("!");
+      draggedElement.style.opacity = ".7";
+
       document.addEventListener("mousemove", moving);
     }
     function moving(e) {
@@ -180,8 +182,16 @@ document.addEventListener("DOMContentLoaded", function () {
         draggedElement.style.top = `${y}px`;
       }
     }
-    function stopMoving() {
+    function stopMoving(e) {
       console.log("stopMoving..");
+      const articleRect = articleEl.getBoundingClientRect();
+      const x = e.clientX - articleRect.left - offsetX;
+      const y = e.clientY - articleRect.top - offsetY;
+      draggedElement.style.position = "absolute";
+      draggedElement.style.left = `${x}px`;
+      draggedElement.style.top = `${y}px`;
+      draggedElement.style.opacity = "1";
+
       document.removeEventListener("mousemove", moving);
     }
 

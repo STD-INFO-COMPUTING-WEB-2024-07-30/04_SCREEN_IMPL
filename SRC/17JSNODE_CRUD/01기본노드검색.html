@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li name="a">item_1</li>
+        <li id="li2">item_2</li>
+        <li name="a">item_3</li>
+        <li class="item">item_4</li>
+        <li>item_5</li>
+        <li class="item">item_6</li>
+        <li>item_7</li>
+        <li class="item">item_8</li>
+    </ul>
+    <script>
+
+        //getElementById
+        const li2El = document.getElementById('li2')
+        console.log(typeof li2El)
+        li2El.style.backgroundColor='orange';
+
+        //getElementsByTagName
+        const liEls = document.getElementsByTagName('li')
+        console.log(liEls)
+        Array.from(liEls).forEach((item)=>{
+            item.style.fontSize='2rem';
+        })
+
+        //querySelector
+        const li2El_2 = document.querySelector('#li2')
+        li2El_2.style.width="300px";
+
+        //querySelectorAll
+        const itemEls = document.querySelectorAll('.item')
+        console.log(itemEls)
+        itemEls.forEach((item)=>{
+            console.log(item)
+        })
+
+        //getElementsByName
+        const aEls = document.getElementsByName('a')
+        console.log(aEls)
+        aEls.forEach((item)=>{
+            console.log(item)
+        })
+
+    </script>
+
+</body>
+</html>

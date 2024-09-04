@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .todo{
+            width:500px;
+            height:50px;
+            border : 1px solid;
+            margin:5px;
+            display:flex;
+            justify-content: left;
+            align-items: center;
+            gap:10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="add" placeholder="할일 입력"/><a href="javascript:void(0)" class="addBtn">입력</a>
+    <hr>
+    <div class="container"></div>
+
+    <script>
+        //input 엔터키에 대한 이벤트
+        const addEl = document.querySelector('.add');
+        addEl.addEventListener('keydown',(e)=>{
+            const keyCode = e.keyCode;
+            const text = addEl.value;
+            if(keyCode===13){
+                console.log(keyCode,text);
+                addNode(text);
+                addEl.value='';
+            }
+        })
+        
+        //입력버튼 클릭했을때 대한 이벤트
+        const addBtnEl = document.querySelector('.addBtn')
+        addBtnEl.addEventListener('click',()=>{
+            const text =  addEl.value;
+            console.log("clicked..",text)
+            addNode(text);
+            addEl.value='';
+        })
+
+
+        function addNode(text){
+            const containerEl = document.querySelector('.container');
+
+            const newDiv = document.createElement('div')
+            newDiv.classList.add('todo')
+
+            const span1 = document.createElement('span')
+            span1.innerHTML=text
+            newDiv.appendChild(span1)
+
+            const span2 = document.createElement('span')
+            span2.innerHTML=` | 삭제`
+            span2.setAttribute('style','cursor:pointer')
+            span2.addEventListener('click',()=>{
+                const delTodo =  span2.parentNode;
+                delTodo.remove();
+            })
+
+            newDiv.appendChild(span2)
+
+            // containerEl.appendChild(newDiv);
+            containerEl.prepend(newDiv);
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

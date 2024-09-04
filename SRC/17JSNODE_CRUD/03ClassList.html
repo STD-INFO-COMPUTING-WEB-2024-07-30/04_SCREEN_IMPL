@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .btn{
+            display:block;
+            margin:10px;
+            padding:10px;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 5px;
+            border:1px solid lightgray;
+            font-size:.8rem;
+            transition: .3s;
+        }   
+        .btn--st0{color:white;background-color: red;}
+        .btn--st1{color:white;background-color: orange;}
+        .btn--st2{color:white;background-color: yellowgreen;}
+        .btn--st3{color:white;background-color: green;}
+        .btn--st4{color:white;background-color: blue;}
+        .btn--st5{color:white;background-color: navy;}
+        .btn--st6{color:white;background-color: violet;}
+        .btn--st7{color:white;background-color: black;}
+    </style>
+  </head>
+  <body>
+    <button class="btn">BUTTON_01</button>
+    <button class="btn">BUTTON_02</button>
+    <button class="btn">BUTTON_03</button>
+    <button class="btn">BUTTON_04</button>
+    <button class="btn">BUTTON_05</button>
+    <button class="btn">BUTTON_06</button>
+    <button class="btn">BUTTON_07</button>
+    <button class="btn">BUTTON_08</button>
+
+    <script>
+        const btnEls = document.querySelectorAll('.btn')
+        btnEls.forEach((el,idx)=>{
+            el.addEventListener('mouseover',()=>{
+                console.log('mouseover idx',idx);
+                el.classList.add(`btn--st${idx}`)
+            })
+            el.addEventListener('mouseleave',()=>{
+                console.log('mouseleave idx',idx);
+                el.classList.remove(`btn--st${idx}`)
+            })
+        })
+    </script>
+
+  </body>
+</html>

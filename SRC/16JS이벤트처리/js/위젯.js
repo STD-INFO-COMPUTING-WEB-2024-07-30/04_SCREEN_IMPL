@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 새 div 생성
     const newDiv = document.createElement("div");
     newDiv.className = "todo-item";
-    newDiv.setAttribute("draggable", true);
+    // newDiv.setAttribute("draggable", true);
     newDiv.setAttribute("style", "position:relative");
     newDiv.textContent = ++cnt; // 예시 텍스트 추가
 

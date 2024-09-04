@@ -11,11 +11,15 @@ ul{
 body{
     padding : 0;
     margin : 0;
+    background-color: white;
 }
 
 .wrapper{}
 .wrapper>header{
     height : 100px;
+    position:relative;
+    z-index:1000;
+    background-color: white;
 }
 .wrapper>main{}
 .wrapper>main>section{
@@ -31,6 +35,13 @@ body{
     border-right:1px solid;
     margin-right : 15px;
     padding : 20px;
+
+   
+    
+    position:relative;
+    z-index:1000;
+
+    background-color: white;
   
 }
 .wrapper>main>section>article{
@@ -40,6 +51,7 @@ body{
     padding : 20px;
 
     position:relative;
+    background-color: white;
 }
 .wrapper>main>section>article>ul{}
 .wrapper>main>section>article>ul>li{}
@@ -58,4 +70,18 @@ body{
     position:absolute;
     background-color:lightgray;
     z-index : 5;
+}
+
+.cancelBtn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    z-index:1000;
+    width:25px;
+    height:25px;
+    border:1px solid;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

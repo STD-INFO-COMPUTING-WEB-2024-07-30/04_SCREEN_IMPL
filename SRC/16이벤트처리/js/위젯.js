@@ -1,156 +1,244 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+  
 
-    let items = []
+  //ITEM 이동
+  let isMoving = false;
+  let isDelete = false;
+  let offsetX, offsetY;
+  let draggedElement = null;
+  let cnt = 0;
 
-    let isMoving = false;
-    let offsetX, offsetY;
-    let draggedElement = null;
-    let cnt=0;
-    // todo 
-    const todoAdd = () => {
-        // 기본 크기
-        // 위치 확인
+  //사이즈 조절
+  let resizable = null;
+  let resizeDirection = '';
+  let isResizing = false;
+  let originalWidth, originalHeight, originalX, originalY;
+
+
+  // todo
+  const todoAdd = () => {
+    // 기본 크기
+    // 위치 확인
+  };
+
+  const todoEl = document.querySelector("#todo");
+
+  // **추가된 부분**: 기본 드래그 앤 드롭 동작을 방지하여 드래그 미리보기가 나타나지 않도록 함
+
+  const articleEl = document.querySelector("article");
+
+  articleEl.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  articleEl.addEventListener("drop", (e) => {
+    console.log("drop", e.target);
+
+    // 좌표 계산 (e.clientX, Y : 마우스좌표 / rect.left: 요소의 x좌표)
+    const rect = articleEl.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // 새 div 생성
+    const newDiv = document.createElement("div");
+    newDiv.className = "todo-item";
+    newDiv.setAttribute("draggable", true);
+    newDiv.setAttribute("style", "position:relative");
+    newDiv.textContent = ++cnt; // 예시 텍스트 추가
+
+    const cancelBtn = document.createElement("div");
+    cancelBtn.innerHTML = "x";
+    cancelBtn.classList.add("cancelBtn");
+    newDiv.appendChild(cancelBtn);
+
+    cancelBtn.addEventListener("click", (e) => {
+      const item = cancelBtn.parentNode;
+      const isdel = confirm("정말 삭제하시겠습니까?");
+      if (isdel) {
+        isDelete = true;
+        item.remove();
+      }
+      e.preventDefault();
+    });
+
+ 
+    // 마우스 버튼을 눌렀을 때 드래그 시작
+    newDiv.addEventListener("click", (e) => {
+      if (!isMoving) {
+        if (isDelete) {
+          isDelete = false;
+          return;
+        }
+        isMoving = true; // 드래그 상태 설정
+        draggedElement = newDiv; // 현재 드래그 중인 요소 저장
+        offsetX = e.offsetX; // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
+        offsetY = e.offsetY; // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
+        console.log("!");
+        draggedElement.style.opacity = ".7";
+        startMoving();
+      } else {
+        isMoving = false;
+        const articleRect = articleEl.getBoundingClientRect();
+        const x = e.clientX - articleRect.left - offsetX;
+        const y = e.clientY - articleRect.top - offsetY;
+        draggedElement.style.position = "absolute";
+        draggedElement.style.left = `${x}px`;
+        draggedElement.style.top = `${y}px`;
+        draggedElement.style.opacity = "1";
+
+        stopMoving();
+      }
+    });
+
+    // 테두리 근처로 갈때 마우스 포인터 변경
+    newDiv.addEventListener("mousemove", (e) => {
+
+        const rect = newDiv.getBoundingClientRect();
+        const offset = 30; // 테두리 감지 범위
+
+        resizable = newDiv;
+        
+        // console.log("mousemove..사이즈조절위한 포인터 변경")
+         // 마우스 위치에 따라 커서 모양과 크기 조정 방향 설정
+        if (e.clientX >= rect.right - offset && e.clientY >= rect.bottom - offset) {
+            newDiv.style.cursor = 'se-resize'; // 오른쪽 아래 모서리
+            console.log('se..')
+            resizeDirection = 'se';
+        } else if (e.clientX >= rect.right - offset && e.clientY <= rect.top + offset) {
+            newDiv.style.cursor = 'ne-resize'; // 오른쪽 위 모서리
+            resizeDirection = 'ne';
+        } else if (e.clientX <= rect.left + offset && e.clientY >= rect.bottom - offset) {
+            newDiv.style.cursor = 'sw-resize'; // 왼쪽 아래 모서리
+            resizeDirection = 'sw';
+        } else if (e.clientX <= rect.left + offset && e.clientY <= rect.top + offset) {
+            newDiv.style.cursor = 'nw-resize'; // 왼쪽 위 모서리
+            resizeDirection = 'nw';
+        } else if (e.clientX >= rect.right - offset) {
+            newDiv.style.cursor = 'e-resize'; // 오른쪽 테두리
+            resizeDirection = 'e';
+        } else if (e.clientX <= rect.left + offset) {
+            newDiv.style.cursor = 'w-resize'; // 왼쪽 테두리
+            resizeDirection = 'w';
+        } else if (e.clientY >= rect.bottom - offset) {
+            newDiv.style.cursor = 's-resize'; // 아래쪽 테두리
+            resizeDirection = 's';
+        } else if (e.clientY <= rect.top + offset) {
+            newDiv.style.cursor = 'n-resize'; // 위쪽 테두리
+            resizeDirection = 'n';
+        } else {
+            newDiv.style.cursor = 'default';
+            resizeDirection = '';
+        }
+
+    });
+
+    newDiv.addEventListener('mousedown', function(e) {
+        //마우스버튼을 눌렀을때
+        if (resizeDirection) {
+            console.log("mousemove..사이즈조절 처리위한 mousedown")
+            isResizing = true;
+            originalWidth = resizable.offsetWidth;
+            originalHeight = resizable.offsetHeight;
+            originalX = e.clientX;
+            originalY = e.clientY;
+
+            // 마우스 움직임 이벤트 리스너 추가
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResize);
+        }
+    });
+
+
+
+    // 위치 지정
+    newDiv.style.position = "absolute";
+    newDiv.style.left = `${x}px`;
+    newDiv.style.top = `${y}px`;
+
+    articleEl.appendChild(newDiv);
+
+    e.preventDefault();
+
+    //--------------------------
+    // 위젯 옮기기
+    //--------------------------
+    function startMoving() {
+      console.log("startMoving..");
+      document.addEventListener("mousemove", moving);
+    }
+    function moving(e) {
+    //   console.log("moving..", e);
+      if (isMoving && draggedElement) {
+        // 드래그 중일 때만 실행
+        const articleRect = articleEl.getBoundingClientRect();
+        const x = e.clientX - articleRect.left - offsetX;
+        const y = e.clientY - articleRect.top - offsetY;
+
+        //
+        draggedElement.style.position = "absolute";
+        draggedElement.style.left = `${x}px`;
+        draggedElement.style.top = `${y}px`;
+      }
+    }
+    function stopMoving() {
+      console.log("stopMoving..");
+      document.removeEventListener("mousemove", moving);
     }
 
-    const todoEl = document.querySelector('#todo');
-    
-    // **추가된 부분**: 기본 드래그 앤 드롭 동작을 방지하여 드래그 미리보기가 나타나지 않도록 함
- 
-    const articleEl = document.querySelector('article');
+    //--------------------------
+    // 위젯 크기조절
+    //--------------------------
 
+    function resize(e) {
 
-    articleEl.addEventListener('dragover', (e) => {
-        e.preventDefault();
-    });
-    articleEl.addEventListener('drop', (e) => {
-        console.log('drop', e.target);
-
-        // 좌표 계산 (e.clientX, Y : 마우스좌표 / rect.left: 요소의 x좌표)
-        const rect = articleEl.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // 새 div 생성
-        const newDiv = document.createElement('div');
-        newDiv.className = 'todo-item';
-        newDiv.setAttribute('draggable', true);
-        newDiv.setAttribute('style','position:relative')
-        newDiv.textContent = ++cnt;  // 예시 텍스트 추가
-
-        const cancelBtn = document.createElement('div')
-        cancelBtn.innerHTML='x'
-        cancelBtn.classList.add('cancelBtn');
-        newDiv.appendChild(cancelBtn)
-
-        cancelBtn.addEventListener('click',(e)=>{
-            const item = cancelBtn.parentNode;
-            const isdel = confirm('정말 삭제하시겠습니까?')
-            if(isdel)
-                item.remove();
-
-            e.preventDefault();
-        })
-
-
-        // 마우스 버튼을 눌렀을 때 드래그 시작
-        newDiv.addEventListener('click', (e) => {  
-
-            if(!isMoving){
-                isMoving = true;  // 드래그 상태 설정
-                draggedElement = newDiv;  // 현재 드래그 중인 요소 저장
-                offsetX = e.offsetX;  // 클릭 지점과 요소의 왼쪽 상단 사이의 X 거리
-                offsetY = e.offsetY;  // 클릭 지점과 요소의 왼쪽 상단 사이의 Y 거리
-                console.log("!")
-                draggedElement.style.opacity=".7"
-                startMoving();
-
-            }else{
-                isMoving = false;
-                const articleRect = articleEl.getBoundingClientRect();
-                const x = e.clientX - articleRect.left - offsetX;
-                const y = e.clientY - articleRect.top - offsetY;
-                draggedElement.style.position = 'absolute';
-                draggedElement.style.left = `${x}px`;
-                draggedElement.style.top = `${y}px`;
-                draggedElement.style.opacity="1"
-
-
-                stopMoving();
-                
-            }
-           
-        });
-        
-        // 테두리 근처로 갈때 마우스 포인터 변경
-        articleEl.addEventListener('mousemove', (e) => {
-            if (!isMoving && !draggedElement) {  // 드래그 중일 때만 실행
-                    // 현재 마우스 위치에 따른 커서 변경
-                    const rect = articleEl.getBoundingClientRect();
-                    const offset = 10;  // 테두리 감지 거리
-
-                    if (e.clientX > rect.left && e.clientX < rect.left + offset) {
-                        // 왼쪽 테두리
-                        articleEl.style.cursor = 'w-resize';
-                        currentResizingEdge = 'left';
-                    } else if (e.clientX < rect.right && e.clientX > rect.right - offset) {
-                        // 오른쪽 테두리
-                        articleEl.style.cursor = 'e-resize';
-                        currentResizingEdge = 'right';
-                    } else if (e.clientY > rect.top && e.clientY < rect.top + offset) {
-                        // 상단 테두리
-                        articleEl.style.cursor = 'n-resize';
-                        currentResizingEdge = 'top';
-                    } else if (e.clientY < rect.bottom && e.clientY > rect.bottom - offset) {
-                        // 하단 테두리
-                        articleEl.style.cursor = 's-resize';
-                        currentResizingEdge = 'bottom';
-                    } else {
-                        // 커서 원래대로 되돌리기
-                        articleEl.style.cursor = 'default';
-                        currentResizingEdge = null;
-                    }
-            }
-        });
-
-        // 위치 지정
-        newDiv.style.position = 'absolute';
-        newDiv.style.left = `${x}px`;
-        newDiv.style.top = `${y}px`;
-
-        articleEl.appendChild(newDiv);
-
-        e.preventDefault();
-
-
-        //--------------------------
-        // 위젯 옮기기
-        //--------------------------
-        function startMoving(){
-            console.log("startMoving..")
-            document.addEventListener('mousemove', moving);
+        if (!isResizing) return;
+        if (resizeDirection === 'e') {
+            const width = originalWidth + (e.clientX - originalX);
+            resizable.style.width = `${width}px`;
+        } else if (resizeDirection === 'w') {
+            const width = originalWidth - (e.clientX - originalX);
+            resizable.style.width = `${width}px`;
+            resizable.style.left = `${e.clientX}px`;
+        } else if (resizeDirection === 's') {
+            const height = originalHeight + (e.clientY - originalY);
+            resizable.style.height = `${height}px`;
+        } else if (resizeDirection === 'n') {
+            const height = originalHeight - (e.clientY - originalY);
+            resizable.style.height = `${height}px`;
+            resizable.style.top = `${e.clientY}px`;
+        } else if (resizeDirection === 'se') {
+            const width = originalWidth + (e.clientX - originalX);
+            const height = originalHeight + (e.clientY - originalY);
+            resizable.style.width = `${width}px`;
+            resizable.style.height = `${height}px`;
+        } else if (resizeDirection === 'sw') {
+            const width = originalWidth - (e.clientX - originalX);
+            const height = originalHeight + (e.clientY - originalY);
+            resizable.style.width = `${width}px`;
+            resizable.style.height = `${height}px`;
+            resizable.style.left = `${e.clientX}px`;
+        } else if (resizeDirection === 'ne') {
+            const width = originalWidth + (e.clientX - originalX);
+            const height = originalHeight - (e.clientY - originalY);
+            resizable.style.width = `${width}px`;
+            resizable.style.height = `${height}px`;
+            resizable.style.top = `${e.clientY}px`;
+        } else if (resizeDirection === 'nw') {
+            const width = originalWidth - (e.clientX - originalX);
+            const height = originalHeight - (e.clientY - originalY);
+            resizable.style.width = `${width}px`;
+            resizable.style.height = `${height}px`;
+            resizable.style.left = `${e.clientX}px`;
+            resizable.style.top = `${e.clientY}px`;
         }
-        function moving(e){
-            console.log("moving..",e)
-            if (isMoving && draggedElement) {  // 드래그 중일 때만 실행
-                    const articleRect = articleEl.getBoundingClientRect();
-                    const x = e.clientX - articleRect.left - offsetX;
-                    const y = e.clientY - articleRect.top - offsetY;
-    
-                    draggedElement.style.position = 'absolute';
-                    draggedElement.style.left = `${x}px`;
-                    draggedElement.style.top = `${y}px`;
-            }
-        }
-        function stopMoving() {
-            console.log("stopMoving..")
-            document.removeEventListener('mousemove', moving);
-        }
+    }
 
-        //--------------------------
-        // 위젯 크기조절
-        //--------------------------
+    function stopResize() {
+        isResizing = false;
+        document.removeEventListener('mousemove', resize);
+        document.removeEventListener('mouseup', stopResize);
+    }
 
 
-
-    });
+  });
 });

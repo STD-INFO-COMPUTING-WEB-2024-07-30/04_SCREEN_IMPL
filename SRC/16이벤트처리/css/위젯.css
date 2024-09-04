@@ -85,3 +85,18 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.resizeBtn{
+    position:absolute;
+    right:-120px;
+    top:0px;
+    z-index:1000;
+    width:120px;
+    height:25px;
+    border:1px solid;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}

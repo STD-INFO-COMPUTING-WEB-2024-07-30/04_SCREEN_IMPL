@@ -1,78 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .todo{
-            width:500px;
-            height:50px;
-            border : 1px solid;
-            margin:5px;
-            display:flex;
-            justify-content: left;
-            align-items: center;
-            gap:10px;
-        }
+      .todo {
+        width: 500px;
+        /* height:50px; */
+        border: 1px solid;
+        margin: 5px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+      }
     </style>
-</head>
-<body>
-    <input type="text" class="add" placeholder="할일 입력"/><a href="javascript:void(0)" class="addBtn">입력</a>
-    <hr>
+  </head>
+  <body>
+    <input type="text" class="add" placeholder="할일 입력" /><a
+      href="javascript:void(0)"
+      class="addBtn"
+      >입력</a
+    >
+    <hr />
     <div class="container"></div>
 
     <script>
-        //input 엔터키에 대한 이벤트
-        const addEl = document.querySelector('.add');
-        addEl.addEventListener('keydown',(e)=>{
-            const keyCode = e.keyCode;
-            const text = addEl.value;
-            if(keyCode===13){
-                console.log(keyCode,text);
-                addNode(text);
-                addEl.value='';
-            }
-        })
-        
-        //입력버튼 클릭했을때 대한 이벤트
-        const addBtnEl = document.querySelector('.addBtn')
-        addBtnEl.addEventListener('click',()=>{
-            const text =  addEl.value;
-            console.log("clicked..",text)
-            addNode(text);
-            addEl.value='';
-        })
-
-
-        function addNode(text){
-            const containerEl = document.querySelector('.container');
-
-            const newDiv = document.createElement('div')
-            newDiv.classList.add('todo')
-
-            const span1 = document.createElement('span')
-            span1.innerHTML=text
-            newDiv.appendChild(span1)
-
-            const span2 = document.createElement('span')
-            span2.innerHTML=` | 삭제`
-            span2.setAttribute('style','cursor:pointer')
-            span2.addEventListener('click',()=>{
-                const delTodo =  span2.parentNode;
-                delTodo.remove();
-            })
-
-            newDiv.appendChild(span2)
-
-            // containerEl.appendChild(newDiv);
-            containerEl.prepend(newDiv);
-
+      //input 엔터키에 대한 이벤트
+      const addEl = document.querySelector(".add");
+      addEl.addEventListener("keydown", (e) => {
+        const keyCode = e.keyCode;
+        const text = addEl.value;
+        if (keyCode === 13) {
+          console.log(keyCode, text);
+          addNode(text);
+          addEl.value = "";
         }
+      });
 
+      //입력버튼 클릭했을때 대한 이벤트
+      const addBtnEl = document.querySelector(".addBtn");
+      addBtnEl.addEventListener("click", () => {
+        const text = addEl.value;
+        console.log("clicked..", text);
+        addNode(text);
+        addEl.value = "";
+      });
 
+      //
+      let oldEl = null;
+      let oldYpos = null;
 
+      let todo = [];
+
+      function addNode(text) {
+        const containerEl = document.querySelector(".container");
+
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("todo");
+        newDiv.setAttribute("draggable", true);
+        newDiv.addEventListener("dragstart", (e) => {
+          // console.log('dragstart..',e.target.innerHTML);
+          oldEl = e.target;
+          oldYpos = e.pageY;
+        });
+        newDiv.addEventListener("dragover", (e) => {
+          // console.log('dragover..',e.target.innerHTML);
+          e.preventDefault();
+        });
+        newDiv.addEventListener("drop", (e) => {
+            //console.log('drop..',e.target);
+            console.log("old :", oldEl, oldYpos);
+            console.log("target", e.target, e.pageY);
+            const parentNode = oldEl.parentNode;
+
+            //oldEl.before(e.target);
+            const ChildNodes = Array.from(parentNode.childNodes);
+
+            ChildNodes.forEach((el) => {
+                console.log(el);
+            });
+            const oldIdx = ChildNodes.indexOf(oldEl);
+            const targetIdx = ChildNodes.indexOf(e.target);
+
+            ChildNodes[oldIdx] = e.target;
+            ChildNodes[targetIdx] = oldEl;
+           
+            //모든 노드 삭제 후 다시 자식 재배치
+            while (parentNode.firstChild) {
+                parentNode.removeChild(parentNode.firstChild);
+            }
+            ChildNodes.forEach((el) => {
+                parentNode.appendChild(el);
+            });
+
+          e.preventDefault();
+        });
+
+        const span1 = document.createElement("span");
+        span1.innerHTML = text;
+        newDiv.appendChild(span1);
+
+        const span2 = document.createElement("span");
+        span2.innerHTML = ` | 삭제`;
+        span2.setAttribute("style", "cursor:pointer");
+        span2.addEventListener("click", () => {
+          const delTodo = span2.parentNode;
+          delTodo.remove();
+        });
+
+        newDiv.appendChild(span2);
+
+        // containerEl.appendChild(newDiv);
+        containerEl.prepend(newDiv);
+      }
     </script>
-    
-</body>
+  </body>
 </html>

@@ -109,28 +109,29 @@ document.addEventListener("DOMContentLoaded", function () {
             newDiv.style.cursor = 'se-resize'; // 오른쪽 아래 모서리
             console.log('se..')
             resizeDirection = 'se';
-        } else if (e.clientX >= rect.right - offset && e.clientY <= rect.top + offset) {
-            newDiv.style.cursor = 'ne-resize'; // 오른쪽 위 모서리
-            resizeDirection = 'ne';
-        } 
-        else if (e.clientX <= rect.left + offset && e.clientY >= rect.bottom - offset) {
-            newDiv.style.cursor = 'sw-resize'; // 왼쪽 아래 모서리
-            resizeDirection = 'sw';
-        } else if (e.clientX <= rect.left + offset && e.clientY <= rect.top + offset) {
-            newDiv.style.cursor = 'nw-resize'; // 왼쪽 위 모서리
-            resizeDirection = 'nw';
-        } else if (e.clientX >= rect.right - offset) {
-            newDiv.style.cursor = 'e-resize'; // 오른쪽 테두리
-            resizeDirection = 'e';
-        } else if (e.clientX <= rect.left + offset) {
-            newDiv.style.cursor = 'w-resize'; // 왼쪽 테두리
-            resizeDirection = 'w';
-        } else if (e.clientY >= rect.bottom - offset) {
-            newDiv.style.cursor = 's-resize'; // 아래쪽 테두리
-            resizeDirection = 's';
-        } else if (e.clientY <= rect.top + offset) {
-            newDiv.style.cursor = 'n-resize'; // 위쪽 테두리
-            resizeDirection = 'n';
+      
+        // else if (e.clientX >= rect.right - offset && e.clientY <= rect.top + offset) {
+        //     newDiv.style.cursor = 'ne-resize'; // 오른쪽 위 모서리
+        //     resizeDirection = 'ne';
+        // } 
+        // else if (e.clientX <= rect.left + offset && e.clientY >= rect.bottom - offset) {
+        //     newDiv.style.cursor = 'sw-resize'; // 왼쪽 아래 모서리
+        //     resizeDirection = 'sw';
+        // } else if (e.clientX <= rect.left + offset && e.clientY <= rect.top + offset) {
+        //     newDiv.style.cursor = 'nw-resize'; // 왼쪽 위 모서리
+        //     resizeDirection = 'nw';
+        // } else if (e.clientX >= rect.right - offset) {
+        //     newDiv.style.cursor = 'e-resize'; // 오른쪽 테두리
+        //     resizeDirection = 'e';
+        // } else if (e.clientX <= rect.left + offset) {
+        //     newDiv.style.cursor = 'w-resize'; // 왼쪽 테두리
+        //     resizeDirection = 'w';
+        // } else if (e.clientY >= rect.bottom - offset) {
+        //     newDiv.style.cursor = 's-resize'; // 아래쪽 테두리
+        //     resizeDirection = 's';
+        // } else if (e.clientY <= rect.top + offset) {
+        //     newDiv.style.cursor = 'n-resize'; // 위쪽 테두리
+        //     resizeDirection = 'n';
         } else {
             newDiv.style.cursor = 'default';
             resizeDirection = '';
@@ -272,8 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-
-  //Todo 만들기
+//------------------------
+//Todo 만들기
+//------------------------
   const createTodo = (parentNode) => {
     console.log("createTodo...");
     const newDiv = document.createElement('div');
@@ -281,33 +283,47 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.classList.add('todo-item')
     
     const headDiv = document.createElement('div');
-    headDiv.setAttribute('style','display:flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:5px;border:2pxs solid')
+    headDiv.setAttribute('style','')
     headDiv.classList.add('head')
+
+    //컨트롤 박스
+    const controlBox = document.createElement("div");
+    controlBox.setAttribute('style','height:25px;background-color:rgba(240,240,240);padding:2px;display:flex;justify-content:right;align-items:center;')
+    headDiv.appendChild(controlBox)
+
+    //컨트롤 박스(제목)
+    const title = document.createElement("span");
+    title.classList.add('material-symbols-outlined')
+    title.setAttribute('style','font-size:.8rem;margin-right:5px;cursor:pointer;flex-grow:1')
+    title.innerHTML = "제목없음";
+    controlBox.appendChild(title);    
     
-    const addInput = document.createElement('input');
-    addInput.classList.add('form-control')
-    headDiv.appendChild(addInput)
-
-    const addBtn = document.createElement('span');
-    addBtn.classList.add('material-symbols-outlined')
-    addBtn.setAttribute('style','border : 1px solid;cursor:pointer;z-index:5555;position:relative;')
-
-    addBtn.innerHTML="add"
-    headDiv.appendChild(addBtn)
-
-
-    const BodyDiv = document.createElement('div');
-    BodyDiv.classList.add('body')
+    //컨트롤 박스(메뉴)
+    const menuBtn = document.createElement("span");
+    menuBtn.classList.add('material-symbols-outlined')
+    menuBtn.setAttribute('style','font-size:.8rem;margin-right:5px;cursor:pointer')
+    menuBtn.innerHTML = "more_vert";
+    controlBox.appendChild(menuBtn);
+    menuBtn.addEventListener("click", (e) => {
+      //메뉴창 활성화(저장-쿠키에 저장예정)
+      console.log('clicked menu..')
+    });
+    
+    
 
 
-    //취소버튼
-    const cancelBtn = document.createElement("div");
-    cancelBtn.innerHTML = "x";
-    cancelBtn.classList.add("cancelBtn");
-    newDiv.appendChild(cancelBtn);
+
+   //컨트롤 박스(취소)
+    const cancelBtn = document.createElement("span");
+    cancelBtn.classList.add('material-symbols-outlined')
+    cancelBtn.innerHTML = "cancel";
+    
+    cancelBtn.setAttribute('style','font-size:.8rem;cursor:pointer;')
+    controlBox.appendChild(cancelBtn);
 
     cancelBtn.addEventListener("click", (e) => {
-      const item = cancelBtn.parentNode;
+      const item = cancelBtn.parentNode.parentNode.parentNode;
+      console.log(item)
       const isdel = confirm("정말 삭제하시겠습니까?");
       if (isdel) {
         isDelete = true;
@@ -315,16 +331,54 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       e.preventDefault();
     });
+    
+    
+
+    
+    const addInput = document.createElement('input');
+    addInput.classList.add('form-control')
+    addInput.setAttribute('style','border:1px solid;height:35px;')
+    addInput.setAttribute('placeholder','할일을 입력하세요.')
+    headDiv.appendChild(addInput)
+
+
+    
+    //todo 추가버튼 
+    addInput.addEventListener('keydown',(e)=>{
+      console.log('clicked...')
+      if(e.keyCode==13){
+        const todoItem = document.createElement('div');;
+        todoItem.setAttribute('style','width:100%;height:30px;border:1px solid;background-color:white;')
+        const curDiv =  todoList.filter((item)=>item===newDiv)[0];
+        console.log(curDiv)
+        const bodyEl =  curDiv.querySelector('.body')
+        bodyEl.appendChild(todoItem)
+
+        addInput.value='';
+      }
+     
+
+    })
+
+    const BodyDiv = document.createElement('div');
+    BodyDiv.classList.add('body')
+   
+
 
     newDiv.appendChild(headDiv)
     newDiv.appendChild(BodyDiv)
 
 
     parentNode.appendChild(newDiv);
+
+    todoList.push(newDiv)
     return newDiv;
 
   }
+
+  //------------------------
   //Timer 만들기
+  //------------------------
   const createTimer = (parentNode) => {
     console.log("createTimer...");
     const newDiv = document.createElement('div');

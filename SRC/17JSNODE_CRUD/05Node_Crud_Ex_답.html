@@ -127,13 +127,22 @@
             
             const in1 = document.createElement('input');
             in1.value = username;
+            in1.readOnly=true;
             const in2 = document.createElement('input');
             in2.value = age;
+            in2.readOnly=true;
             const in3 = document.createElement('input');
             in3.value = address;
+            in3.readOnly=true;
             in3.setAttribute('style','width:90%;')
             const delBtn = document.createElement('span');
             delBtn.innerHTML='delete';
+            delBtn.setAttribute('style','cursor:pointer;display:block;')
+            delBtn.addEventListener('click',()=>{
+                console.log('clicked...')
+                const parent =  delBtn.parentNode.parentNode;
+                parent.remove();    //tr삭제
+            })
 
             td1El.appendChild(in1)
             td2El.appendChild(in2)

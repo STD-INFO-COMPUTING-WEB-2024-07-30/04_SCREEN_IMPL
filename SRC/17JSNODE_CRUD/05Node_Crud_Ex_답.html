@@ -65,6 +65,7 @@
                 <th>나이</th>
                 <th>주소</th>
                 <th>삭제</th>
+                <th>수정</th>
             </tr>   
         </thead>
         <tbody>
@@ -94,8 +95,11 @@
             const username = form.username.value;
             const age = form.age.value;
             const address = form.address.value;
-
             createNode(username,age,address)
+
+            form.username.value='';
+            form.age.value='';
+            form.address.value='';
         })
 
         //유효성검사 함수(Validation Check )
@@ -117,6 +121,7 @@
 
         
         //노드생성 함수
+        isEdited = []; //각요소의 idx는  추가되는 tr의 순서번호  
         function createNode(username,age,address){
             const tblBodyEl = document.querySelector('table tbody');
             const trEl = document.createElement('tr');
@@ -124,6 +129,7 @@
             const td2El = document.createElement('td');
             const td3El = document.createElement('td');
             const td4El = document.createElement('td');
+            const td5El = document.createElement('td');
             
             const in1 = document.createElement('input');
             in1.value = username;
@@ -144,16 +150,47 @@
                 parent.remove();    //tr삭제
             })
 
+            const editBtn = document.createElement('span');
+            editBtn.innerHTML='edit';
+            editBtn.setAttribute('style','cursor:pointer;display:block;')
+            //isEdit
+            isEdited.push(false);            
+            editBtn.setAttribute('data-id',isEdited.length-1)
+            editBtn.addEventListener('click',()=>{
+                console.log('clicked...')
+                const parent = editBtn.parentNode.parentNode;
+                const inputEls =  parent.querySelectorAll('input')
+                console.log(inputEls);
+
+                const id = editBtn.getAttribute('data-id');
+                if(isEdited[id]=!isEdited[id]){
+                    inputEls.forEach(el=>el.readOnly=false)
+                }else{
+                    inputEls.forEach(el=>el.readOnly=true)
+                }
+                //
+
+            })
+
+            
+
+
             td1El.appendChild(in1)
             td2El.appendChild(in2)
             td3El.appendChild(in3)
             td4El.appendChild(delBtn)
+            td5El.appendChild(editBtn)
 
             trEl.appendChild(td1El)
             trEl.appendChild(td2El)
             trEl.appendChild(td3El)
             trEl.appendChild(td4El)
+            trEl.appendChild(td5El)
+            
             tblBodyEl.appendChild(trEl)
+
+   
+            console.log(isEdited)
 
 
 

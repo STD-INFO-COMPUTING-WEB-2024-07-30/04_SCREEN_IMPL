@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- SWIPER CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper{
+            height:500px;
+        }
+        .swiper>.swiper-wrapper{
+            height:100%;
+        }
+        .swiper>.swiper-wrapper>.swiper-slide{
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header></header>
+      <main>
+        <section>
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+
+    
+    <script>
+        //수평배치 슬라이더
+        const swiper_01=new Swiper('.swiper',{
+            //방향
+            direction:'horizontal',
+            //자동동작
+            autoplay:{
+                delay:5000,
+            },
+            //무한동작
+            loop:true,
+            //페이징처리
+            pagination:{},
+            //next,prev
+            navigation:{
+                nextEl:'.swiper-button-next',
+                prevEl:'.swiper-button-prev',
+            },
+        })
+    </script>
+
+
+  </body>
+</html>

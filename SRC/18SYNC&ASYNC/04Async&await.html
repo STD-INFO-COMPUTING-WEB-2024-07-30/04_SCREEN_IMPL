@@ -84,6 +84,8 @@
 
 
         // SUB 스레드 동작(async/await를 사용 - 동시에 예약되는 문제 해결)
+        // async 예약어 : 해당 함수가 비동기적인 처리를 하는 프로세스임을 암시
+        // await 예약어 : async블럭 내부에서 사용되며 비동기 작업이 완료시까지 대기하는 예약어 
         function sub_process_exe(val){
             return new Promise((resolve,reject)=>{
                 setTimeout(()=>{
@@ -112,7 +114,7 @@
         }
         sub_process_func()
 
-        
+
     </script>
 
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="javascript:void(0)" class="btn1">예약실행</a>
+    <a href="javascript:void(0)" class="btn2">예약취소</a>
+
+    <div class="d1"></div>
+    
+    <script>    
+        const btn1 = document.querySelector('.btn1')
+        const d1 = document.querySelector('.d1');
+        let reservedId=null;
+        btn1.addEventListener('click',()=>{
+            console.log("clicked...");
+            //setTimeout : 예약함수(일정시간 이후 특정작업 수행 - 비동기처리함수)
+            reservedId=setTimeout(()=>{
+                d1.innerHTML+="HELLOWORLD1"
+            },3000)
+            console.log("reservedId",reservedId)
+            d1.innerHTML+="HELLOWORLD2"
+        })
+        const btn2 = document.querySelector('.btn2')
+        btn2.addEventListener('click',()=>{
+            if(reservedId!=null)
+                clearTimeout(reservedId)
+        })
+
+    </script>
+
+</body>
+</html>

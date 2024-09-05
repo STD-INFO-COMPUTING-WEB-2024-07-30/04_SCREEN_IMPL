@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   
+  //전역
+  let category=null;
 
   //ITEM 이동
   let isMoving = false;
@@ -15,22 +17,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let originalWidth, originalHeight, originalX, originalY;
 
 
-  // todo
-  const todoAdd = () => {
-    // 기본 크기
-    // 위치 확인
-  };
-
+ 
   const todoEl = document.querySelector("#todo");
+  const timerEl = document.querySelector("#timer");
 
-  // **추가된 부분**: 기본 드래그 앤 드롭 동작을 방지하여 드래그 미리보기가 나타나지 않도록 함
+  todoEl.addEventListener('dragstart',(e)=>{
+    category =  todoEl.getAttribute('data-category')
+    console.log('cat',category)
+  })
+  timerEl.addEventListener('dragstart',(e)=>{
+    category =  timerEl.getAttribute('data-category')
+    console.log('cat',category)
+  })
+
+
 
   const articleEl = document.querySelector("article");
-
   articleEl.addEventListener("dragover", (e) => {
     e.preventDefault();
   });
-
   articleEl.addEventListener("drop", (e) => {
     console.log("drop", e.target);
 
@@ -40,26 +45,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const y = e.clientY - rect.top;
 
     // 새 div 생성
-    const newDiv = document.createElement("div");
-    newDiv.className = "todo-item";
+    let newDiv = null;
+    
+    // const newDiv = null;
+
+    if(category==='todo')
+      newDiv = createTodo(articleEl)
+    else if(category==='timer')
+      newDiv = createTimer(articleEl)
+
+    
+
     // newDiv.setAttribute("draggable", true);
-    newDiv.setAttribute("style", "position:relative");
-    newDiv.textContent = ++cnt; // 예시 텍스트 추가
+    
+    // newDiv.setAttribute("style", "position:relative");
+    // newDiv.textContent = ++cnt; // 예시 텍스트 추가
 
-    const cancelBtn = document.createElement("div");
-    cancelBtn.innerHTML = "x";
-    cancelBtn.classList.add("cancelBtn");
-    newDiv.appendChild(cancelBtn);
+    // const cancelBtn = document.createElement("div");
+    // cancelBtn.innerHTML = "x";
+    // cancelBtn.classList.add("cancelBtn");
+    // newDiv.appendChild(cancelBtn);
 
-    cancelBtn.addEventListener("click", (e) => {
-      const item = cancelBtn.parentNode;
-      const isdel = confirm("정말 삭제하시겠습니까?");
-      if (isdel) {
-        isDelete = true;
-        item.remove();
-      }
-      e.preventDefault();
-    });
+    // cancelBtn.addEventListener("click", (e) => {
+    //   const item = cancelBtn.parentNode;
+    //   const isdel = confirm("정말 삭제하시겠습니까?");
+    //   if (isdel) {
+    //     isDelete = true;
+    //     item.remove();
+    //   }
+    //   e.preventDefault();
+    // });
 
  
     // 마우스 버튼을 눌렀을 때 드래그 시작
@@ -94,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (e.clientX >= rect.right - offset && e.clientY <= rect.top + offset) {
             newDiv.style.cursor = 'ne-resize'; // 오른쪽 위 모서리
             resizeDirection = 'ne';
-        } else if (e.clientX <= rect.left + offset && e.clientY >= rect.bottom - offset) {
+        } 
+        else if (e.clientX <= rect.left + offset && e.clientY >= rect.bottom - offset) {
             newDiv.style.cursor = 'sw-resize'; // 왼쪽 아래 모서리
             resizeDirection = 'sw';
         } else if (e.clientX <= rect.left + offset && e.clientY <= rect.top + offset) {
@@ -249,6 +265,92 @@ document.addEventListener("DOMContentLoaded", function () {
         document.removeEventListener('mouseup', stopResize);
     }
 
-
+  //
   });
+
+
+
+  //Todo 만들기
+  const createTodo = (parentNode) => {
+    console.log("createTodo...");
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('item')
+    newDiv.classList.add('todo-item')
+    
+    const headDiv = document.createElement('div');
+    headDiv.classList.add('head')
+    const addInput = document.createElement('input');
+    const addBtn = document.createElement('span');
+
+    const BodyDiv = document.createElement('div');
+    BodyDiv.classList.add('body')
+
+
+    //취소버튼
+    const cancelBtn = document.createElement("div");
+    cancelBtn.innerHTML = "x";
+    cancelBtn.classList.add("cancelBtn");
+    newDiv.appendChild(cancelBtn);
+
+    cancelBtn.addEventListener("click", (e) => {
+      const item = cancelBtn.parentNode;
+      const isdel = confirm("정말 삭제하시겠습니까?");
+      if (isdel) {
+        isDelete = true;
+        item.remove();
+      }
+      e.preventDefault();
+    });
+
+    newDiv.appendChild(headDiv)
+    newDiv.appendChild(BodyDiv)
+
+
+    parentNode.appendChild(newDiv);
+    return newDiv;
+
+  }
+  //Timer 만들기
+  const createTimer = (parentNode) => {
+    console.log("createTimer...");
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('item')
+    newDiv.classList.add('timer-item')
+    
+    const headDiv = document.createElement('div');
+    headDiv.classList.add('head')
+    const addInput = document.createElement('input');
+    const addBtn = document.createElement('span');
+
+    const BodyDiv = document.createElement('div');
+    BodyDiv.classList.add('body')
+
+
+    //취소버튼
+    const cancelBtn = document.createElement("div");
+    cancelBtn.innerHTML = "x";
+    cancelBtn.classList.add("cancelBtn");
+    newDiv.appendChild(cancelBtn);
+
+    cancelBtn.addEventListener("click", (e) => {
+      const item = cancelBtn.parentNode;
+      const isdel = confirm("정말 삭제하시겠습니까?");
+      if (isdel) {
+        isDelete = true;
+        item.remove();
+      }
+      e.preventDefault();
+    });
+
+    newDiv.appendChild(headDiv)
+    newDiv.appendChild(BodyDiv)
+
+
+    parentNode.appendChild(newDiv);
+    return newDiv;
+
+  }
+//
 });
+
+

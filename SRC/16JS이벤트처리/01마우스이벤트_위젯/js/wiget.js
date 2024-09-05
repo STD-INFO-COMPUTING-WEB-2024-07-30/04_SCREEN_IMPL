@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const todoEl = document.querySelector("#todo");
   const timerEl = document.querySelector("#timer");
 
+  //-----------------------------------
+  //aside에서 Drag한 Item Category 확인
+  //-----------------------------------
   todoEl.addEventListener('dragstart',(e)=>{
     category =  todoEl.getAttribute('data-category')
     console.log('cat',category)
@@ -277,7 +280,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //Todo 만들기
 //------------------------
   const createTodo = (parentNode) => {
-    console.log("createTodo...");
+
+    console.log("createTodo..."); 
     const newDiv = document.createElement('div');
     newDiv.classList.add('item')
     newDiv.classList.add('todo-item')
@@ -288,20 +292,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //컨트롤 박스
     const controlBox = document.createElement("div");
-    controlBox.setAttribute('style','height:25px;background-color:rgba(240,240,240);padding:2px;display:flex;justify-content:right;align-items:center;')
+    controlBox.setAttribute('style','color:white;padding:5px 0;border-bottom:1px solid;padding:2px;display:flex;justify-content:right;align-items:center;background-color: black')
     headDiv.appendChild(controlBox)
 
     //컨트롤 박스(제목)
     const title = document.createElement("span");
     title.classList.add('material-symbols-outlined')
-    title.setAttribute('style','font-size:.8rem;margin-right:5px;cursor:pointer;flex-grow:1')
+    title.setAttribute('style','padding:5px 0px;font-size:.8rem;margin-right:5px;cursor:pointer;flex-grow:1;')
     title.innerHTML = "제목없음";
     controlBox.appendChild(title);    
     
     //컨트롤 박스(메뉴)
     const menuBtn = document.createElement("span");
     menuBtn.classList.add('material-symbols-outlined')
-    menuBtn.setAttribute('style','font-size:.8rem;margin-right:5px;cursor:pointer')
+    menuBtn.setAttribute('style','font-size:.9rem;margin-right:5px;cursor:pointer')
     menuBtn.innerHTML = "more_vert";
     controlBox.appendChild(menuBtn);
     menuBtn.addEventListener("click", (e) => {
@@ -309,16 +313,13 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log('clicked menu..')
     });
     
-    
-
-
 
    //컨트롤 박스(취소)
     const cancelBtn = document.createElement("span");
     cancelBtn.classList.add('material-symbols-outlined')
     cancelBtn.innerHTML = "cancel";
     
-    cancelBtn.setAttribute('style','font-size:.8rem;cursor:pointer;')
+    cancelBtn.setAttribute('style','font-size:.9rem;cursor:pointer;')
     controlBox.appendChild(cancelBtn);
 
     cancelBtn.addEventListener("click", (e) => {
@@ -332,29 +333,129 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
     });
     
-    
-
-    
     const addInput = document.createElement('input');
     addInput.classList.add('form-control')
-    addInput.setAttribute('style','border:1px solid;height:35px;')
+    addInput.setAttribute('style','border : 0;border-bottom:1px solid gray;height:30px;outline:none;border-radius:0;')
     addInput.setAttribute('placeholder','할일을 입력하세요.')
     headDiv.appendChild(addInput)
-
 
     
     //todo 추가버튼 
     addInput.addEventListener('keydown',(e)=>{
       console.log('clicked...')
       if(e.keyCode==13){
+
+        const text = addInput.value;
+        //ITEM단위
         const todoItem = document.createElement('div');;
-        todoItem.setAttribute('style','width:100%;height:30px;border:1px solid;background-color:white;')
+        todoItem.setAttribute('style','margin:0 auto;width:100%;border-bottom:1px solid gray;position:relative;')
         const curDiv =  todoList.filter((item)=>item===newDiv)[0];
         console.log(curDiv)
-        const bodyEl =  curDiv.querySelector('.body')
-        bodyEl.appendChild(todoItem)
 
+        const bodyEl =  curDiv.querySelector('.body')
+
+
+        const tableEl = document.createElement('table')
+        const tr = document.createElement('tr')
+        const td1 = document.createElement('td')
+        td1.setAttribute('style','border-right:1px solid gray;;margin-right:5px;width:35px;display:flex;height:35px;justify-content:center;align-items:center;')
+        const chk = document.createElement('input')
+        chk.setAttribute('type','checkbox')
+        chk.addEventListener('change',(e)=>{
+          console.log('checked..')
+          const parent = chk.parentNode.parentNode.parentNode.parentNode;
+          if(e.target.checked){
+            const line = document.createElement('span')
+            parent.appendChild(line);
+            line.classList.add('todo-checker')
+          }else{
+            parent.querySelector('.todo-checker').remove();
+          }
+          
+          console.log(parent);
+        })
+        td1.appendChild(chk)
+
+        const td2 = document.createElement('td')
+        const input = document.createElement('input')
+        input.setAttribute('style',"width:calc(100% -70px);height:100%;background-color: white;border:0;outline:none")
+        input.readOnly=true
+        input.value=text
+        td2.appendChild(input)
+        td2.setAttribute('style',"width:100%;")
+
+        const td3 = document.createElement('td')
+        td3.setAttribute('style','width:35px;hieght:100%display:flex;justify-content:center;align-items:center;flex-direction:column')
+        
+        const up = document.createElement('span')
+        const down = document.createElement('span')
+        up.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer')
+        down.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer')
+        up.classList.add('material-symbols-outlined');
+        down.classList.add('material-symbols-outlined');
+        up.innerHTML='arrow_drop_up'
+        down.innerHTML='arrow_drop_down'
+
+        up.addEventListener('click',function(){
+          const tbodyEl = up.parentNode.parentNode.parentNode.parentNode.parentNode; //body
+          const curItem = up.parentNode.parentNode.parentNode.parentNode;
+          const itemsEl =  Array.from(tbodyEl.querySelectorAll('&>div'));
+          const idx = itemsEl.indexOf(curItem)
+          console.log('idx',idx);
+        
+          if(idx!=0 && idx!=itemsEl.length){
+            itemsEl[idx] = itemsEl[idx-1];
+            itemsEl[idx-1] =curItem; 
+            console.log('itemsEl',itemsEl);
+          }
+          while(tbodyEl.firstChild){
+            tbodyEl.removeChild(tbodyEl.firstChild);
+          }
+          itemsEl.forEach(el=>{
+            tbodyEl.appendChild(el)
+          })
+
+        })
+        down.addEventListener('click',function(){
+          const tbodyEl = down.parentNode.parentNode.parentNode.parentNode.parentNode; //body
+          const curItem = down.parentNode.parentNode.parentNode.parentNode;
+          const itemsEl =  Array.from(tbodyEl.querySelectorAll('&>div'));
+          const idx = itemsEl.indexOf(curItem)
+          console.log('idx',idx);
+        
+          if(idx!=itemsEl.length-1){
+            itemsEl[idx] = itemsEl[idx+1];
+            itemsEl[idx+1] =curItem; 
+            console.log('itemsEl',itemsEl);
+          }
+          while(tbodyEl.firstChild){
+            tbodyEl.removeChild(tbodyEl.firstChild);
+          }
+          itemsEl.forEach(el=>{
+            tbodyEl.appendChild(el)
+          })
+
+
+        })
+
+
+        td3.appendChild(up)
+        td3.appendChild(down)
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+        tableEl.appendChild(tr)
+
+        todoItem.appendChild(tableEl)
+
+
+        bodyEl.prepend(todoItem)
         addInput.value='';
+
+
+
+        
       }
      
 
@@ -362,8 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const BodyDiv = document.createElement('div');
     BodyDiv.classList.add('body')
-   
-
+    
 
     newDiv.appendChild(headDiv)
     newDiv.appendChild(BodyDiv)
@@ -397,7 +497,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //취소버튼
     const cancelBtn = document.createElement("div");
     cancelBtn.innerHTML = "x";
-    cancelBtn.classList.add("cancelBtn");
     newDiv.appendChild(cancelBtn);
 
     cancelBtn.addEventListener("click", (e) => {

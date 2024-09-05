@@ -1,7 +1,7 @@
 :root{}
 
 
-*{box-sizing: border-box;;}
+*{box-sizing: border-box;font-family: 'NanumBaReunHiPi';font-weight:800}
 
 ul{
     list-style:none;
@@ -12,6 +12,7 @@ body{
     padding : 0;
     margin : 0;
     background-color: white;
+   
 }
 
 .wrapper{}
@@ -90,7 +91,11 @@ body{
 
     position:absolute;
     background-color:white;
+    /* background-color: #FFD65C;; */
     z-index : 5;
+    
+    box-shadow: 5px 5px 5px lightgray;;
+
 }
 .timer-item{
     width : 200px;
@@ -113,8 +118,8 @@ body{
     margin-bottom:5px;
 }
 .item::-webkit-scrollbar{
-  
-}
+    display:none;
+}   
 .item:before{
     display:block;
     border-top:10px solid black;
@@ -177,6 +182,17 @@ body{
     text-align: center;
 
 }
+.todo-checker{
+    position:absolute;;
+    left:0;
+    top:50%;
+    height : 2px ;
+    background-color: royalblue;;
+    display:block;
+    width : 100%;
+
+}
+
 #timer{
     display:relative;
 }

@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
   //전역
   let category=null;
+  const todoList = [];
+  const timerList = [];
+
 
   //ITEM 이동
   let isMoving = false;
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
     // 마우스 버튼을 눌렀을 때 드래그 시작
-    newDiv.addEventListener("click", (e) => {
+    newDiv.addEventListener("contextmenu", (e) => {
       if (!isMoving) {
         if (isDelete) {
           isDelete = false;
@@ -278,9 +281,20 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.classList.add('todo-item')
     
     const headDiv = document.createElement('div');
+    headDiv.setAttribute('style','display:flex;justify-content:center;align-items:center;gap:10px;width:100%;padding:5px;border:2pxs solid')
     headDiv.classList.add('head')
+    
     const addInput = document.createElement('input');
+    addInput.classList.add('form-control')
+    headDiv.appendChild(addInput)
+
     const addBtn = document.createElement('span');
+    addBtn.classList.add('material-symbols-outlined')
+    addBtn.setAttribute('style','border : 1px solid;cursor:pointer;z-index:5555;position:relative;')
+
+    addBtn.innerHTML="add"
+    headDiv.appendChild(addBtn)
+
 
     const BodyDiv = document.createElement('div');
     BodyDiv.classList.add('body')

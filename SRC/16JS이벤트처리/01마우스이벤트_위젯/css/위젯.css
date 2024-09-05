@@ -89,7 +89,7 @@ body{
     border : 1px solid;
 
     position:absolute;
-    background-color:lightgray;
+   
     z-index : 5;
 }
 .timer-item{
@@ -126,8 +126,8 @@ body{
 
 .cancelBtn{
     position:absolute;
-    right:-1px;
-    top:-25px;
+    right:-25px;
+    top:-1px;
     z-index:5000;
     width:25px;
     height:25px;

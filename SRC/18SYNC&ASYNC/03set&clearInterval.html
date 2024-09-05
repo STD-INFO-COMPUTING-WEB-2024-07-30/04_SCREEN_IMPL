@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="n"></div>
+    <hr>
+    <div class="box"></div>
+    <hr>
+    <div class="box2"></div>
+    
+    <script>
+        let n=0;
+        const nEl = document.querySelector('.n')
+
+        const box=document.querySelector('.box')
+        let id1,id2;
+        id1=setInterval(()=>{
+                n++;
+                box.innerHTML=n
+                nEl.innerHTML = n;
+        },0.001)
+
+        const box2=document.querySelector('.box2')
+        id2=setInterval(()=>{
+                n++;
+                box2.innerHTML=n
+                nEl.innerHTML = n;
+        },0.001)
+
+        
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:1000px;
+            height:500px;
+            display:flex;
+            justify-content: center;
+            align-items: start;
+            gap:50px;
+            overflow: auto;
+
+        }
+        .box>*{
+            width:100%;height:90%;
+            border : 1px solid;
+            padding-top:10px;
+            position:relative;
+        }
+        .box>*:nth-child(1)::after{
+            content:'MAIN THREAD';
+            display:absolute;
+            top:-10px;
+        }
+        .box>*:nth-child(2)::after{
+            content:'SUB1 THREAD';
+            display:absolute;
+            top:-10px;
+        }
+        .box>*:nth-child(3)::after{
+            content:'SUB2 THREAD';
+            display:absolute;
+            top:-10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="main-thread"></div>
+        <div class="sub1-thread"></div>
+        <div class="sub2-thread"></div>
+    </div>
+
+    <script>
+        const main = document.querySelector(".main-thread")
+        const sub1 = document.querySelector(".sub1-thread")
+        const sub2 = document.querySelector(".sub2-thread")
+
+        // MAIN 스레드 동작
+        setInterval(()=>{
+            main.innerHTML+="MAIN THREAD RUN...<br>"
+        },1000)
+
+        // // SUB 스레드 동작(async/await를 사용하기 전 - 동시에 예약되는 문제)
+        // function sub_process_exe(val){
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             resolve(val)    //비동기요청 성공시에 전달되는 값
+        //         },3000)
+        //     });
+        // }
+
+        // // Sub1 스레드 동작
+        // sub_process_exe(1)
+        //     .then((response)=>{
+        //         console.log('response',response)
+        //         sub1.innerHTML=`${response}-THREAD RUN`
+        //     })
+        //     .catch(()=>{})
+        
+        // // Sub2 스레드 동작
+        // sub_process_exe(2)
+        //     .then((response)=>{
+        //         console.log('response',response)
+        //         sub2.innerHTML=`${response}-THREAD RUN`
+        //     })
+        //     .catch(()=>{})
+
+
+
+        // SUB 스레드 동작(async/await를 사용 - 동시에 예약되는 문제 해결)
+        function sub_process_exe(val){
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve(val)    //비동기요청 성공시에 전달되는 값
+                },3000)
+            });
+        }
+
+        // Sub1 스레드 동작
+        async function sub_process_func(){
+           
+           await sub_process_exe(1)
+                .then((response)=>{
+                    console.log('response',response)
+                    sub1.innerHTML=`${response}-THREAD RUN`
+                })
+                .catch(()=>{})
+            
+            // Sub2 스레드 동작
+            await sub_process_exe(2)
+                .then((response)=>{
+                    console.log('response',response)
+                    sub2.innerHTML=`${response}-THREAD RUN`
+                })
+                .catch(()=>{})
+        }
+        sub_process_func()
+
+        
+    </script>
+
+
+</body>
+</html>

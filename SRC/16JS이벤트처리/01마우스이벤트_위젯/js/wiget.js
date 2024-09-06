@@ -768,21 +768,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const secEl = document.createElement('div')
     secEl.classList.add('sec')
     secEl.setAttribute('style','')
+    
+    const infoEl = document.createElement('div')
+    infoEl.classList.add('sec')
+    infoEl.setAttribute('style','text-align:center;;position:absolute;left:0;right:0;bottom:5px;margin:auto;font-size:.8rem;')
 
     center.appendChild(hourEl)
     center.appendChild(minEl)
     center.appendChild(secEl)
+   
 
     clockDiv.appendChild(center)
     
-    
     BodyDiv.appendChild(clockDiv)
-    //   <div class="clock">
-    //     <div id="center"></div>
-    //     <div id="hour"></div>
-    //     <div id="min"></div>
-    //     <div id="sec">
-    //   </div>
+    BodyDiv.appendChild(infoEl)
+
 
     newDiv.appendChild(headDiv);
     newDiv.appendChild(BodyDiv);
@@ -797,15 +797,24 @@ document.addEventListener("DOMContentLoaded", function () {
           const time =new Date()
           
           // time에서 시간만 추출 (시, 분, 초)
-          const hour = time.getHours(); //0~23
-          const min = time.getMinutes();//0~59
-          const sec = time.getSeconds();//0~59
+          let hour = time.getHours(); //0~23
+          let min = time.getMinutes();//0~59
+          let sec = time.getSeconds();//0~59
           
           // 화면상의 객체 선택
           const hh = hourEl
           const mm = minEl
           const ss = secEl
-          console.log("hh",hh,"mm",mm,"ss",ss)
+          const info = infoEl;
+          console.log("hour",hour,"min",min,"sec",sec)
+          if(hour<10)
+             hour =`0${hour}`
+          if(min<10)
+            min =`0${min}`
+          if(sec<10)
+            sec =`0${sec}`
+
+          info.innerHTML=`${hour} : ${min} : ${sec}`
 
           // 각도 선택
           if (hour >= 12){

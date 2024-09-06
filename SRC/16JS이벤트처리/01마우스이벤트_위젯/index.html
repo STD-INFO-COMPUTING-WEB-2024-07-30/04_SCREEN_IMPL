@@ -30,7 +30,11 @@
   <body  oncontextmenu="return false" onselectstart="return false">
     <div class="wrapper">
       <header>
-        <div class="top-header"></div>
+        <div class="top-header">
+          <button class="btn m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">도움말</button>
+          <button class="btn m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">개정이력</button>
+
+        </div>
         <nav>
           V0.0 Todo 드래그 해서 오른쪽 드랍 가능<br>
           V0.0 Todo 오른쪽 하단 모서리로 크기조절 가능 / V0.0 Todo 오른쪽 마우스 클릭으로 이동모드 , 이동후 한번더 클릭하면 이동완료<br>
@@ -94,7 +98,34 @@
     </div>
 
 
-    <script src="js/todo.js"></script>
-    <script src="js/wiget.js" ></script>
+
+  <!-- 
+    도움말 오프캔버스
+  -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        도움말
+    </div>
+
+    <!-- 
+      히스토리 오프캔버스
+     -->
+     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight2" aria-labelledby="offcanvasRightLabel">
+       <div class="offcanvas-header">
+         <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+       </div>
+       <div class="offcanvas-body">
+         개정이력
+       </div>
+     </div>
+
+</div>
+
+
   </body>
 </html>

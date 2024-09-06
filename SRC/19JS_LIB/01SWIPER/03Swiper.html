@@ -284,19 +284,44 @@
       })
       
       //
-      const allSwiperSilder = document.querySelectorAll('section:nth-child(2) .swiper .swiper-slide')//배열OBJECT반환
+      let allSwiperSilder = document.querySelectorAll('section:nth-child(2) .swiper .swiper-slide')//배열OBJECT반환
+      allSwiperSilder = Array.from(allSwiperSilder)
       allSwiperSilder.forEach(item=>{
 
           item.addEventListener('click',()=>{
+
               if(!item.classList.contains('swiper-slide-active')){
                 //클릭한 swiper-slide가 active가 아닌경우
+                  allSwiperSilder.forEach(el=>{
+                    el.classList.remove('swiper-slide-active');
+                    el.classList.remove('swiper-slide-prev')
+                    el.classList.remove('swiper-slide-next')
+                  })
+                  item.classList.add('swiper-slide-active')
+                  console.log(allSwiperSilder)
+                  const idx= Array.from(allSwiperSilder).indexOf(item);
+                  console.log('idx',idx)
+                  if(idx===0){
+                    //슬라이드중 첫번째
+                    allSwiperSilder[allSwiperSilder.length-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[idx+1].classList.add('swiper-slide-next')
+                  }
+                  else if(idx==allSwiperSilder.length-1){
+                    //슬라이드중 마지막번째
+                    allSwiperSilder[idx-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[0].classList.add('swiper-slide-next')
+                  }
+                  else{
+                    allSwiperSilder[idx-1].classList.add('swiper-slide-prev')
+                    allSwiperSilder[idx+1].classList.add('swiper-slide-next')
+                  }
               }
+
+          
             
           })
 
-          item.classList.remove('swiper-slide-active')
-          item.classList.remove('swiper-slide-prev')
-          item.classList.remove('swiper-slide-next')
+
 
       })
     </script>

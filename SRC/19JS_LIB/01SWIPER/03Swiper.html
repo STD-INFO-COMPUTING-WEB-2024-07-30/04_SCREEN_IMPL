@@ -289,7 +289,7 @@
       allSwiperSilder.forEach(item=>{
 
           item.addEventListener('click',()=>{
-
+              let idx = -1
               if(!item.classList.contains('swiper-slide-active')){
                 //클릭한 swiper-slide가 active가 아닌경우
                   allSwiperSilder.forEach(el=>{
@@ -299,7 +299,7 @@
                   })
                   item.classList.add('swiper-slide-active')
                   console.log(allSwiperSilder)
-                  const idx= Array.from(allSwiperSilder).indexOf(item);
+                  idx= Array.from(allSwiperSilder).indexOf(item);
                   console.log('idx',idx)
                   if(idx===0){
                     //슬라이드중 첫번째
@@ -317,7 +317,7 @@
                   }
               }
 
-          
+              slide_02.slideTo(idx);
             
           })
 

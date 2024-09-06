@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- SCROLLMAGIC -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+      integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      section {
+        width: 1200px;
+        height: 500px;
+        margin: 20px;
+        display: flex;
+        justify-content: left;
+        align-items: start;
+        position: relative;
+        border: 1px solid;
+      }
+
+      .ball {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        border-radius: 50%;
+        position: relative;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 1.2s;
+      }
+      .move {
+        transform: translate(1100px, 400px) rotate(360deg);
+      }
+      section:nth-child(3) {
+        display: flex;
+        justify-content: right;
+        align-items: start;
+      }
+      section:nth-child(3) .ball {
+      }
+      .move2 {
+        transform: translate(-1100px, 400px) rotate(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <section></section>
+
+    <section class="scroll-spy first">
+      <div class="ball">BALL</div>
+    </section>
+    <section class="scroll-spy second">
+      <div class="ball">BALL</div>
+    </section>
+
+    <script>
+      const spyedEls = document.querySelectorAll(".scroll-spy");
+
+      spyedEls.forEach((el) => {
+        console.log(el);
+        const ballEl = el.querySelector(".ball");
+        if(el.classList.contains('first')){
+            new ScrollMagic
+                .Scene({
+                    triggerElement: el, //감시할 요소 선택
+                    triggerHook: 0.5, //스크롤의 위치값(0 - 1)
+                })
+                .setClassToggle(ballEl, "move")
+                .addTo(new ScrollMagic.Controller());
+        }
+        else if(el.classList.contains('second'))
+        {
+            new ScrollMagic
+                .Scene({
+                    triggerElement: el, //감시할 요소 선택
+                    triggerHook: 0.5, //스크롤의 위치값(0 - 1)
+                })
+                .setClassToggle(ballEl, "move2")
+                .addTo(new ScrollMagic.Controller());
+
+        }
+
+      });
+
+
+      // const ballEl = document.querySelector('.ball');
+      // const scrollMagicObject=new ScrollMagic
+      //                         .Scene({
+      //                             triggerElement:spyedEl, //감시할 요소 선택
+      //                             triggerHook : .5,       //스크롤의 위치값(0 - 1)
+      //                         })
+      //                         .setClassToggle(ballEl,'move')
+      //                         .addTo(new ScrollMagic.Controller())
+    </script>
+  </body>
+</html>

@@ -17,10 +17,11 @@ body{
 
 .wrapper{}
 .wrapper>header{
-    height : 100px;
+    /* height : 100px; */
     position:relative;
     z-index:1000;
     background-color: white;
+    padding : 20px ;
 }
 .wrapper>main{}
 .wrapper>main>section{
@@ -185,9 +186,10 @@ body{
 .todo-checker{
     position:absolute;;
     left:0;
-    top:50%;
-    height : 2px ;
+    top:0;
+    height :35px ;
     background-color: royalblue;;
+    opacity: .3;
     display:block;
     width : 100%;
 

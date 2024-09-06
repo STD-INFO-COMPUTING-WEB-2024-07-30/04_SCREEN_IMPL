@@ -27,27 +27,27 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
-        .swiper{
+        section:nth-child(1) .swiper{
             height:500px;
             position:relative;
         }
-        .swiper>.swiper-wrapper{
+        section:nth-child(1) .swiper>.swiper-wrapper{
             height:100%;
         }
-        .swiper>.swiper-wrapper>.swiper-slide{
+        section:nth-child(1) .swiper>.swiper-wrapper>.swiper-slide{
             height:100%;
             display:flex;
             justify-content: center;
             align-items: center;
         }
 
-        .swiper-button-next::after,
-        .swiper-button-prev::after
+        section:nth-child(1) .swiper-button-next::after,
+        section:nth-child(1) .swiper-button-prev::after
         {
           content:'';
         }
-        .swiper-button-next,
-        .swiper-button-prev
+        section:nth-child(1) .swiper-button-next,
+        section:nth-child(1) .swiper-button-prev
         {
           display:block;
           width:50px;
@@ -62,14 +62,14 @@
 
          
         }
-        .swiper-button-next>span,
-        .swiper-button-prev>span{
+        section:nth-child(1)  .swiper-button-next>span,
+        section:nth-child(1)  .swiper-button-prev>span{
           font-size:1.8rem;
           color:white;
           font-weight:100;
         }
 
-        .swiper-pagination-bullet{
+        section:nth-child(1) .swiper-pagination-bullet{
           width : 15px;
           height : 15px;
           border:1px solid;
@@ -77,10 +77,22 @@
           transition: .3s;
         }
 
-        .swiper-pagination-bullet-active{
+        section:nth-child(1) .swiper-pagination-bullet-active{
           background-color: orange;
           width:25px;
         }
+
+        /* MULTISLIDER */
+        section:nth-child(2) .swiper{
+          height : 500px;
+        }
+        
+        section:nth-child(2) .swiper>.swiper-wrapper{}
+        section:nth-child(2) .swiper>.swiper-wrapper>.swiper-slide{}
+        section:nth-child(2) .swiper>.swiper-wrapper>.swiper-slide>a{}
+        section:nth-child(2) .swiper>.swiper-wrapper>.swiper-slide>a>img{}
+
+
     </style>
 
   </head>
@@ -122,6 +134,42 @@
             <div class="swiper-scrollbar"></div>
           </div>
         </section>
+
+        <!-- MULTISLIDER -->
+         <section>
+              <!-- Slider main container -->
+              <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                  <div class="swiper-slide"><a href="javascript:void(0)"><img src="" alt=""></a></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+              </div>
+         </section>
+
       </main>
       <footer></footer>
     </div>

@@ -361,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
         td1.setAttribute('style','border-right:1px solid gray;;margin-right:5px;width:35px;display:flex;height:35px;justify-content:center;align-items:center;')
         const chk = document.createElement('input')
         chk.setAttribute('type','checkbox')
+        chk.setAttribute('style','position:relative;z-index:5555')
         chk.addEventListener('change',(e)=>{
           console.log('checked..')
           const parent = chk.parentNode.parentNode.parentNode.parentNode;
@@ -378,19 +379,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const td2 = document.createElement('td')
         const input = document.createElement('input')
-        input.setAttribute('style',"width:calc(100% -70px);height:100%;background-color: white;border:0;outline:none")
+        input.setAttribute('style',"width:calc(100% - 70px);height:100%;background-color: white;border:0;outline:none")
         input.readOnly=true
         input.value=text
         td2.appendChild(input)
         td2.setAttribute('style',"width:100%;")
 
         const td3 = document.createElement('td')
-        td3.setAttribute('style','width:35px;hieght:100%display:flex;justify-content:center;align-items:center;flex-direction:column')
+        td3.setAttribute('style','width:35px;hieght:100%display:flex;justify-content:center;align-items:center;flex-direction:column;')
         
         const up = document.createElement('span')
         const down = document.createElement('span')
-        up.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer')
-        down.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer')
+        up.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer;position:relative;z-index:5555')
+        down.setAttribute('style','width:15px;height:15px;display:flex;justify-content:center;align-items:center;cursor:pointer;position:relative;z-index:5555')
         up.classList.add('material-symbols-outlined');
         down.classList.add('material-symbols-outlined');
         up.innerHTML='arrow_drop_up'
@@ -438,6 +439,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
 
+        const td4 = document.createElement('td')
+        td4.setAttribute('style','width:25px;padding : 0 3px;display:flex;justify-content:center;align-items:center;')
+        const del = document.createElement('span')
+        del.classList.add('material-symbols-outlined')
+        del.innerHTML='delete'
+        del.setAttribute('style','cursor:pointer;font-size:1rem;position:relative;z-index:5555')
+        del.addEventListener('click',()=>{
+          console.log("clicked..")
+          const isDel = confirm("정말 삭제 하시겠습니까?")
+          if(isDel)
+            del.parentNode.parentNode.parentNode.parentNode.remove();
+
+          
+        })
+
+        td4.appendChild(del)
 
         td3.appendChild(up)
         td3.appendChild(down)
@@ -445,6 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tr.appendChild(td1)
         tr.appendChild(td2)
         tr.appendChild(td3)
+        tr.appendChild(td4)
         tableEl.appendChild(tr)
 
         todoItem.appendChild(tableEl)

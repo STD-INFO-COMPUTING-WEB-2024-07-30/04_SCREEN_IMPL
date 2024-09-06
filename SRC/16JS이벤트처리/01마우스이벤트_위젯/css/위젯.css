@@ -39,17 +39,70 @@ body{
     display:flex;
 }
 .wrapper>main>section>aside{
-    width : 200px;
+    width : 0px;
     height : 100vh;
     border-right:1px solid;
-    margin-right : 15px;
-    padding : 20px;
+   
+    padding : 0px;
 
     position:relative;
     z-index:1000;
 
     background-color: white;
+    overflow: hidden;
+    transition: .2s;
+    
+}
+
+.wrapper>main>section  #chkAside{
+    display:none;
+}
+.wrapper>main>section #chkAsideLabel{
+  width : 50px;
+  height : 35px;
   
+  position:absolute;
+  background-color: orange;
+  z-index:88;
+  left:0;
+  cursor: pointer;
+  transition: .2s;
+  font-size:.8rem;
+}
+.wrapper>main>section #chkAsideLabel::before{
+    content:'click';
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;bottom:0;right:0;
+    margin:auto;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items : center;
+
+}
+.wrapper>main>section #chkAsideLabel::after{
+    position:absolute;
+    right:0;
+    top:0;
+    content:'';
+
+    border-right:5px solid white;
+    border-left:5px solid transparent;
+    border-top:5px solid white;
+    border-bottom:5px solid transparent;
+
+}
+.wrapper>main>section  #chkAside:checked+#chkAsideLabel{
+  left:150px;
+  background-color: green;
+ 
+}
+.wrapper>main>section  #chkAside:checked~aside{
+    width:200px;
+    padding : 20px;
 }
 
 .wrapper>main>section>aside>ul{
@@ -107,11 +160,11 @@ body{
 }
 .timer-item{
     width : 200px;
-    height : 200px;
+    height : 100px;
     border : 1px solid;
 
     position:absolute;
-    background-color:yellowgreen;
+    background-color:white;
     z-index : 5;
 }
 

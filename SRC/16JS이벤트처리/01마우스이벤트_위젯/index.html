@@ -26,29 +26,29 @@
       <!-- GOOGLE FONT -->
       <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumBaReunHiPi.css" rel="stylesheet">
 
+
+      <!--  -->
+      <script src="./js/wiget.js" defer></script>
+
   </head>
-  <body  oncontextmenu="return false" onselectstart="return false">
+  <div  oncontextmenu="return false" onselectstart="return false">
     <div class="wrapper">
       <header>
         <div class="top-header">
-          <button class="btn m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">도움말</button>
-          <button class="btn m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">개정이력</button>
+          <button class="btn m-2 btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">도움말</button>
+          <button class="btn m-2 btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">개정이력</button>
 
         </div>
         <nav>
-          V0.0 Todo 드래그 해서 오른쪽 드랍 가능<br>
-          V0.0 Todo 오른쪽 하단 모서리로 크기조절 가능 / V0.0 Todo 오른쪽 마우스 클릭으로 이동모드 , 이동후 한번더 클릭하면 이동완료<br>
-          V0.0 Todo 할일 목록 입력 / 위로올리기 /밑으로 내리기 가능<br>
-          <hr>
-          도움말 수정기능 추가하기 / 
-          코드 상태 관리  /
-          저장방식지정 - 저장처리(브라우저 / 파일) /
-          설정내용 반영하기(위젯제목바꾸기/컬러바꾸기) /
+
         </nav>
       </header>
       <main>
         <section>
+          <input type="checkbox" id="chkAside">
+          <label for="chkAside" id="chkAsideLabel"></label>
           <aside>
+            
             <h3 style="text-align:center;">DRAG<br>ITEMS</h3>
             <ul>
               <li id="todo" draggable="true" data-category="todo">
@@ -98,33 +98,45 @@
     </div>
 
 
-
   <!-- 
     도움말 오프캔버스
   -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight1" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 id="offcanvasRightLabel">도움말</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         도움말
     </div>
-
+  </div>
     <!-- 
       히스토리 오프캔버스
      -->
      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight2" aria-labelledby="offcanvasRightLabel">
        <div class="offcanvas-header">
-         <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+         <h5 id="offcanvasRightLabel">HISTORY</h5>
          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
        </div>
        <div class="offcanvas-body">
-         개정이력
+          <table class="table w-100">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+          Todo 오른쪽 하단 모서리로 크기조절 가능<br>
+          V0.0 Todo 오른쪽 마우스 클릭으로 이동모드 , 이동후 한번더 클릭하면 이동완료<br>
+          V0.0 Todo 할일 목록 입력 / 위로올리기 /밑으로 내리기 가능<br>
+          <hr>
+          도움말 수정기능 추가하기 <br>
+          코드 상태 관리 <br>
+          저장방식지정 - 저장처리(브라우저 / 파일)  <br>
+          설정내용 반영하기(위젯제목바꾸기/컬러바꾸기)  <br>
        </div>
      </div>
-
-</div>
 
 
   </body>

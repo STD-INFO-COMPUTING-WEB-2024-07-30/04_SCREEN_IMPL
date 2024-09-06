@@ -34,10 +34,20 @@
   <div  oncontextmenu="return false" onselectstart="return false">
     <div class="wrapper">
       <header>
-        <div class="top-header">
-          <button class="btn m-2 btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">도움말</button>
-          <button class="btn m-2 btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">개정이력</button>
 
+        <div class="top-header">
+          <div>
+            <a class="btn m-2 btn-primary" href="javascript:void(0)">브라우저에 저장</a>
+            <a class="btn m-2 btn-primary" href="javascript:void(0)">파일로 저장</a>
+            <a class="btn m-2 btn-primary" href="javascript:void(0)">불러오기</a>
+          </div>
+          <div>
+            <button class="btn m-2 btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">도움말</button>
+            <button class="btn m-2 btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2">개정이력</button>
+            <a class="btn m-2 " href="javascript:void(0)">
+              <span class="material-symbols-outlined" style="display:flex;justify-content: center;align-items: center;">settings</span>
+            </a>
+          </div>
         </div>
         <nav>
 
@@ -49,7 +59,7 @@
           <label for="chkAside" id="chkAsideLabel"></label>
           <aside>
             
-            <h3 style="text-align:center;">DRAG<br>ITEMS</h3>
+            <h3 style="text-align:center;margin-bottom : 25px;font-weight:800">DRAG<br>ITEMS</h3>
             <ul>
               <li id="todo" draggable="true" data-category="todo">
                 <a href="javascript:void(0)">

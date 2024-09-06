@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let timerId = 0;
   let TimerIntervalList = [];
 
+  //시계Interval 저장
+  let clockId = 0 ;
+  let clockIntervalList = [];
+
+
   //ITEM 이동
   let isMoving = false;
   let isDelete = false;
@@ -26,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //-----------------------------------
   const todoEl = document.querySelector("#todo");
   const timerEl = document.querySelector("#timer");
+  const clockEl = document.querySelector("#clock");
 
   //-----------------------------------
   //aside에서 Drag한 Item Category 확인
@@ -38,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     category = timerEl.getAttribute("data-category");
     console.log("cat", category);
   });
+  clockEl.addEventListener("dragstart", (e) => {
+    category = clockEl.getAttribute("data-category");
+    console.log("cat", category);
+  });
+
+
+  //-----------------------------------
+
 
   const articleEl = document.querySelector("article");
   articleEl.addEventListener("dragover", (e) => {
@@ -58,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (category === "todo") newDiv = createTodo(articleEl);
     else if (category === "timer") newDiv = createTimer(articleEl);
-
+    else if (category === "clock") newDiv = createClock(articleEl);
     // newDiv.setAttribute("draggable", true);
 
     // newDiv.setAttribute("style", "position:relative");
@@ -526,6 +540,8 @@ document.addEventListener("DOMContentLoaded", function () {
     title.addEventListener("click", () => {
       console.log("clicked...");
     });
+
+
     //시작버튼
     const startBtn = document.createElement("div");
     startBtn.classList.add("material-symbols-outlined");
@@ -537,18 +553,27 @@ document.addEventListener("DOMContentLoaded", function () {
       const timerId = parentNode.getAttribute("data-timer-id");
       console.log("clicked.", timerId, typeof nowId);
 
-      const timeObj = {
-        title: "제목없음",
-        id: timerId,
-        intervalId: null,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      };
-      TimerIntervalList.push(timeObj); //---------------
+      let timeObject = TimerIntervalList.find((item) => item.id === timerId)
+
+      if(timeObject===undefined){
+        timeObject = {
+            title: "제목없음",
+            id: timerId,
+            intervalId: null,
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+          };
+          TimerIntervalList.push(timeObject);
+       }
+
+       if(timeObject['intervalId']!=null)
+          return ;
+       
+      
 
       const intervalId = setInterval(() => {
-        const timeObject = TimerIntervalList.filter((item) => item.id === timerId)[0];
+        
         timeObject["seconds"]++;
 
         if (timeObject["seconds"] == 60) {
@@ -566,13 +591,15 @@ document.addEventListener("DOMContentLoaded", function () {
        
         const nowTimeEl = parentNode.querySelector(".nowTime");
         nowTimeEl.innerHTML = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-        console.log("interval후 timeObject", timeObject);
+     
       }, 1000);
       
-      timeObj["intervalId"] = intervalId;
+      timeObject["intervalId"] = intervalId;
 
-      TimerIntervalList.push(timeObj);
 
+      
+
+      console.log('add',TimerIntervalList)
     });
 
     //정지버튼
@@ -581,18 +608,18 @@ document.addEventListener("DOMContentLoaded", function () {
     stopBtn.innerHTML = "stop";
     stopBtn.setAttribute("style", "font-size:.9rem;cursor:pointer;");
     stopBtn.addEventListener("click", () => {
-      console.log("clicked.");
+     
       const item = cancelBtn.parentNode.parentNode.parentNode;
       const timerId = item.getAttribute("data-timer-id");
       
-      const timderEl =  TimerIntervalList.filter(item=>item.id===timerId)
+      const timerEl =  TimerIntervalList.filter(item=>item.id==timerId)[0]
 
-      clearInterval(timderEl.intervalId);
+      console.log('stop btn ..timerEl',timerEl['intervalId'])
+      clearInterval(timerEl['intervalId']);
+      timerEl['intervalId'] = null
 
-      TimerIntervalList = TimerIntervalList.filter(
-        (item) => item.id !== timerId
-      );
-      console.log("stopBtn...TimerIntervalList", TimerIntervalList);
+
+   
     });
 
     //취소버튼
@@ -604,10 +631,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cancelBtn.addEventListener("click", (e) => {
       const item = cancelBtn.parentNode.parentNode.parentNode;
+      const timerId = item.getAttribute('data-timer-id')
       const isdel = confirm("정말 삭제하시겠습니까?");
       if (isdel) {
         isDelete = true;
         //타이머LIST에서 동작하는 타이머 제거
+
+        TimerIntervalList = TimerIntervalList.filter(
+          (item) => item.id !== timerId
+        );
+
         item.remove();
       }
       e.preventDefault();
@@ -640,6 +673,175 @@ document.addEventListener("DOMContentLoaded", function () {
     return newDiv;
   };
 
-  //TimerInterval
-  function TimerIntervalClosure() {}
+
+
+  //------------------------
+  //CLOCK - https://re-hwi.tistory.com/118
+  //------------------------
+  function createClock(parentNode) {
+
+    console.log("createClock...");
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("item");
+    newDiv.classList.add("clock-item");
+
+    const headDiv = document.createElement("div");
+    headDiv.classList.add("head");
+
+    //컨트롤박스
+    const controlDiv = document.createElement("div");
+    controlDiv.classList.add("control");
+    controlDiv.setAttribute(
+      "style",
+      "border-bottom:1px solid;display:flex;justify-content:right;align-items:center;gap:5px;height:20px;"
+    );
+    headDiv.appendChild(controlDiv);
+
+    const title = document.createElement("span");
+    title.innerHTML = "제목없음";
+    title.setAttribute("style", "font-size:.9rem;flex-grow:1");
+    title.addEventListener("click", () => {
+      console.log("clicked...");
+    });
+
+
+    //아날로그 모드
+    const analogBtn = document.createElement("div");
+    analogBtn.classList.add("material-symbols-outlined");
+    analogBtn.innerHTML = "watch";
+    analogBtn.setAttribute("style", "font-size:.9rem;cursor:pointer;");
+    analogBtn.addEventListener("click", () => {
+      console.log('아날로그..')
+    }); 
+
+    //디지털모드
+    const digitalBtn = document.createElement("div");
+      digitalBtn.classList.add("material-symbols-outlined");
+      digitalBtn.innerHTML = "123";
+      digitalBtn.setAttribute("style", "font-size:.9rem;cursor:pointer;");
+      digitalBtn.addEventListener("click", () => {
+        console.log('digitalBtn')
+      });
+
+    //종료
+    const cancelBtn = document.createElement("div");
+    cancelBtn.classList.add("material-symbols-outlined");
+    cancelBtn.setAttribute("style", "font-size:.9rem;cursor:pointer;");
+    cancelBtn.innerHTML = "cancel";
+    newDiv.appendChild(cancelBtn);
+
+    cancelBtn.addEventListener("click", (e) => {
+      const item = cancelBtn.parentNode.parentNode.parentNode;
+      const isdel = confirm("정말 삭제하시겠습니까?");
+      if (isdel) {
+        item.remove();
+      }
+      e.preventDefault();
+    });
+
+    controlDiv.appendChild(title);
+    controlDiv.appendChild(analogBtn);
+    controlDiv.appendChild(digitalBtn);
+    controlDiv.appendChild(cancelBtn);
+
+
+    const BodyDiv = document.createElement("div");
+    BodyDiv.classList.add("body");
+    BodyDiv.setAttribute('style','height:calc(100% - 25px)')
+
+    const clockDiv = document.createElement('div')
+    clockDiv.classList.add('clock')
+    clockDiv.setAttribute('style','position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center;')
+    
+    const center = document.createElement('div')
+    center.classList.add('center')
+    center.setAttribute('style','')
+
+    const hourEl = document.createElement('div')
+    hourEl.classList.add('hour')
+
+
+    const minEl = document.createElement('div')
+    minEl.classList.add('min')
+    minEl.setAttribute('style','')
+
+    const secEl = document.createElement('div')
+    secEl.classList.add('sec')
+    secEl.setAttribute('style','')
+
+    center.appendChild(hourEl)
+    center.appendChild(minEl)
+    center.appendChild(secEl)
+
+    clockDiv.appendChild(center)
+    
+    
+    BodyDiv.appendChild(clockDiv)
+    //   <div class="clock">
+    //     <div id="center"></div>
+    //     <div id="hour"></div>
+    //     <div id="min"></div>
+    //     <div id="sec">
+    //   </div>
+
+    newDiv.appendChild(headDiv);
+    newDiv.appendChild(BodyDiv);
+
+    parentNode.appendChild(newDiv);
+
+
+    //--------------------------------
+
+    setInterval(() =>{
+            // 현재 날짜 time에 할당
+          const time =new Date()
+          
+          // time에서 시간만 추출 (시, 분, 초)
+          const hour = time.getHours(); //0~23
+          const min = time.getMinutes();//0~59
+          const sec = time.getSeconds();//0~59
+          
+          // 화면상의 객체 선택
+          const hh = hourEl
+          const mm = minEl
+          const ss = secEl
+          console.log("hh",hh,"mm",mm,"ss",ss)
+
+          // 각도 선택
+          if (hour >= 12){
+            const DegHour = (hour - 12) * 30 + min * (360 / 12 / 60) // 분을 고려해서 시침이 한번에 움직이지 않게 하기 위함 
+            const DegMin = min * 6
+            const DegSec = sec * 6
+            
+            hh.setAttribute('style',`rotate(${DegHour}deg);`)
+            mm.setAttribute('style',`rotate(${DegMin}deg);`)
+            ss.setAttribute('style',`rotate(${DegSec}deg);`)
+            
+            }
+            else{
+           
+                const DegHour = (hour - 12) * 30 + min * (360 / 12 / 60)  // 0.5를 곱해 60분기준 30도를 추가 ex) 30분이라면 15도의 각도 추가
+                const DegMin = min * 6
+                const DegSec = sec * 6
+                console.log("DegHour",DegHour,"DegMin",DegMin,"DegSec",DegSec)
+
+                hh.setAttribute('style',`transform:rotate(${DegHour}deg);`)
+                mm.setAttribute('style',`transform:rotate(${DegMin}deg);`)
+                ss.setAttribute('style',`transform:rotate(${DegSec}deg);`)
+
+
+                
+                
+
+
+            }
+    },1000)
+  //---------------------------------
+
+
+
+    return newDiv;
+  }
+
+
 });

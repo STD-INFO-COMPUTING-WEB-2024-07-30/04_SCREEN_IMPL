@@ -6,6 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/위젯.css" />
     
+    <!-- FULL CANENDAR -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.15/index.global.min.js'></script>
+
+
     <!-- BS5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -85,8 +90,8 @@
             </ul>
             <hr />
             <ul>
-              <li data-category="calendar">
-                <a href="">달력<br>(GOOGLE CALENDAR연동예정)</a>
+              <li id="calendar"  draggable="true"  data-category="calendar">
+                <a href="javascript:void(0)">달력<br>(GOOGLE CALENDAR연동예정)</a>
               </li>
             </ul>
             <hr />

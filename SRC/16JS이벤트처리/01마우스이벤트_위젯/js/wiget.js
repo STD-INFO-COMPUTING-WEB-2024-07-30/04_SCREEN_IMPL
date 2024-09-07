@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const todoEl = document.querySelector("#todo");
   const timerEl = document.querySelector("#timer");
   const clockEl = document.querySelector("#clock");
+  const calendarEl = document.querySelector("#calendar");
 
   //-----------------------------------
   //aside에서 Drag한 Item Category 확인
@@ -46,6 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   clockEl.addEventListener("dragstart", (e) => {
     category = clockEl.getAttribute("data-category");
+    console.log("cat", category);
+  });
+  calendarEl.addEventListener("dragstart", (e) => {
+    category = calendarEl.getAttribute("data-category");
     console.log("cat", category);
   });
 
@@ -73,25 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (category === "todo") newDiv = createTodo(articleEl);
     else if (category === "timer") newDiv = createTimer(articleEl);
     else if (category === "clock") newDiv = createClock(articleEl);
-    // newDiv.setAttribute("draggable", true);
-
-    // newDiv.setAttribute("style", "position:relative");
-    // newDiv.textContent = ++cnt; // 예시 텍스트 추가
-
-    // const cancelBtn = document.createElement("div");
-    // cancelBtn.innerHTML = "x";
-    // cancelBtn.classList.add("cancelBtn");
-    // newDiv.appendChild(cancelBtn);
-
-    // cancelBtn.addEventListener("click", (e) => {
-    //   const item = cancelBtn.parentNode;
-    //   const isdel = confirm("정말 삭제하시겠습니까?");
-    //   if (isdel) {
-    //     isDelete = true;
-    //     item.remove();
-    //   }
-    //   e.preventDefault();
-    // });
+    else if (category === "calendar") newDiv = createCalendar(articleEl);
+ 
 
     // 마우스 버튼을 눌렀을 때 드래그 시작
     newDiv.addEventListener("contextmenu", (e) => {
@@ -838,18 +826,94 @@ document.addEventListener("DOMContentLoaded", function () {
                 mm.setAttribute('style',`transform:rotate(${DegMin}deg);`)
                 ss.setAttribute('style',`transform:rotate(${DegSec}deg);`)
 
-
-                
-                
-
-
             }
     },1000)
   //---------------------------------
 
-
-
     return newDiv;
+  }
+
+
+
+    //------------------------
+  //CLOCK - https://re-hwi.tistory.com/118
+  //------------------------
+  function createCalendar(parentNode) {
+
+        console.log("createClock...");
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("item");
+        newDiv.classList.add("calendar-item");
+
+        const headDiv = document.createElement("div");
+        headDiv.classList.add("head");
+
+        //컨트롤박스
+        const controlDiv = document.createElement("div");
+        controlDiv.classList.add("control");
+        controlDiv.setAttribute(
+          "style",
+          "border-bottom:1px solid;display:flex;justify-content:right;align-items:center;gap:5px;height:20px;"
+        );
+        headDiv.appendChild(controlDiv);
+
+        const title = document.createElement("span");
+        title.innerHTML = "제목없음";
+        title.setAttribute("style", "font-size:.9rem;flex-grow:1");
+        title.addEventListener("click", () => {
+          console.log("clicked...");
+        });
+
+        //종료
+        const cancelBtn = document.createElement("div");
+        cancelBtn.classList.add("material-symbols-outlined");
+        cancelBtn.setAttribute("style", "font-size:.9rem;cursor:pointer;");
+        cancelBtn.innerHTML = "cancel";
+        newDiv.appendChild(cancelBtn);
+
+        cancelBtn.addEventListener("click", (e) => {
+          const item = cancelBtn.parentNode.parentNode.parentNode;
+          const isdel = confirm("정말 삭제하시겠습니까?");
+          if (isdel) {
+            item.remove();
+          }
+          e.preventDefault();
+        });
+
+        controlDiv.appendChild(title);
+        controlDiv.appendChild(cancelBtn);
+
+
+        const BodyDiv = document.createElement("div");
+        BodyDiv.classList.add("body");
+        BodyDiv.setAttribute('style','border :1px solid;height:calc(100% - 25px);')
+
+
+
+        newDiv.appendChild(headDiv);
+        newDiv.appendChild(BodyDiv);
+
+        parentNode.appendChild(newDiv);
+
+        //----------------------------------------------------------------------
+
+        var calendar = new FullCalendar.Calendar(BodyDiv, {
+          initialView: 'dayGridMonth',
+          
+          eventClick: function(info) {
+            info.jsEvent.preventDefault(); // don't let the browser navigate
+
+            console.log('info',info)
+
+          },
+          
+
+        });
+        
+        calendar.render();
+        //----------------------------------------------------------------------        
+        return newDiv;
+
   }
 
 

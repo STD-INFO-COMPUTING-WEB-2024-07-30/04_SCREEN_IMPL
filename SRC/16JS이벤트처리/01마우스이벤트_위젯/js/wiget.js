@@ -822,9 +822,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const DegMin = min * 6
             const DegSec = sec * 6
             
-            hh.setAttribute('style',`rotate(${DegHour}deg);`)
-            mm.setAttribute('style',`rotate(${DegMin}deg);`)
-            ss.setAttribute('style',`rotate(${DegSec}deg);`)
+            hh.setAttribute('style',`transform:rotate(${DegHour}deg);`)
+            mm.setAttribute('style',`transform:rotate(${DegMin}deg);`)
+            ss.setAttribute('style',`transform:rotate(${DegSec}deg);`)
             
             }
             else{

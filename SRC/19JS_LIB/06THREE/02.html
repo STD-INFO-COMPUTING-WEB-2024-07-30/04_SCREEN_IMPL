@@ -46,16 +46,21 @@
             renderer.setClearColor(0x808080)
             document.body.appendChild(renderer.domElement );
 
+            // [추가] Raycaster와 마우스 좌표 변수 추가
+            const raycaster = new THREE.Raycaster(); // [추가]
+            const mouse = new THREE.Vector2(); // [추가]
+            let selectedObject = null; // [추가]
+
             //boxGeometry Add
             const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
             const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} ); 
             const cube = new THREE.Mesh( geometry, material ); 
             scene.add( cube );
             //box경계추가
-            const edge = new THREE.EdgesGeometry(geometry);
-            const lineMetrial = new THREE.LineBasicMaterial({color:'red'})
-            const wireframe = new THREE.LineSegments(edge,lineMetrial);
-            cube.add(wireframe)
+            // const edge = new THREE.EdgesGeometry(geometry);
+            // const lineMetrial = new THREE.LineBasicMaterial({color:'red'})
+            // const wireframe = new THREE.LineSegments(edge,lineMetrial);
+            // cube.add(wireframe)
 
 
             
@@ -90,65 +95,97 @@
             
 
             //이벤트 처리함수
-            document.addEventListener('mousedown',onMouseDown)
-            document.addEventListener('mousemove',onMouseMove)
-            document.addEventListener('mouseup',onMouseUp)
+            document.addEventListener('mousedown',onMouseDown,false)
+            document.addEventListener('mousemove',onMouseMove,false)
+            document.addEventListener('mouseup',onMouseUp,false)
 
-            let previousPosition = {
-              x:null,
-              y:null,
-            }
+            // let previousPosition = {
+            //   x:null,
+            //   y:null,
+            // }
             
-            let isDragging = false;
-            function onMouseDown(e){
-              isDragging=true;
-              previousPosition.x=e.clientX;
-              previousPosition.y=e.clientY;
-              console.log('onMouseDown...',previousPosition)
-            }
+            // let isDragging = false;
+            // function onMouseDown(e){
+            //   isDragging=true;
+            //   previousPosition.x=e.clientX;
+            //   previousPosition.y=e.clientY;
+            //   console.log('onMouseDown...',previousPosition)
+            // }
             
-            function onMouseMove(e){
-              if(!isDragging)
-                return ;
+            // function onMouseMove(e){
+            //   if(!isDragging)
+            //     return ;
 
-              const curX = e.clientX;
-              const curY = e.clientY;
+            //   const curX = e.clientX;
+            //   const curY = e.clientY;
 
-              const distance= {
-                x:curX - previousPosition.x,
-                y:curY - previousPosition.y,
-              }
-              console.log('onMouseMove...',distance)
+            //   const distance= {
+            //     x:curX - previousPosition.x,
+            //     y:curY - previousPosition.y,
+            //   }
+            //   console.log('onMouseMove...',distance)
 
-              //ADD
-              const deltaRotationQuaternion = new THREE.Quaternion()
-                .setFromEuler(new THREE.Euler(
-                  toRadians(distance.y * 0.05),
-                  toRadians(distance.x * 0.05),
-                  0,
-                  'XYZ'
-                ));
+            //   //ADD
+            //   const deltaRotationQuaternion = new THREE.Quaternion()
+            //     .setFromEuler(new THREE.Euler(
+            //       toRadians(distance.y * 0.05),
+            //       toRadians(distance.x * 0.05),
+            //       0,
+            //       'XYZ'
+            //     ));
 
-              cube.quaternion.multiplyQuaternions(deltaRotationQuaternion, cube.quaternion);
-              line.quaternion.multiplyQuaternions(deltaRotationQuaternion, line.quaternion);
-              textMesh.quaternion.multiplyQuaternions(deltaRotationQuaternion, textMesh.quaternion);
-              //
+            //   cube.quaternion.multiplyQuaternions(deltaRotationQuaternion, cube.quaternion);
+            //   line.quaternion.multiplyQuaternions(deltaRotationQuaternion, line.quaternion);
+            //   textMesh.quaternion.multiplyQuaternions(deltaRotationQuaternion, textMesh.quaternion);
+            //   //
            
-            }
-            function onMouseUp(){
-              isDragging=false;
-              console.log('onMouseUp...')
+            // }
+            // function onMouseUp(){
+            //   isDragging=false;
+            //   console.log('onMouseUp...')
 
-            }
-            //
-            function toRadians(angle) {
-                return angle * (Math.PI / 180);
-            }
+            // }
+            // //
+            // function toRadians(angle) {
+            //     return angle * (Math.PI / 180);
+            // }
 
 
             //카메라 위치 설정
             camera.position.z=3;
             camera.position.y=1;
+
+             // [추가] Raycasting을 통한 객체 선택 및 처리
+            function onMouseDown(event) {
+              mouse.x = (event.clientX / window.innerWidth) * 2 - 1; // [추가]
+              mouse.y = -(event.clientY / window.innerHeight) * 2 + 1; // [추가]
+
+              raycaster.setFromCamera(mouse, camera); // [추가]
+              const intersects = raycaster.intersectObjects([cube, line, textMesh]); // [추가]
+
+              if (intersects.length > 0) {
+                selectedObject = intersects[0].object; // [추가]
+                console.log("Selected:", selectedObject); // [추가]
+              }
+            }
+
+            // [추가] 마우스 버튼을 놓을 때 선택 해제
+            function onMouseUp() {
+              selectedObject = null; // [추가]
+            }
+
+            // [추가] 마우스 이동 시 선택된 객체 회전
+            function onMouseMove(event) {
+              if (selectedObject) {
+                const deltaX = event.movementX * 0.05; // [추가]
+                const deltaY = event.movementY * 0.05; // [추가]
+
+                selectedObject.rotation.x += deltaY; // [추가]
+                selectedObject.rotation.y += deltaX; // [추가]
+              }
+            }
+
+
 
             //랜더링에 항목포함
             function animate() {

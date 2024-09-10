@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>My first three.js app</title>
+    <style>
+        #info {
+                position: absolute;
+                top: 10px;
+                width: 100%;
+                text-align: center;
+                z-index: 100;
+                display:block;
+            }
+    </style>
+
     <script type="importmap">
         {
           "imports": {
@@ -13,11 +24,94 @@
       </script>
   </head>
   <body>
+
         <script type="module">
             import * as THREE from "three";
+
+            //글자넣기
+            import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+            import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
             
+            // SCENE 생성
             const scene = new THREE.Scene();
             console.log(scene)
+           
+            // CAMERA 
+            const camera = new THREE.PerspectiveCamera( 95, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setClearColor(0x808080)
+            document.body.appendChild(renderer.domElement );
+
+            //boxGeometry Add
+            const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+            const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} ); 
+            const cube = new THREE.Mesh( geometry, material ); 
+             scene.add( cube );
+
+            
+            //Line add
+            let textMesh=null;
+
+            const material2 = new THREE.LineBasicMaterial( { color: 'red' } );
+            const points = [];  
+            points.push( new THREE.Vector3( - 10, 0, 0 ) );
+            points.push( new THREE.Vector3( 0, 10, 0 ) );
+            points.push( new THREE.Vector3( 10, 0, 0 ) );
+            const geometry2 = new THREE.BufferGeometry().setFromPoints( points );
+            
+            const line = new THREE.Line( geometry, material2 );
+            line.position.x=-2.5;
+            scene.add( line );
+
+            //TEXT ADD
+            const fontLoader = new FontLoader();
+            fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.168.0/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+            const textGeometry = new TextGeometry('HELLO', {
+                font: font,
+                size: .7,
+                depth  :.2,
+                height: 0,
+                curveSegments: 12
+            });
+
+                const textMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+                textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                scene.add(textMesh);
+
+                textMesh.position.set(-2, 2, 0);  // 텍스트 위치 조정
+            });
+            
+
+
+
+            //카메라 위치 설정
+            camera.position.z=3;
+            camera.position.y=1;
+
+            //랜더링에 항목포함
+            function animate() {
+
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            // cube.rotation.z += 0.01;
+
+            //line
+            line.rotation.x += 0.01;
+            line.rotation.y += 0.01;
+
+            //text
+ 
+
+
+            renderer.render( scene, camera );
+
+            }
+            renderer.setAnimationLoop( animate );
+
         </script>
   </body>
 </html>

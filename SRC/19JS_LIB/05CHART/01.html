@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CHART.js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script>
+        const plugin = {
+        id: 'customCanvasBackgroundColor',
+        beforeDraw: (chart, args, options) => {
+            const {ctx} = chart;
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = options.color || '#99ffff';
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+        }
+        };
+
+        let dataSet = 
+        {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+                {
+                    label: 'a',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    backgroundColor:['red', 'blue', 'yellow', 'green', 'purple', 'orange']
+                },
+          
+             ]
+        }
+
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'pie',
+          data: dataSet,
+          options: {
+            animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            plugins: {
+                customCanvasBackgroundColor: {
+                    color: 'lightGreen',
+                }
+            },
+            onClick:(event,chartEl)=>{
+                // console.log('clicked...',event)
+                console.log('clicked...',chartEl)
+                const idx = chartEl[0].index;
+                const label = dataSet.labels[idx];
+                const value = dataSet.datasets[0].data[idx]
+                console.log('label',label,'value',value)
+
+            }
+            //OPTION END
+          },
+          plugins: [plugin]
+        });
+      </script>
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="js/맛집.js"></script>
+
+    <!-- CHART.js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    
+    
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+      //전체
+      //console.log(중구맛집)
+
+      //전체.data
+      const arr = 중구맛집.data;
+      //console.log(arr)
+
+      //카테고리별로 배열 재생성
+      const arr_fd_cs = arr.map((item) => item.FD_CS);
+      //console.log(arr_fd_cs)
+
+      //누적하기
+      const catArr = arr_fd_cs.reduce((obj, item) => {
+        // console.log(item,obj)
+        if (obj.hasOwnProperty(item)) {
+          obj[item] += 1;
+        } else {
+          obj[item] = 1;
+        }
+        return obj;
+      }, {});
+      console.log(catArr);
+
+      // KEY,VALUE 따로 추출
+      const keys = Object.keys(catArr);
+      const values = Object.values(catArr);
+      console.log("keys", keys);
+      console.log("values", values);
+
+      //
+      const ctx = document.getElementById('myChart');
+
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: keys,
+            datasets: [{
+            // label: '# of Votes',
+            data: values,
+            borderWidth: 1,
+            backgroundColor:[
+                'red','orange','yellow','green','blue','navy','violet','black'
+            ],
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+      });
+
+    </script>
+  </body>
+</html>

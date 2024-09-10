@@ -89,6 +89,59 @@
             });
             
 
+            //이벤트 처리함수
+            document.addEventListener('mousedown',onMouseDown)
+            document.addEventListener('mousemove',onMouseMove)
+            document.addEventListener('mouseup',onMouseUp)
+
+            let previousPosition = {
+              x:null,
+              y:null,
+            }
+            
+            let isDragging = false;
+            function onMouseDown(e){
+              isDragging=true;
+              previousPosition.x=e.clientX;
+              previousPosition.y=e.clientY;
+              console.log('onMouseDown...',previousPosition)
+            }
+            
+            function onMouseMove(e){
+              if(!isDragging)
+                return ;
+
+              const curX = e.clientX;
+              const curY = e.clientY;
+
+              const distance= {
+                x:curX - previousPosition.x,
+                y:curY - previousPosition.y,
+              }
+              console.log('onMouseMove...',distance)
+
+              //ADD
+              const deltaRotationQuaternion = new THREE.Quaternion()
+                .setFromEuler(new THREE.Euler(
+                  toRadians(distance.y * 1),
+                  toRadians(distance.x * 1),
+                  0,
+                  'XYZ'
+                ));
+
+              cube.quaternion.multiplyQuaternions(deltaRotationQuaternion, cube.quaternion);
+              //
+           
+            }
+            function onMouseUp(){
+              isDragging=false;
+              console.log('onMouseUp...')
+
+            }
+            //
+            function toRadians(angle) {
+                return angle * (Math.PI / 180);
+            }
 
 
             //카메라 위치 설정
@@ -107,10 +160,8 @@
             line.rotation.y += 0.01;
 
             //text
- 
-
-
             renderer.render( scene, camera );
+
 
             }
             renderer.setAnimationLoop( animate );

@@ -123,13 +123,15 @@
               //ADD
               const deltaRotationQuaternion = new THREE.Quaternion()
                 .setFromEuler(new THREE.Euler(
-                  toRadians(distance.y * 1),
-                  toRadians(distance.x * 1),
+                  toRadians(distance.y * 0.05),
+                  toRadians(distance.x * 0.05),
                   0,
                   'XYZ'
                 ));
 
               cube.quaternion.multiplyQuaternions(deltaRotationQuaternion, cube.quaternion);
+              line.quaternion.multiplyQuaternions(deltaRotationQuaternion, line.quaternion);
+              textMesh.quaternion.multiplyQuaternions(deltaRotationQuaternion, textMesh.quaternion);
               //
            
             }

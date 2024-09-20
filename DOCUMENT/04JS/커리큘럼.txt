@@ -1,0 +1,114 @@
+# 커리큘럼
+
+```
+1. 입문 (기초)
+이 단계에서는 JavaScript의 기본 문법과 개념을 이해하는 데 초점을 맞춥니다.
+
+1.1 JavaScript 소개 및 설정
+
+JavaScript란 무엇인가?
+브라우저와의 상호작용
+개발 환경 설정 (VS Code 설치, Chrome DevTools 사용법)
+HTML에 JavaScript 삽입하기 (Inline, Internal, External)
+1.2 기본 문법
+
+변수와 상수 (var, let, const)
+데이터 타입 (String, Number, Boolean, Undefined, Null, Symbol, BigInt)
+기본 연산자 (산술, 할당, 비교, 논리)
+조건문 (if, else if, else, switch)
+반복문 (for, while, do...while)
+1.3 함수
+
+함수 정의 및 호출
+매개변수와 인자
+반환값
+함수 표현식과 화살표 함수 (Arrow Function)
+2. 중급
+중급 단계에서는 객체 지향 프로그래밍의 기초와 고급 함수 개념을 다룹니다.
+
+2.1 객체와 배열
+
+객체 생성 및 속성 접근
+객체 메서드
+배열 생성 및 조작 (push, pop, shift, unshift, slice, splice 등)
+배열 고차 함수 (forEach, map, filter, reduce 등)
+2.2 DOM 조작
+
+Document 객체 모델(DOM) 이해
+DOM 요소 선택 및 조작 (getElementById, querySelector, 등)
+요소 생성, 추가 및 제거 (createElement, appendChild, removeChild)
+이벤트 처리 (click, submit, input 등 이벤트 핸들링)
+2.3 ES6+ 문법
+
+템플릿 리터럴
+디스트럭처링 (Destructuring)
+Spread 연산자와 Rest 파라미터
+모듈 (import, export)
+클래스 (Class)
+3. 고급
+고급 단계에서는 비동기 처리, 예외 처리, 그리고 최신 JavaScript 기능을 학습합니다.
+
+3.1 비동기 JavaScript
+
+콜백 함수와 콜백 지옥
+프로미스(Promise)와 .then(), .catch()
+async/await 사용법
+3.2 예외 처리
+
+오류 유형 (SyntaxError, TypeError 등)
+try...catch 구문
+사용자 정의 오류
+3.3 고급 객체 지향 프로그래밍
+
+프로토타입과 상속
+this 키워드의 이해
+생성자 함수와 클래스 확장 (Inheritance)
+자바스크립트의 bind, call, apply
+4. 프로젝트와 실습
+이 단계에서는 배운 내용을 실제 프로젝트에 적용하여 실습합니다.
+
+4.1 작은 프로젝트
+
+계산기 만들기
+할 일 목록 (To-Do List) 앱 만들기
+간단한 퀴즈 앱 만들기
+4.2 중형 프로젝트
+
+날씨 정보 앱 (API 연동)
+쇼핑 카트 기능 구현 (CRUD 기능 포함)
+4.3 대형 프로젝트
+
+간단한 SPA (Single Page Application) 만들기
+프런트엔드 프레임워크 없이 상태 관리 구현
+5. 최적화와 고급 테크닉
+최적화 기법과 성능 향상 방법을 배웁니다.
+
+5.1 성능 최적화
+
+코드 최적화 (메모리 누수 방지, 반복문 최적화)
+Debouncing과 Throttling
+비동기 코드 최적화
+5.2 모듈화와 모듈 번들러
+
+Webpack, Parcel 등을 사용한 모듈 번들링
+코드 스플리팅
+6. 최신 JavaScript 기능과 트렌드
+최신 JavaScript 기능과 향후 트렌드를 학습합니다.
+
+6.1 최신 ECMAScript 기능
+
+ES2021, ES2022 기능 소개
+새로운 데이터 타입과 구조
+6.2 JavaScript 프레임워크 개요
+
+프레임워크와 라이브러리 소개 (React, Vue, Angular)
+바닐라 JavaScript로 프레임워크 기초 개념 이해하기
+7. 결론 및 다음 단계
+바닐라 JavaScript 학습을 마무리하고, 더 깊이 있는 학습을 위한 다음 단계를 제시합니다.
+
+7.1 학습 요약
+7.2 다음 단계
+JavaScript 심화 주제 (고급 성능 최적화, 보안, 웹 컴포넌트 등)
+프레임워크 학습으로의 진입 (React, Vue, Angular 등)
+
+```

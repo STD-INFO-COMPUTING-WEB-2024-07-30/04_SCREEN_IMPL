@@ -43,5 +43,5 @@
 |-|-|
 |Project - To Do List|[바로가기](./DOCUMENT/18)|
 |Project - 쇼핑몰|[바로가기](./DOCUMENT/19)|
-|Project - 학사관리(LMS)|[바로가기](./)|
+
 

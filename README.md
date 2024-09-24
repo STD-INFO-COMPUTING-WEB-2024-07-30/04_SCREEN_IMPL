@@ -19,37 +19,3 @@
 |**REACT**|[바로가기](./DOCUMENT/09REACT)|1차 수정완료|
 
 
----
-추가예정
----
-|SUBJECT|LINK|DESCRIPTION|
-|-|-|-|
-|Vue.js|-|-|
-|TypeScript|-|-|
-|WEBPACK|구현중|-|
-|Next.js|-|-|
-|express.js|-|-|
-|GraphQL|-|-|
-|Svelte|-|-|
-|**-**|-|-|
-
-
-
----
-추가할 것들 - 임시 메모
----
-```
-typescript
-vue.js
-next.js
-tailwind.css
-
-Flutter(Dart) 사용
-
-three.js 기본 사용법 -
-three.js 응용 사용법 -
-three.js 로 포트폴리오 만들기 -
-```
-
-
-

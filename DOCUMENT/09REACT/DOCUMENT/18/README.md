@@ -9,7 +9,7 @@
 ---
 |코드확인|
 |-|
-|[바로가기](/RENEWAL(2024)/27REACT/03PROJECT/01_ONLY_JS/TODO/02_ADD_CSS)|
+|[바로가기](https://github.com/ALL-MY-PROJECTS-2024/TODO_VanillaJS.git)|
 
 > -
 ```
@@ -20,7 +20,7 @@ REACT JS TODO
 ---
 |코드확인|
 |-|
-|[바로가기](/RENEWAL(2024)/27REACT/03PROJECT/02_REACT/TODO/02_ADD_CSS_)|
+|[바로가기](https://github.com/ALL-MY-PROJECTS-2024/TODO_ReactJS.git)|
 > -
 ```
 ```

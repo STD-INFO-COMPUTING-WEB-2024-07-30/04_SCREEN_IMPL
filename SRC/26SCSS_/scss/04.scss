@@ -1,0 +1,26 @@
+div{
+    width:20px + 20px;
+    height : 40px - 10px;
+    font-size : 10px*2;
+    // X '/' 는 다른 의미로 사용됨 
+    //ex 'font : 10px / 15px;' (10px :fontsize / 15px : line-height )
+    margin : 30px / 2; //x
+    padding : 20px % 7;
+}
+.d1{
+    //01 () 사용
+    margin : (30px / 2);
+}
+.d2{
+    //02 변수사용
+    $size:10px;
+    margin : $size / 2;
+}
+.d3{
+    //03 다른 연산자와 함께 사용
+    margin : 10px + 20px / 2;
+}
+.d4{
+    //04 calc함수 사용 
+    margin : calc(100% - 200px);
+}

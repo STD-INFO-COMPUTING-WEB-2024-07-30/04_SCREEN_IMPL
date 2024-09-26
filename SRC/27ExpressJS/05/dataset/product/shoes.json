@@ -1,0 +1,18 @@
+[
+  {
+    "category": "shoes",
+    "categoryId": 3000,
+    "categoryName": "신발",
+    "detailId": 1,
+    "fileName": "01.webp",
+    "dir": "upload/product/shoes"
+  },
+  {
+    "category": "shoes",
+    "categoryId": 3000,
+    "categoryName": "신발",
+    "detailId": 2,
+    "fileName": "02.webp",
+    "dir": "upload/product/shoes"
+  }
+]

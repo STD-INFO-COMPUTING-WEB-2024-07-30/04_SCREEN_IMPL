@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- babel 추가 -->
+    <script src="https://unpkg.com/@babel/standalone@7.16.4/babel.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+    <script type="text/babel">
+ 
+        class App extends React.Component{
+            state = {list : []};
+            render()
+            {
+                return (
+                    <div id="list" style={{height:100,overflow:"scroll"}}>                        
+                        { this.state.list.map(i=>{
+                                return <div>{i}</div>;
+                            })
+                        }
+                    </div>    
+                );
+            }
+            componentDidMount(){
+                console.log("ComponentDidMount");
+                setInterval(()=>{
+                    this.setState((state)=>({
+                        list:[...state.list,i++],
+                    }));
+                },1000);
+            }            
+            getSnapshotBeforeUpdate(prevProps,prevState){
+                if(prevProps.list.length===this.state.list.length)
+                    return null;
+                const list = document.quertySelector('#list')
+                return list.scrollHeight - list.scrollTop;
+            }
+            componentDidUpdate(prevProps,prevState,snapshot){
+                console.log(snapshot);
+                if(snapshot===null)return ;
+                const list = document.querySelector("#list");
+                list.scrollTop = list.scrollHeight - snapshot;
+            }
+        }
+
+        ReactDOM.render(<App name="Mark" />,document.querySelector("#root"));
+
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+//반복 @each 
+
+$number : 1; //숫자 .5 , 100px , 1rem , 1em
+$string : bold; //문자열 reltive , "../images/a.png"
+$color : red;   //색상 blue , #FFFF00 , rgba(0,0,0,.1)
+$boolean : true;    //boolean false
+$null : null;   //null
+$list : orange,royalblue,yellow; //list
+$map : (    //map
+    o : orange,
+    r : royalblue,
+    y : yellow
+);
+
+// 리스트 반복
+@each $c in $list {
+    .box{
+        color :$c;
+    }
+}
+// 맵 바복 
+@each $key,$value in $map{
+    .box-#{$key}{
+        color : $value;
+    }
+}
+
+
+

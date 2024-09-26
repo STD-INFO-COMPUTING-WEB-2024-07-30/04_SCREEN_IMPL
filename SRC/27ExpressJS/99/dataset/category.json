@@ -1,0 +1,6 @@
+[
+    {"category":"OUTER","categoryId":1000,"categoryName":"아우터"},
+    {"category":"SHIRT","categoryId":2000,"categoryName":"셔츠"},
+    {"category":"SHOES","categoryId":3000,"categoryName":"신발"},
+    {"category":"BAG","categoryId":4000,"categoryName":"가방"}
+]

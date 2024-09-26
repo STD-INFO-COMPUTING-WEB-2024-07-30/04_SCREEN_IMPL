@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIENT</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>CLIENT CHAT</h1>
+        <div class="user-container">
+            대화명 : <input type="text" id="nickname">
+        </div>
+        <div class="display-container">
+            <ul class="chatting-list"></ul>
+        </div>
+        <div class="input-container">
+            <input type="text" class="chatting-input">
+            <button class="send-button">전송</button>
+        </div>
+        
+    </div>
+    
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js" integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/chat.js"></script>
+
+</body>
+</html>

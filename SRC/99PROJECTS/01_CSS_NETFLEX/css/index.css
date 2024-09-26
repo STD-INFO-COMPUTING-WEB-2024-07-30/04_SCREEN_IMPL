@@ -1,0 +1,256 @@
+.btn{
+    border-radius : 3px;
+    outline : none;
+}
+
+/* center맞추기 class */
+.width_center{
+    width : 1280px; 
+    margin : 0 auto;
+}
+
+/* bg setup */
+.bg{
+    width : 100vw;
+    height : 700px;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/1dbf9b3a-ee29-4c14-9a32-00fb532144d1/KR-ko-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    position:absolute;
+    left:0px;
+    top:0px;
+    opacity: 1;    
+}
+.bg>.bg-style{
+    width : 100vw;
+    height : 700px;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    position:absolute;
+    left:0px; top:0px;
+}
+
+.wrapper>header{
+    z-index:1;
+}
+.wrapper>header>nav{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.wrapper>header>nav>.nav--left{}
+.wrapper>header>nav>.nav--left>img{
+    width : 250px;
+    height : 100px;
+}
+
+.wrapper>header>nav>.nav--right{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper>header>nav>.nav--right select{
+    width : 150px;
+    margin-right : 20px;
+    background-color: transparent;
+    color : white;
+    font-weight : 800;
+}
+.wrapper>header>nav>.nav--right select::-ms-expand{
+   
+}
+
+.wrapper>header>nav>.nav--right select::after{
+ 
+}
+.wrapper>header>nav>.nav--right .header-btn-block{
+    
+}
+.wrapper>header>nav>.nav--right .header-btn-block>button{
+    width : 100px;
+    background-color: rgb(193, 17, 25) !important;
+}
+
+/* main  */
+.wrapper>main{}
+.wrapper>main>section{
+   
+}
+
+/* section.main--section */
+.wrapper>main>section.main--section{
+    height : 700px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    position:relative;
+    left:0px;
+    top:0px;
+
+}   
+
+.wrapper>main>section.main--section>.sentence{
+    height : 250px;
+    color : white;
+    top:0px;
+    text-align:center;
+    font-weight : 700;
+}
+
+.wrapper>main>section.main--section>.sentence>div{
+    margin-bottom : 20px;
+}
+
+.wrapper>main>section.main--section>.sentence>div:nth-child(1){
+    font-size : 3rem;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(2){
+    font-size : 1.5rem;
+    font-weight : 400;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(3){
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size : 1.2rem;
+    font-weight : 400;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(3)>*{
+    margin : 10px;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(4){
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(4)>*{
+    margin : 10px;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(4)>input[type='text']{
+    width : 600px;
+    height :60px;
+    background-color: transparent;
+    color : lightgray;
+    font-size : 1.2rem;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(4)>input[type='text']::placeholder{
+    color : lightgray;
+    font-size : 1.2rem;
+}
+.wrapper>main>section.main--section>.sentence>div:nth-child(4)>button{
+    width : 200px;
+    height : 60px;
+    font-size : 1.5rem;
+    background-color: rgb(193, 17, 25) !important;
+}
+
+
+/* section.main--section_01 */
+
+.wrapper>main>section.sub--section01{
+    top:-100px;
+   
+}
+.wrapper>main>section.sub--section01>div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color : white;
+    border-top : 5px solid rgb(55, 54, 54);
+    border-bottom : 5px solid rgb(54, 54, 54);
+    height : 600px;
+    padding-bottom : 100px;
+
+}
+.wrapper>main>section.sub--section01 .sub-left{
+    width : 600px;
+    margin-right : 50px;
+}
+
+.wrapper>main>section.sub--section01 .sub-left>div:nth-child(1){
+    font-size : 3rem;
+}
+.wrapper>main>section.sub--section01 .sub-left>div:nth-child(2){
+    font-size : 1.1rem;
+}
+
+.wrapper>main>section.sub--section01 .sub-right{
+
+}
+.wrapper>main>section.sub--section01 .sub-right>img{
+    z-index : 1;
+   
+}
+.wrapper>main>section.sub--section01 .sub-right>.video-block{
+  position:absolute;
+  left:85px;top:100px;
+  /* border : 1px solid white; */
+  width : 465px;
+  height : 260px;
+}
+
+.wrapper>main>section.sub--section01 .sub-right>.video-block video{
+    width : 100%;
+    height : 100%;
+}
+
+
+
+
+/* section.main--section_02 */
+
+.wrapper>main>section.sub--section02{
+    top:-100px;
+   
+}
+.wrapper>main>section.sub--section02>div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color : white;
+    border-top : 5px solid rgb(55, 54, 54);
+    border-bottom : 5px solid rgb(54, 54, 54);
+    height : 600px;
+   
+
+
+    
+}
+
+.wrapper>main>section.sub--section02 .sub-left{
+    margin-right : 50px;
+
+}
+.wrapper>main>section.sub--section02 .sub-left>img{
+    z-index : 1;
+   
+}
+.wrapper>main>section.sub--section02 .sub-left>.video-block{
+  position:absolute;
+  left:140px;top:15px;
+  /* border : 1px solid white; */
+  width : 365px;
+  height : 260px;
+}
+
+.wrapper>main>section.sub--section02 .sub-left>.video-block video{
+    width : 100%;
+    height : 100%;
+}
+
+
+
+.wrapper>main>section.sub--section02 .sub-right{
+    width : 600px;
+   
+}
+
+.wrapper>main>section.sub--section02 .sub-right>div:nth-child(1){
+    font-size : 3rem;
+}
+.wrapper>main>section.sub--section02 .sub-right>div:nth-child(2){
+    font-size : 1.1rem;
+}
+
+
+

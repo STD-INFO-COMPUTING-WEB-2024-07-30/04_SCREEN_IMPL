@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- REACT CDN-->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    
+    <!-- REACTDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <button id="btn_plus">btn</button>
+    <script>
+        //
+         console.log(React);
+         console.log(ReactDOM);
+        //
+        const Component = props=>{
+            return React.createElement('p',null,`${props.message} : ${props.count} `);
+        }
+        // 
+        ReactDOM.render(
+            React.createElement(Component,{message:'init',count:0},null),
+            document.querySelector("#root")
+        )
+        //
+        let cnt = 0;
+        document.querySelector("#btn_plus").addEventListener('click',()=>{
+            ReactDOM.render(
+                React.createElement(Component,{message:"update",count:++cnt},null),
+                document.querySelector("#root")
+            )
+        })
+    </script>
+    
+</body>
+</html>

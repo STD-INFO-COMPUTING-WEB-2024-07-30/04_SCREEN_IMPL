@@ -1,0 +1,18 @@
+// 자료형
+
+$number : 1; //숫자 .5 , 100px , 1rem , 1em
+$string : bold; //문자열 reltive , "../images/a.png"
+$color : red;   //색상 blue , #FFFF00 , rgba(0,0,0,.1)
+$boolean : true;    //boolean false
+$null : null;   //null
+$list : orange,royalblue,yellow; //list
+$map : (    //map
+    o : orange,
+    r : royalblue,
+    y : yellow
+);
+.box {
+    width : 100px;
+    color : nth($list,2);
+    position : relative;
+}

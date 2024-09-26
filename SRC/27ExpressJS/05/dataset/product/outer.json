@@ -1,0 +1,18 @@
+[
+  {
+    "category": "outer",
+    "categoryId": 1000,
+    "categoryName": "아우터",
+    "detailId": 1,
+    "fileName": "01.webp",
+    "dir": "upload/product/outer"
+  },
+  {
+    "category": "outer",
+    "categoryId": 1000,
+    "categoryName": "아우터",
+    "detailId": 2,
+    "fileName": "02.webp",
+    "dir": "upload/product/outer"
+  }
+]

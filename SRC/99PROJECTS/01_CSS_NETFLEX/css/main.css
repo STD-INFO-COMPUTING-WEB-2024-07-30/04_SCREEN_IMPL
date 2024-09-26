@@ -1,0 +1,490 @@
+
+body{
+  height : 100vh;
+  background-color: black;
+}
+.center-fit{
+    /* width : 1280px; 
+    margin : 0 auto; */
+    /* or padding을 줘서 가운데 맞춤도 가능.. */
+    padding-left:35px;
+    padding-right:35px;
+}
+
+
+.wrapper{}
+.wrapper>header{}
+.wrapper>header>.top-header{}
+
+.wrapper>header>nav{
+    position:fixed;
+    width : 100%;
+    left:0px;
+    top:0px;
+    height : 50px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index:10;
+    /* background-color: black; */
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0,0,0,.3) 80%);
+  
+   
+}
+.wrapper>header>nav>.left{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+.wrapper>header>nav>.left>.logo{
+    width : 150px;
+}
+.wrapper>header>nav>.left>.logo>img{
+    width : 150px;
+    height : 50px;
+}
+.wrapper>header>nav>.left>.menu{}
+.wrapper>header>nav>.left>.menu>ul{
+    list-style: none;
+    margin : 0px; padding : 0px;
+    display:flex;
+    justify-content: left;
+    width :50rem;
+    margin-left:50px;
+}
+.wrapper>header>nav>.left>.menu>ul>li{
+    margin-right:50px;
+    font-weight:100;
+    
+}
+
+.wrapper>header>nav>.left>.menu>ul>li>a{
+    color : rgb(219, 217, 217); 
+    text-decoration: none;
+    font-size:0.9rem;
+}
+
+.wrapper>header>nav>.my{
+    display:flex;
+    align-items: center;
+}
+.wrapper>header>nav>.my>*{
+    margin-right:25px;
+}
+
+.wrapper>header>nav>.my>.search{
+    display:flex;
+    align-items: center;
+    position:relative;
+    margin-right:10px;
+    /* border : 1px solid red; */
+}
+.wrapper>header>nav>.my>.search>input[type="checkbox"]{
+   display:none;
+}
+.wrapper>header>nav>.my>.search>input[type="text"]{
+
+    transition: .4s;
+    width : 0px;
+    visibility: hidden;
+    background-color:black;
+    opacity: 0.5;
+    outline:none;
+    border : 1px solid white;
+    color : white;
+}
+.wrapper>header>nav>.my>.search>input[type="text"]::placeholder{
+    color : white;
+    font-size : 0.8rem;
+    padding-left : 20px;
+}
+.wrapper>header>nav>.my>.search>label{
+    width : 35px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position:absolute;
+    left:0px;
+    top:0px; */
+   
+}
+.wrapper>header>nav>.my>.search .material-symbols-outlined{
+    color : white;
+    
+
+}
+.wrapper>header>nav>.my>.search>input[type="checkbox"]:checked~input[type="text"]{
+    width : 200px;
+    visibility: visible;
+}
+.wrapper>header>nav>.my>.search>input[type="checkbox"]:active+label>span{
+    font-size:2rem;
+}
+
+
+
+
+
+.wrapper>header>nav>.my>.notification{
+  position:relative;
+
+
+  
+}
+
+.wrapper>header>nav>.my>.notification>a{
+ 
+}
+.wrapper>header>nav>.my>.notification>a>span{
+
+}
+
+.wrapper>header>nav>.my>.notification::after{
+  content : "!";
+  display:block;
+  width : 12px;
+  height : 12px;
+  border-radius: 50%;
+  background-color : red;
+  font-size : 0.6rem;
+  position:absolute;
+  left:50%;
+  top:0px;
+  color : white;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.wrapper>header>nav>.my>.my-menu{
+ 
+}
+.wrapper>header>nav>.my>.my-menu  img{
+  border-radius: 5px;
+}
+
+
+.wrapper>main{
+  overflow:hidden;
+}
+.wrapper>main>section{
+  
+}
+
+
+
+
+
+/* main section01 */
+.wrapper>main>section.main-video-block{
+    position:relative;
+    left:0px;
+    top:-50px;
+   
+}
+
+.wrapper>main>section.main-video-block>.image-block{
+    
+    background-color: orange;
+}
+.wrapper>main>section.main-video-block>.image-block img{
+    width : 100%;
+}
+
+/* bg setup */
+.bg-style{
+    width : 100vw;
+    height : 100%;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    position:absolute;
+    left:0px; top:0px;
+}
+
+
+
+
+.wrapper>main>section.main-video-block>.logo-and-text{
+  width : 37.5rem;
+  height : 31.25rem;
+ 
+  position:absolute;
+  left:5%;
+  top:150px;
+  z-index:5;
+  color : white;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>*{
+  margin-bottom : 20px;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>.title{}
+.wrapper>main>section.main-video-block>.logo-and-text>.title>img{
+  width : 100%;
+}
+
+.wrapper>main>section.main-video-block>.logo-and-text>.contents{
+  font-size : 1.2rem;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>.footer{
+  display:flex;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>.footer  a{
+  color : white;
+  display:block;
+  text-decoration: none;
+  width : 150px;
+  height : 50px;
+  line-height:50px;
+  border-radius: 5px;
+  text-align:center;
+  font-size : 1.2rem;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>.footer a.play{
+  background-color: white;
+  color:black;
+  margin-right:15px;
+}
+.wrapper>main>section.main-video-block>.logo-and-text>.footer a.details{
+  background-color: gray;
+  width : 200px;
+  opacity: 0.8;
+  
+}
+
+/* main subsetion01 */
+
+.wrapper>main>section.sub-items-01{
+ 
+    position:relative;
+    top:-250px;
+    z-index:2;
+    margin-bottom:100px;
+
+}
+
+.wrapper>main>section.sub-items-01>.slider{
+
+    display: flex;
+    
+    
+    
+     height : 100px;
+   
+   
+   
+    margin : 0 auto;
+ 
+
+
+}
+
+.wrapper>main>section.sub-items-01>.slider>.slide{
+      flex: 0 0 200px; 
+      
+      transition: transform .3s ease-in-out;
+      transform : scale(1);
+
+      /* border : 1px solid gray; */
+
+      display:flex;
+      justify-content: center;
+      align-items: center;;
+      margin : 5px;
+     
+  
+}
+
+
+/* slide hover시 크기 증가 */
+.wrapper>main>section.sub-items-01>.slider>.slide:hover{
+    transform: scale(1.5) ;
+   
+    /* background-color: white; */
+    z-index:10;
+}
+
+
+  /* slide 구성하기 */
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item{
+    width : 200px;
+    height : 100px;
+    border-radius: 3px;
+    border : 1px solid lightgray;
+    transition: 0.3s ease-out;
+    position:relative;
+    
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide:hover .item{
+    height:200px;
+    z-index:5;
+    background-color:rgb(26, 25, 25);      
+  }
+
+
+
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-header{
+    position:relative;
+    height : 100px;
+  }
+
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-header>.bg-style{
+    width:100% 
+  }
+
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-header>.image-block{
+   
+   
+      
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-header>.image-block>img{
+    width : 100%;
+    height : 100px;
+
+    
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-header>.video-block{
+    position:absolute;
+    left:0;
+    top:0;
+
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide .video-block{
+    display:none;
+    z-index:-1;  
+
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide:hover .video-block{
+    display:block;
+    height:100px;
+    width:100%;
+    z-index:5;  
+
+  }
+
+
+  .wrapper>main>section.sub-items-01>.slider>.slide>.item>.item-body{
+    display:none;
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide:hover .item-body{
+    display:block;
+    
+  }
+  .wrapper>main>section.sub-items-01>.slider>.slide:hover .item-body>.header
+    {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color:rgb(26, 25, 25);    
+        margin-top:10px;
+        padding : 0 5px;
+    }
+
+
+
+
+    .wrapper>main>section.sub-items-01>.slider>.slide .item-body>.body{
+        padding : 0 5px;
+    }
+    .wrapper>main>section.sub-items-01>.slider>.slide .item-body>.body>label{
+        font-size:0.6rem;
+        color:white;
+    }
+    .wrapper>main>section.sub-items-01>.slider>.slide .item-body>.body>progress{
+        width : 100%;
+        height : 2px;       
+        background-color: red;
+    }
+    .wrapper>main>section.sub-items-01>.slider>.slide .item-body>.body>progress::-webkit-progress-bar{
+      background-color: white;;
+    }
+    .wrapper>main>section.sub-items-01>.slider>.slide .item-body>.body>progress::-webkit-progress-value{
+   
+      background-color: red;
+    }
+
+
+
+
+  .wrapper>main>section.sub-items-01>.slider{
+    position:relative;
+    display:flex;
+    justify-content : center;
+    align-items: center;
+
+  }
+
+
+  
+  .wrapper>main>section.sub-items-01>input[type='checkbox']{
+    display:none;
+  }
+  .wrapper>main>section.sub-items-01>label{
+    width : 50px;
+    height : 100px;
+    z-index:3;
+    background-color:black;
+    opacity: 0.9;
+    cursor: pointer;
+    border : 1px solid white;
+  }
+  .wrapper>main>section.sub-items-01>.prev,
+  .wrapper>main>section.sub-items-01>.next{
+    position:absolute;
+    top:0;
+    z-index:7;
+    
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper>main>section.sub-items-01>.prev{
+    left:0;
+    
+  }
+
+  .wrapper>main>section.sub-items-01>.next{
+    right:0;
+   
+  }
+  .wrapper>main>section.sub-items-01>.slider
+  {
+    transition: 1s;
+  }
+
+  .wrapper>main>section.sub-items-01>input#sub-items-01-prev:checked~.slider{
+    transform: translate(100%) !important;
+    animation-play-state: paused;
+  }
+  .wrapper>main>section.sub-items-01>input#sub-items-01-next:checked~.slider{
+      transform: translate(-100%) !important;
+      animation-play-state: paused;
+  }
+
+
+  @keyframes sliderMoving{
+
+    0%,100% {transform:translateX(0); animation-delay: 1s;}
+
+    10% {transform:translateX(-200px);}
+    20% {transform:translateX(-400px);}
+    30% {transform:translateX(-600px);}
+    40% {transform:translateX(-800px);}
+    50% {transform:translateX(-1000px);}
+    60% {transform:translateX(-800px);}
+    70% {transform:translateX(-600px);}
+    80% {transform:translateX(-400px);}
+    90% {transform:translateX(-200px);}
+    
+  }
+
+
+  .wrapper>main>section.sub-items-01>.slider{
+    animation: sliderMoving 45s ease-in-out infinite;
+    animation-delay:2s;
+  }
+  .wrapper>main>section.sub-items-01>.slider:hover{
+      animation-play-state: paused;
+  }

@@ -1,0 +1,18 @@
+[
+  {
+    "category": "shirt",
+    "categoryId": 2000,
+    "categoryName": "셔츠",
+    "detailId": 1,
+    "fileName": "01.webp",
+    "dir": "upload/product/shirt"
+  },
+  {
+    "category": "shirt",
+    "categoryId": 2000,
+    "categoryName": "셔츠",
+    "detailId": 2,
+    "fileName": "02.webp",
+    "dir": "upload/product/shirt"
+  }
+]

@@ -1,0 +1,26 @@
+
+$size :200px;   //전역변수
+
+.container{
+    margin : 50px;
+    $localsize : 100px; //.container1 의 지역변수
+    
+    .item{
+        width : $size;
+        height : $localsize;
+        transform : translateX($size);   
+        background-color: royalblue;
+    }
+}
+
+.container2{
+    margin : 50px;
+
+    $localsize : 50px;  //.container2 의 지역변수
+    .item{
+        width : $size;
+        height : $localsize;
+        transform : translateX($size);   
+        background-color: orange;
+    }
+}

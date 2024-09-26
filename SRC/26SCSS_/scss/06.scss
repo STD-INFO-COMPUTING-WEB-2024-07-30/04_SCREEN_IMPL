@@ -1,0 +1,14 @@
+//01 기본
+
+// @for $i from 1 through 10 {
+//     .box {
+//         width : 100px;
+//     }
+// }
+
+//02 보간법
+@for $i from 1 through 10 {
+    .box:nth-child(#{$i}) {
+        width : 100px * $i;
+    }
+}

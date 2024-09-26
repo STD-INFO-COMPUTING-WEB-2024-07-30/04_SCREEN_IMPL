@@ -1,0 +1,172 @@
+body::-webkit-scrollbar{
+    display:none;
+}
+
+.btn{
+    border-radius : 3px;
+    outline : none;
+}
+
+/* center맞추기 class */
+.width_center{
+    width : 1280px; 
+    margin : 0 auto;
+}
+
+/* bg setup */
+.bg{
+    width : 100vw;
+    height : 100vh;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/1dbf9b3a-ee29-4c14-9a32-00fb532144d1/KR-ko-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    position:absolute;
+    left:0px;
+    top:0px;
+    opacity: 1;    
+}
+.bg>.bg-style{
+    width : 100vw;
+    height : 100vh;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    position:absolute;
+    left:0px; top:0px;
+}
+
+.wrapper>header{
+    z-index:1;
+    left:0px;
+    top:0px;
+}
+.wrapper>header>nav{
+  
+}
+
+.wrapper>header>nav>.nav--left{}
+.wrapper>header>nav>.nav--left img{
+    width : 250px;
+    height : 100px;
+
+}
+
+
+
+/* main  */
+
+
+.wrapper>main{}
+.wrapper>main>section{
+
+
+}
+
+
+.wrapper>main>section.login{
+    width : 500px;
+    height : 700px;
+    margin : 0 auto;
+   
+    
+    color : gray;
+    border-radius: 5px;
+    padding :80px;
+    
+    position:relative;
+    z-index:5;
+
+}
+.wrapper>main>section.login>*{
+ 
+    margin-bottom : 15px;
+
+}
+
+
+.wrapper>main>section.login>.login-top{
+    margin-bottom : 35px;
+    color : white;
+    position:relative;
+    z-index:5;
+
+}
+
+.wrapper>main>section.login>.login-body{
+    position:relative;
+    z-index:5;
+}
+
+
+.wrapper>main>section.login>.login-body>form>*{
+    margin-bottom : 35px;
+
+}
+
+.wrapper>main>section.login>.login-body>form  input{
+    height : 55px ;
+    background-color: rgb(46, 46, 46);
+    color : white;
+}
+
+.wrapper>main>section.login>.login-body>form  input:focus{
+    background-color: rgb(66, 66, 66);
+    border-bottom: 4px solid orange;
+    outline : none;
+}
+
+
+.wrapper>main>section.login>.login-body>form input::placeholder{
+    transition:.2s;
+   
+}
+.wrapper>main>section.login>.login-body>form  input:focus::placeholder{
+    color:white;
+    position:absolute;
+    left:20px;
+    top:7px;
+    font-size:0.8rem;
+    
+}
+
+
+.wrapper>main>section.login>.login-body>form  a.login_btn{
+    height : 55px !important;
+    background-color: red;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.wrapper>main>section.login>.login-body .login-sentence01
+{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom : 25px;
+}
+
+
+
+.login-bg{
+    width : 500px;
+    height : 700px;
+    background-color: red;
+
+    position:absolute;
+    left:0;
+    top:0;
+    border-radius: 5px;
+    background-color: black;
+    /* login body 에 z-index가 더 높게 */
+    z-index:1;      
+    opacity: 0.8;
+
+}
+
+
+
+
+/* footer */
+.wrapper>footer{
+    height : 500px;
+    background-color: black;;
+    top:0;
+    opacity: 0.8;
+}

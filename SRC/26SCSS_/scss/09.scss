@@ -1,0 +1,13 @@
+//가져오기
+@import url("./09.scss");
+@import "./08.scss";
+@import "./07.scss","./06.scss";
+
+
+$color : royalblue;
+
+.container{
+    h1{
+        color : $color;
+    }
+}

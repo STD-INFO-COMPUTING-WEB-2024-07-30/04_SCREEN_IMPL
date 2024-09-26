@@ -1,0 +1,31 @@
+https://velog.io/@jiwon/ESlint
+https://defineall.tistory.com/664
+
+ESLint는 ES 와 Lint를 합친 것입니다.
+
+ES는 Ecma Script로서, Ecma라는 기구에서 만든 Script, 즉, 표준 Javascript를 의미합니다.
+Lint는 에러가 있는 코드에 표시를 달아놓는 것을 의미합니다.
+
+따라서, ESLint는 자바스크립트 문법에서 에러를 표시해주는 도구입니다!
+우리는 에러로서, 정말 문제가 되는 부분만을 지정할 수도 있고, 아니면 전반적인 코딩스타일(ex. tab 설정, ; 여부 등)까지 지정할 수도 있습니다.
+
+많은 사람들과 협업할때 특히 유용합니다. 에러와 코딩 스타일을 잡아주기 때문에 한 사람이 코딩한 것처럼 됩니다! 😀
+
+-------------------
+2. ESLint 명령어
+ESLint를 어떻게 사용하는지 알아보겠습니다!
+
+우선, ESLint를 설치합니다.
+
+npm install -D eslint
+ESLint를 초기화합니다.
+
+.\node_modules\.bin\eslint --init
+그럼, 이제 ESLint를 사용할 준비가 되었습니다.
+
+모든 파일의 에러를 보고 싶다면,
+.\node_modules\.bin\eslint [파일명|디렉토리]
+모든 파일 fix하고 싶다면,
+.\node_modules\.bin\eslint ** --fix
+확장자 .js 파일만 fix하고 싶다면,
+.\node_modules\.bin\eslint **/*.js --fix

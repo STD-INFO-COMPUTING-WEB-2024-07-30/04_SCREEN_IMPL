@@ -1,0 +1,28 @@
+.box{
+    $color : royalblue;
+    width : 200px;
+    height : 100px;
+    margin : 20px;
+    border-radius : 10px;
+    background-color: $color;
+
+    &:hover {
+        //03
+        background-color: darken($color,red);
+    }
+    &.built-in {
+        //01
+        background-color: mix($color,red);
+        //02
+        //background-color: lighten($color,red);
+        //04
+        //background-color: saturate($color,red);
+        //05
+        //background-color: invert($color,red);
+        //06
+        //background-color: rgba($color,.5);
+    }
+}
+
+
+//색상내장함수

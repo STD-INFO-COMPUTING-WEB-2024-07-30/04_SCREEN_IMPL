@@ -1,0 +1,5 @@
+[
+    {"userId":"user1","password":"1234","role":"ROLE_USER","username":"유저1"},
+    {"userId":"user2","password":"1234","role":"ROLE_USER","username":"유저2"},
+    {"userId":"admin","password":"1234","role":"ROLE_ADMIN","username":"관리자"}
+]

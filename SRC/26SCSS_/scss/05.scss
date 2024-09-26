@@ -1,0 +1,107 @@
+// .container{
+//     width : 200px;
+//     height : 200px;
+//     background-color : orange;
+// }
+// .container .item {
+//     width : 100px;
+//     height : 100px;
+//     background-color: royalblue;
+// }
+
+
+//01 
+
+// @mixin center{
+//     display:flex;
+//     justify-content: center;
+//     align-items : center;
+// }
+
+// .container{
+//     @include center;
+//     .item{
+//         @include center;
+//     }
+// }
+
+// .box {
+//     @include center;
+// }
+
+
+//02 
+
+@mixin box {
+    width : 100px;
+    height : 100px;
+    background-color: tomato;
+}
+.container{
+    @include box;
+    .item {
+        @include box;
+    }
+}
+.box {
+    @include box;
+}
+
+
+//03 
+
+// @mixin box($size) {
+//     width : $size;
+//     height : $size;
+//     background-color: tomato;
+// }
+// .container{
+//     @include box(200px);
+//     .item {
+//         @include box(100px);
+//     }
+// }
+// .box {
+//     @include box(100px);
+// }
+
+
+//04 파라미터 기본값
+
+// @mixin box($size:100px) {
+//     width : $size;
+//     height : $size;
+//     background-color: tomato;
+// }
+// .container{
+//     @include box(200px);
+//     .item {
+//         @include box;
+//     }
+// }
+// .box {
+//     @include box;
+// }
+
+
+//05 키워드 인수
+
+// @mixin box($size:100px, $color : tomato) {
+//     width : $size;
+//     height : $size;
+//     background-color: tomato;
+// }
+// .container{
+//     @include box(200px,red);
+//     .item {
+//         //@include box(80px ,green);
+//         @include box($color : green);
+//     }
+// }
+// .box {
+//     @include box;
+// }
+
+
+
+

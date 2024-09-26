@@ -20,7 +20,7 @@ REACT JS TODO
 ---
 |코드확인|
 |-|
-|[바로가기](https://github.com/ALL-MY-PROJECTS-2024/TODO_ReactJS.git)|
+|[바로가기](SRC/27REACT/03PROJECT/02_REACT/TODO/02_ADD_CSS_)|
 > -
 ```
 ```

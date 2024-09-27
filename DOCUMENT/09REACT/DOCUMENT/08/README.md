@@ -155,20 +155,20 @@ export default App;
 ---
 |파이트리|코드|
 |-|-|
-|![20240731223752](https://github.com/user-attachments/assets/ac77f6b1-9bf9-4a64-82ee-c5439a73baf6)|![20240731223803](https://github.com/user-attachments/assets/915ea002-bf87-4c7f-8895-b25a6851c69e)|
-|![20240731223933](https://github.com/user-attachments/assets/1e10a017-6c74-47a8-8487-06cae8b1f2e4)|![20240731224003](https://github.com/user-attachments/assets/642bb778-e89a-47f2-b075-a63828fd343d)|
+|<img src="./IMG/1.png" />|<img src="./IMG/2.png" />|
+|<img src="./IMG/3.png" />|<img src="./IMG/4.png" />|
 
 |결과|
 |-|
-|![20240731224301](https://github.com/user-attachments/assets/caa36b0e-e02d-44f9-91b6-deb392733b88)|
+|<img src="./IMG/5.png" />|
 
 실습－２이벤트 처리
 ---
 
 |-|
 |-|
-|![20240731224824](https://github.com/user-attachments/assets/878098f3-351f-4795-8057-ea8805ed6ed7)|
-|![20240731224926](https://github.com/user-attachments/assets/56ef7931-ab48-4845-bb3d-ded7a91217cc)|
+|<img src="./IMG/6.png" />|
+|<img src="./IMG/7.png" />|
 
 
 

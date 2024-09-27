@@ -11,14 +11,15 @@
 ```
 npx create-react-app 01
 ```
-![20240730205630](https://github.com/user-attachments/assets/2b5641a2-5257-41bd-afa9-7c9035514f4c)
+|-|
+|-|
+|<img src="./IMG/1.png" /> |
 
 > 생성되는 파일/폴더 확인<br>
 
 |-|
 |-|
-|![20240730205856](https://github.com/user-attachments/assets/a67d931e-c3ab-4245-8cfe-89ff802efe49)|
-
+|<img src="./IMG/2.png" /> |
 ```
 01
 │  .gitignore
@@ -64,8 +65,8 @@ README.md: 프로젝트에 대한 설명과 사용 방법 등을 기술하는 �
 
 |-|
 |-|
-|![20240730205856](https://github.com/user-attachments/assets/0287cd8d-da89-4eaf-a972-b6fa3f176f51)|
-|![20240730214044](https://github.com/user-attachments/assets/89628c52-5555-4b2f-8aa4-13852acd95d8)|
+|<img src="./IMG/3.png" /> |
+|<img src="./IMG/4.png" /> |
 ```
 1 npm start: 개발 서버를 시작하는 명령어입니다. 이 명령어를 실행하면 package.json 파일에 정의된 start 스크립트가 실행됩니다.
 2 React Scripts: create-react-app 설정에서 제공하는 스크립트로, npm start 명령어를 통해 개발 서버를 설정하고 애플리케이션을 빌드합니다.
